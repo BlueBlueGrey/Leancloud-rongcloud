@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Ability" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udw-ds-EUK">
+                        <rect key="frame" x="6" y="0.0" width="308" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9G8-Hf-gBX">
+                        <rect key="frame" x="6" y="27" width="308" height="62.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9G8-Hf-gBX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="Dnb-S8-1fF"/>
+                    <constraint firstItem="udw-ds-EUK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="Ejw-q1-Jxn"/>
+                    <constraint firstItem="udw-ds-EUK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HeU-RZ-VYb"/>
+                    <constraint firstAttribute="trailing" secondItem="9G8-Hf-gBX" secondAttribute="trailing" constant="6" id="I2m-Sr-2hl"/>
+                    <constraint firstItem="9G8-Hf-gBX" firstAttribute="top" secondItem="udw-ds-EUK" secondAttribute="bottom" constant="6" id="h1t-0H-uVw"/>
+                    <constraint firstAttribute="trailing" secondItem="udw-ds-EUK" secondAttribute="trailing" constant="6" id="ko4-of-prU"/>
+                    <constraint firstAttribute="bottom" secondItem="9G8-Hf-gBX" secondAttribute="bottom" constant="2" id="nxr-Bd-ROW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentImageView" destination="9G8-Hf-gBX" id="cj6-BS-eqD"/>
+                <outlet property="titleLabel" destination="udw-ds-EUK" id="wAG-4A-BCu"/>
+            </connections>
+            <point key="canvasLocation" x="-180" y="-68"/>
+        </tableViewCell>
+    </objects>
+</document>

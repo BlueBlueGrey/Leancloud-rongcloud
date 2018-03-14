@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import LeanCloud
+import AVOSCloud
 class LOGINViewController: UIViewController,UITextFieldDelegate{
 
     
@@ -27,6 +28,7 @@ class LOGINViewController: UIViewController,UITextFieldDelegate{
         password.returnKeyType=UIReturnKeyType.done
         
         photo.image=UIImage(named:"mp")?.roundCornersToCircle()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -45,6 +47,19 @@ class LOGINViewController: UIViewController,UITextFieldDelegate{
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
         print("停止编辑")
+        if(id.text != ""){
+            
+            print("id.text")
+            let  query=AVQuery(className: "Custom_User")
+            query.whereKey("id", matchesRegex: id.text!)
+            let temp=query.findObjects() as! [AVObject]
+            print(temp.count)
+            let U=temp[0]["portrait"] as! AVFile
+            self.photo.image=UIImage(data: U.getData()!)
+          //  let U=temp!["image"] as! AVFile
+          //  photoImageView.image=UIImage(data: U.getData()!)
+           // text.text=temp?["string"] as! String
+        }
         return true
     }
     /*

@@ -25,6 +25,10 @@
 		B136C5ED1FEE80B200658B76 /* AbilityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136C5EC1FEE80B200658B76 /* AbilityUITests.swift */; };
 		B136C5FC1FEE980F00658B76 /* secViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136C5FB1FEE980F00658B76 /* secViewController.swift */; };
 		B140C54520230ABE00293DBC /* TEXTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140C54420230ABE00293DBC /* TEXTViewController.swift */; };
+		B14473972058CBF400D89E08 /* CS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14473962058CBF400D89E08 /* CS.storyboard */; };
+		B144739C2058CD7400D89E08 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144739B2058CD7400D89E08 /* CommunityViewController.swift */; };
+		B144739E2058CE7D00D89E08 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144739D2058CE7D00D89E08 /* MessageViewController.swift */; };
+		B14473A02058CE8500D89E08 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144739F2058CE8500D89E08 /* MineViewController.swift */; };
 		B185D0042021751100DF0292 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D0022021751100DF0292 /* TableViewCell.swift */; };
 		B185D0052021751100DF0292 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185D0032021751100DF0292 /* TableViewCell.xib */; };
 		B185D0072021784800DF0292 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D0062021784800DF0292 /* NewViewController.swift */; };
@@ -132,6 +136,10 @@
 		B136C5FA1FEE834000658B76 /* RongCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RongCloud.h; sourceTree = "<group>"; };
 		B136C5FB1FEE980F00658B76 /* secViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secViewController.swift; sourceTree = "<group>"; };
 		B140C54420230ABE00293DBC /* TEXTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEXTViewController.swift; sourceTree = "<group>"; };
+		B14473962058CBF400D89E08 /* CS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CS.storyboard; sourceTree = "<group>"; };
+		B144739B2058CD7400D89E08 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		B144739D2058CE7D00D89E08 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		B144739F2058CE8500D89E08 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		B185D0022021751100DF0292 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B185D0032021751100DF0292 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		B185D0062021784800DF0292 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +381,7 @@
 		B136C5C81FEE80B200658B76 /* Ability */ = {
 			isa = PBXGroup;
 			children = (
+				B14473952058CB6000D89E08 /* TABLEBAR */,
 				B126004B2055475400511DCC /* RESOURSE */,
 				B12600482055456000511DCC /* REGISTER */,
 				B12600472055453700511DCC /* LOGIN */,
@@ -411,6 +420,41 @@
 				B136C5EE1FEE80B200658B76 /* Info.plist */,
 			);
 			path = AbilityUITests;
+			sourceTree = "<group>";
+		};
+		B14473952058CB6000D89E08 /* TABLEBAR */ = {
+			isa = PBXGroup;
+			children = (
+				B144739A2058CCF000D89E08 /* Mine */,
+				B14473992058CCD500D89E08 /* Message */,
+				B14473982058CCC600D89E08 /* Community */,
+				B14473962058CBF400D89E08 /* CS.storyboard */,
+			);
+			path = TABLEBAR;
+			sourceTree = "<group>";
+		};
+		B14473982058CCC600D89E08 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				B144739B2058CD7400D89E08 /* CommunityViewController.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		B14473992058CCD500D89E08 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				B144739D2058CE7D00D89E08 /* MessageViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		B144739A2058CCF000D89E08 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				B144739F2058CE8500D89E08 /* MineViewController.swift */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		B1CF06922057EE9F00E45BEF /* IGLDropDownMenu */ = {
@@ -748,6 +792,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B136C5D71FEE80B200658B76 /* LaunchScreen.storyboard in Resources */,
+				B14473972058CBF400D89E08 /* CS.storyboard in Resources */,
 				B1CF07272057EEA200E45BEF /* whiteplaceholder.png in Resources */,
 				B1CF07362057EEA300E45BEF /* MJRefresh.bundle in Resources */,
 				B126004A2055458200511DCC /* LoginStoryboard.storyboard in Resources */,
@@ -864,6 +909,7 @@
 				B1CF07112057EEA200E45BEF /* SDWebImageCompat.m in Sources */,
 				B1CF07292057EEA200E45BEF /* MJRefreshBackFooter.m in Sources */,
 				B1FAB8A3201ED9A900DD96B7 /* TieViewController.swift in Sources */,
+				B144739E2058CE7D00D89E08 /* MessageViewController.swift in Sources */,
 				B1CF07302057EEA300E45BEF /* MJRefreshBackGifFooter.m in Sources */,
 				B185D0072021784800DF0292 /* NewViewController.swift in Sources */,
 				B12600552055496100511DCC /* LOGINViewController.swift in Sources */,
@@ -872,6 +918,7 @@
 				B1CF07092057EEA200E45BEF /* JVFloatLabeledTextView.m in Sources */,
 				B1CF071C2057EEA200E45BEF /* UIImageView+WebCache.m in Sources */,
 				B1CF07322057EEA300E45BEF /* MJRefreshBackStateFooter.m in Sources */,
+				B14473A02058CE8500D89E08 /* MineViewController.swift in Sources */,
 				B1CF07212057EEA200E45BEF /* XKeyBoard.m in Sources */,
 				B1CF07242057EEA200E45BEF /* HZIndicatorView.m in Sources */,
 				B1CF07282057EEA200E45BEF /* MJRefreshAutoFooter.m in Sources */,
@@ -910,6 +957,7 @@
 				B1CF072C2057EEA200E45BEF /* MJRefreshHeader.m in Sources */,
 				B1CF07352057EEA300E45BEF /* MJRefreshStateHeader.m in Sources */,
 				B1CF070E2057EEA200E45BEF /* MKAnnotationView+WebCache.m in Sources */,
+				B144739C2058CD7400D89E08 /* CommunityViewController.swift in Sources */,
 				B1CF07182057EEA200E45BEF /* UIImage+GIF.m in Sources */,
 				B140C54520230ABE00293DBC /* TEXTViewController.swift in Sources */,
 				B1CF072B2057EEA200E45BEF /* MJRefreshFooter.m in Sources */,

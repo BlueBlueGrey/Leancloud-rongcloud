@@ -29,14 +29,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        post.set("words", value: "Hello World!")
 //        
 //        post.save()
- 
         //requestToken1(userID: "01")
-        
-        
-        
         //RCIM.shared().initWithAppKey("3argexb630cme")
         
       
+        
+        /*
+        self.window = UIWindow(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT))
+        
+        let tabbatController = UITabBarController()
+        
+        let communityViewController=UINavigationController(rootViewController: CommunityViewController())
+        
+        let messageViewController=UINavigationController(rootViewController: RCConversationListViewController())
+        
+        let mineViewController=UINavigationController(rootViewController: MineViewController())
+        
+        tabbatController.viewControllers=[communityViewController,messageViewController,mineViewController]
+        
+        
+        
+        let tabitem1 = UITabBarItem(title: "广场", image: UIImage(named: "bio"), selectedImage: UIImage(named: "bio_red"))
+        let tabitem2 = UITabBarItem(title: "消息", image: UIImage(named: "chat 3"), selectedImage: UIImage(named: "chat 3_red"))
+        let tabitem3 = UITabBarItem(title: "我的", image: UIImage(named: "pencil"), selectedImage: UIImage(named: "pencil_red"))
+       
+        
+        communityViewController.tabBarItem=tabitem1
+        messageViewController.tabBarItem=tabitem2
+        mineViewController.tabBarItem=tabitem3
+        
+        communityViewController.tabBarController?.tabBar.tintColor=MAIN_RED
+        
+        self.window?.rootViewController = tabbatController
+        self.window?.makeKeyAndVisible()
+ */
+ 
+ 
         
         return true
     }

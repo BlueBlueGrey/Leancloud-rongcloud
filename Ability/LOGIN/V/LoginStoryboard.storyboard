@@ -46,6 +46,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBV-xq-r8c">
                                 <rect key="frame" x="172.5" y="405" width="31" height="30"/>
                                 <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="LOGIN:" destination="vMO-c7-H5H" eventType="touchUpInside" id="eeq-yQ-GAM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crd-uf-e2X">
                                 <rect key="frame" x="172.5" y="455" width="31" height="30"/>

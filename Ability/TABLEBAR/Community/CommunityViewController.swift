@@ -14,11 +14,17 @@ class CommunityViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         // 单前 用户登录
-        // AVUser.logOut()
+         AVUser.logOut()
         
-         print("nil    ===============----------------")
+      
+        
+        
         if AVUser.current() == nil {
             print("nil    ----------------")
+            print("nil    ===============----------------")
+            print("nil    ===============----------------")
+            print("nil    ===============----------------")
+            print("nil    ===============----------------")
             // story
             let story = UIStoryboard(name: "LoginStoryboard", bundle: nil)
             let loginVC = story.instantiateViewController(withIdentifier: "LoginStory")

@@ -7,20 +7,43 @@
 //
 
 import UIKit
-
-class secViewController: RCConversationListViewController {
+import AVOSCloud
+import LeanCloud
+class secViewController: RCConversationListViewController,RCIMUserInfoDataSource {
+    
+    
+    func getUserInfo(withUserId userId: String!, completion: ((RCUserInfo?) -> Void)!) {
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", matchesRegex: userId)
+        let temp=query.findObjects() as! [AVObject]
+        var url=""
+        if(temp.count>0)
+        {
+            let U=temp[0]["portrait"] as! AVFile
+            url=U.url!
+            //  let U=temp!["image"] as! AVFile
+            //  photoImageView.image=UIImage(data: U.getData()!)
+            // text.text=temp?["string"] as! String
+        }
+        print(url)
+     return completion(RCUserInfo(userId: userId, name: userId, portrait: url))
+    }
+    
 
     override func viewDidLoad() {
         
         
         super.viewDidLoad()
 
+        RCIM.shared().userInfoDataSource=self
+        
+        
         // Do any additional setup after loading the view.
         self.setDisplayConversationTypes([RCConversationType.ConversationType_PRIVATE.rawValue, RCConversationType.ConversationType_DISCUSSION.rawValue, RCConversationType.ConversationType_CHATROOM.rawValue, RCConversationType.ConversationType_GROUP.rawValue, RCConversationType.ConversationType_APPSERVICE.rawValue, RCConversationType.ConversationType_SYSTEM.rawValue])
         //设置需要将哪些类型的会话在会话列表中聚合显示
         self.setCollectionConversationType([RCConversationType.ConversationType_DISCUSSION.rawValue, RCConversationType.ConversationType_GROUP.rawValue])
         
-      
+        
         
     }
     

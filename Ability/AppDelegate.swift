@@ -34,14 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       
         
-        /*
+        
         self.window = UIWindow(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT))
         
         let tabbatController = UITabBarController()
         
         let communityViewController=UINavigationController(rootViewController: CommunityViewController())
         
-        let messageViewController=UINavigationController(rootViewController: RCConversationListViewController())
+        let messageViewController=UINavigationController(rootViewController: secViewController())
         
         let mineViewController=UINavigationController(rootViewController: MineViewController())
         
@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = tabbatController
         self.window?.makeKeyAndVisible()
- */
+ 
  
  
         

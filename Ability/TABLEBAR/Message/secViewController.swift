@@ -48,6 +48,10 @@ class secViewController: RCConversationListViewController,RCIMUserInfoDataSource
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden=false
+    }
+    
     
     
     @IBAction func newConversation(sender: UIBarButtonItem) {

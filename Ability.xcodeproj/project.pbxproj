@@ -24,6 +24,9 @@
 		B136C5E21FEE80B200658B76 /* AbilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136C5E11FEE80B200658B76 /* AbilityTests.swift */; };
 		B136C5ED1FEE80B200658B76 /* AbilityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136C5EC1FEE80B200658B76 /* AbilityUITests.swift */; };
 		B136C5FC1FEE980F00658B76 /* secViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136C5FB1FEE980F00658B76 /* secViewController.swift */; };
+		B138D0E5205DEEAB00C23A6E /* GeneralFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138D0E4205DEEAB00C23A6E /* GeneralFactory.swift */; };
+		B138D0E8205DEFCD00C23A6E /* pushNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138D0E7205DEFCD00C23A6E /* pushNewPostViewController.swift */; };
+		B138D0EA205DF3CF00C23A6E /* CSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138D0E9205DF3CF00C23A6E /* CSViewController.swift */; };
 		B140C54520230ABE00293DBC /* TEXTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140C54420230ABE00293DBC /* TEXTViewController.swift */; };
 		B144739C2058CD7400D89E08 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144739B2058CD7400D89E08 /* CommunityViewController.swift */; };
 		B144739E2058CE7D00D89E08 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144739D2058CE7D00D89E08 /* MessageViewController.swift */; };
@@ -141,6 +144,9 @@
 		B136C5EE1FEE80B200658B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B136C5FA1FEE834000658B76 /* RongCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RongCloud.h; sourceTree = "<group>"; };
 		B136C5FB1FEE980F00658B76 /* secViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secViewController.swift; sourceTree = "<group>"; };
+		B138D0E4205DEEAB00C23A6E /* GeneralFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralFactory.swift; sourceTree = "<group>"; };
+		B138D0E7205DEFCD00C23A6E /* pushNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pushNewPostViewController.swift; sourceTree = "<group>"; };
+		B138D0E9205DF3CF00C23A6E /* CSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSViewController.swift; sourceTree = "<group>"; };
 		B140C54420230ABE00293DBC /* TEXTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEXTViewController.swift; sourceTree = "<group>"; };
 		B144739B2058CD7400D89E08 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		B144739D2058CE7D00D89E08 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +406,7 @@
 		B136C5C81FEE80B200658B76 /* Ability */ = {
 			isa = PBXGroup;
 			children = (
+				B138D0E1205DEE7100C23A6E /* Factory */,
 				B14473952058CB6000D89E08 /* TABLEBAR */,
 				B126004B2055475400511DCC /* RESOURSE */,
 				B12600482055456000511DCC /* REGISTER */,
@@ -441,9 +448,27 @@
 			path = AbilityUITests;
 			sourceTree = "<group>";
 		};
+		B138D0E1205DEE7100C23A6E /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				B138D0E4205DEEAB00C23A6E /* GeneralFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		B138D0E6205DEF8D00C23A6E /* pushNewPost */ = {
+			isa = PBXGroup;
+			children = (
+				B138D0E7205DEFCD00C23A6E /* pushNewPostViewController.swift */,
+				B138D0E9205DF3CF00C23A6E /* CSViewController.swift */,
+			);
+			path = pushNewPost;
+			sourceTree = "<group>";
+		};
 		B14473952058CB6000D89E08 /* TABLEBAR */ = {
 			isa = PBXGroup;
 			children = (
+				B138D0E6205DEF8D00C23A6E /* pushNewPost */,
 				B144739A2058CCF000D89E08 /* Mine */,
 				B14473992058CCD500D89E08 /* Message */,
 				B14473982058CCC600D89E08 /* Community */,
@@ -977,6 +1002,8 @@
 				B1CF071B2057EEA200E45BEF /* UIImageView+HighlightedWebCache.m in Sources */,
 				B1CF07232057EEA200E45BEF /* ProgressHUD.m in Sources */,
 				B1850FBE205D0763007CD28B /* SWLongPressGestureRecognizer.m in Sources */,
+				B138D0E5205DEEAB00C23A6E /* GeneralFactory.swift in Sources */,
+				B138D0EA205DF3CF00C23A6E /* CSViewController.swift in Sources */,
 				B136C5CC1FEE80B200658B76 /* ViewController.swift in Sources */,
 				B1CF07072057EEA200E45BEF /* IGLDropDownMenu.m in Sources */,
 				B1CF072F2057EEA200E45BEF /* MJRefreshAutoStateFooter.m in Sources */,
@@ -991,6 +1018,7 @@
 				B1CF07252057EEA200E45BEF /* HZPhotoBrowser.m in Sources */,
 				B12600572055565E00511DCC /* REGISTERViewController.swift in Sources */,
 				B136C5D21FEE80B200658B76 /* Ability.xcdatamodeld in Sources */,
+				B138D0E8205DEFCD00C23A6E /* pushNewPostViewController.swift in Sources */,
 				B1CF07382057EEA300E45BEF /* UIScrollView+MJExtension.m in Sources */,
 				B1FAC0AB201D840000211DC4 /* GoodFriendTableViewController.swift in Sources */,
 				B136C5CA1FEE80B200658B76 /* AppDelegate.swift in Sources */,

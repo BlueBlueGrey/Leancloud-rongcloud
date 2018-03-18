@@ -117,19 +117,27 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         CGRect(x: 20, y: 20, width: SCREEN_WIDTH, height: 45)
         let addBookBtn = UIButton(frame: CGRect(x: 20, y: 20, width: SCREEN_WIDTH, height: 45))
-        addBookBtn.setImage(UIImage(named:""), for: .normal)
+        addBookBtn.setImage(UIImage(named:"plus circle"), for: .normal)
      
         addBookBtn.setTitleColor(UIColor.black, for: .normal)
         addBookBtn.setTitle("    新建书评", for: .normal)
         addBookBtn.titleLabel?.font = UIFont(name: MY_FONT, size: 15)
         addBookBtn.contentHorizontalAlignment = .left        //按钮文字现实居左
         
-        addBookBtn.addTarget(self, action: Selector(("pushNewBook")), for: .touchUpInside)
+        addBookBtn.addTarget(self, action:#selector(pushNewPost), for: .touchUpInside)
+        
         
         navigationView.addSubview(addBookBtn)
         
     }
    
+    @objc func pushNewPost(){
+        print("pushNewPost")
+        
+        let vc=pushNewPostViewController()
+        GeneralFactory.addTitleWithTile(target: vc)
+        self.present(vc, animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation

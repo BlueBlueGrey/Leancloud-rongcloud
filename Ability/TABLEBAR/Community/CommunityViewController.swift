@@ -73,7 +73,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         imagePic.clipsToBounds = true
         self.nameLable.frame =  CGRect(x: 0, y: 170, width: 60, height: 18)
         self.nameLable.frame.origin.x = self.view.bounds.width - 140
-        self.nameLable.text = "胖大海"
+        self.nameLable.text = "我的背景"
         self.nameLable.font = UIFont.systemFont(ofSize: 16)
         self.nameLable.textColor = UIColor.white
         self.avatorImage.frame = CGRect(x: 0, y: 150, width: 70, height:70)
@@ -120,7 +120,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         addBookBtn.setImage(UIImage(named:"plus circle"), for: .normal)
      
         addBookBtn.setTitleColor(UIColor.black, for: .normal)
-        addBookBtn.setTitle("    新建书评", for: .normal)
+        addBookBtn.setTitle("  新建帖子", for: .normal)
         addBookBtn.titleLabel?.font = UIFont(name: MY_FONT, size: 15)
         addBookBtn.contentHorizontalAlignment = .left        //按钮文字现实居左
         

@@ -24,6 +24,9 @@
 #import "UIImageView+WebCache.h"
 
 
+#import "CLTextView.h"
+#import "CLPhotosVIew.h"
+#import "TZImagePickerController.h"
 //#import "VPImageCropperViewController.h"
 //#import "LDXScore.h"
 //#import "AKSegmentedControl.h"

@@ -113,7 +113,7 @@ class RtwoViewController: UIViewController {
                 print("success!")
              
                 
-                let obj=AVObject(className: "Custom_User")
+              let obj=AVObject(className: "Custom_User")
                    obj.setObject(self.id, forKey: "id")
                    obj.setObject(file, forKey: "portrait")
                    obj.setObject(self.f1, forKey: "study")

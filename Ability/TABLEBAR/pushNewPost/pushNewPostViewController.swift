@@ -12,7 +12,7 @@ import AVOSCloud
 
 class pushNewPostViewController: CSViewController,UITextViewDelegate{
 
-    
+    var textView:CLTextView!
     var phontView:CLPhotosVIew!
     var imgArr:NSMutableArray!
     /*懒加载*/
@@ -33,7 +33,7 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
         let width = self.view.frame.size.width
         let height=self.view.frame.size.height
         // let textView = CLTextView(frame: CGRect(x: 0, y: 64, width: width, height: 300))
-        let textView = CLTextView(frame: CGRect(x: 0, y: 64, width: width, height: height-350))
+        textView = CLTextView(frame: CGRect(x: 0, y: 64, width: width, height: height-350))
         textView.backgroundColor = UIColor.white
         textView.delegate = self
         textView.placehoder = "请输入要评论的内容..."
@@ -100,9 +100,11 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
         print("sure")
         
         
-        print(imgArr.count)
+      //  print(imgArr.count)
         
-       
+        let obj=AVObject(className: "newPost")
+        obj.setObject(AVUser.current(), forKey: "user")
+        obj.setObject(textView.text, forKey: "text")
         
         for i in 0..<imgArr.count{
             
@@ -111,12 +113,17 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
             file.saveInBackground({ (success, error) in
                 if(success){
                     print("sdafsdf")
+                    obj.addUniqueObjects(from: [file.objectId], forKey: "pictureArr")
+                    obj.saveInBackground()
+                }else{
+                    print("sdafsdf     error")
                 }
             }, progressBlock: { (num) in
                 print(num)
             })
           
         }
+        obj.saveInBackground()
         /*
         let obj=AVObject(className: "factory")
         if let temp=photoImageView.image

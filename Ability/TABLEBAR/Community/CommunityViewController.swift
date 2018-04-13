@@ -8,8 +8,10 @@
 
 import UIKit
 import AVOSCloud
-class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextViewDelegate,SWTableViewCellDelegate{
 
+    var dataArray = NSMutableArray()
+    
     
     var tableView:UITableView?
     var navigationView:UIView!
@@ -56,9 +58,22 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         
+        self.tableView?.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: Selector("headerRefresh"))
+        self.tableView?.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: Selector("footerRefresh"))
+        
+        self.tableView?.mj_header.beginRefreshing()
+        
         // Do any additional setup after loading the view.
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationView.isHidden = false
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationView.isHidden = true
+    }
+    
     
     func headerView() ->UIView{
         
@@ -89,6 +104,9 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         return imagePicView
     }
     
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell=UITableViewCell()
         return cell
@@ -99,8 +117,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 10
+        return self.dataArray.count
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -148,5 +165,43 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    /**
+     *  上拉加载 、 下拉刷新
+     */
+    func headerRefresh(){
+        let query = AVQuery(className: "Book")
+        query.order(byDescending: "createdAt")
+        query.limit = 20
+        query.skip = 0
+        query.whereKey("user", equalTo: AVUser.current())
+        query.findObjectsInBackground { (results, error) -> Void in
+            self.tableView?.mj_header.endRefreshing()
+            
+            self.dataArray.removeAllObjects()
+            self.dataArray.addObjects(from: results!)
+            self.tableView?.reloadData()
+            
+        }
+        
+    }
+    func footerRefresh(){
+        let query = AVQuery(className: "Book")
+        query.order(byDescending: "createdAt")
+        query.limit = 20
+        query.skip = self.dataArray.count
+        query.whereKey("user", equalTo: AVUser.current())
+        query.findObjectsInBackground { (results, error) -> Void in
+            self.tableView?.mj_footer.endRefreshing()
+            
+            self.dataArray.addObjects(from: results!)
+            self.tableView?.reloadData()
+            
+        }
+        
+    }
+
 
 }

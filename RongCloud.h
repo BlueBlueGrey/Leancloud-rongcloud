@@ -27,10 +27,11 @@
 #import "CLTextView.h"
 #import "CLPhotosVIew.h"
 #import "TZImagePickerController.h"
+#import "SWTableViewCell.h"
 //#import "VPImageCropperViewController.h"
 //#import "LDXScore.h"
 //#import "AKSegmentedControl.h"
-//#import "SWTableViewCell.h"
+
 //#import <ShareSDK/ShareSDK.h>
 //#import "WXApi.h"
 //#import <TencentOpenAPI/QQApiInterface.h>

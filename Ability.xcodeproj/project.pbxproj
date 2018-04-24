@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2A7E69B3E15DB4ABA8CDE828 /* Pods_Ability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97E9928C0B428F5620852D1 /* Pods_Ability.framework */; };
 		B103D093208ECB1000B7C504 /* StoryboardMine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B103D092208ECB1000B7C504 /* StoryboardMine.storyboard */; };
+		B103D098208EE92F00B7C504 /* GoodFriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D097208EE92F00B7C504 /* GoodFriViewController.swift */; };
+		B103D09B208EE9A500B7C504 /* DyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D09A208EE9A500B7C504 /* DyViewController.swift */; };
+		B107E40B208F0D5800658DE8 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B107E40A208F0D5800658DE8 /* ItemCell.xib */; };
 		B11AA22E1FF0E7C500F98203 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = B11AA22D1FF0E7C500F98203 /* NSString+SHA1.m */; };
 		B126004A2055458200511DCC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12600492055458200511DCC /* LoginStoryboard.storyboard */; };
 		B126004F2055480400511DCC /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B126004D2055480400511DCC /* ImageHelper.swift */; };
@@ -88,7 +91,6 @@
 		B1524F3F208B13E100A76401 /* Info 14-29-03-477.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1524EC6208B13E100A76401 /* Info 14-29-03-477.plist */; };
 		B1524F40208B13E100A76401 /* Info-iOS 14-29-03-568.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1524EC7208B13E100A76401 /* Info-iOS 14-29-03-568.plist */; };
 		B1524F41208B13E100A76401 /* Info-tvOS 14-29-03-512.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1524EC8208B13E100A76401 /* Info-tvOS 14-29-03-512.plist */; };
-		B1524F43208B13E100A76401 /* ItemCell 14-29-03-578.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524ECA208B13E100A76401 /* ItemCell 14-29-03-578.swift */; };
 		B1524F44208B13E100A76401 /* Layout 14-29-03-627.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524ECC208B13E100A76401 /* Layout 14-29-03-627.swift */; };
 		B1524F45208B13E100A76401 /* LayoutConstraint 14-29-03-506.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524ECD208B13E100A76401 /* LayoutConstraint 14-29-03-506.swift */; };
 		B1524F46208B13E100A76401 /* LayoutConstraintItem 14-29-03-628.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524ECE208B13E100A76401 /* LayoutConstraintItem 14-29-03-628.swift */; };
@@ -155,7 +157,7 @@
 		B1524F83208B13E100A76401 /* UIImageView+Haneke 14-29-03-630.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524F0F208B13E100A76401 /* UIImageView+Haneke 14-29-03-630.swift */; };
 		B1524F84208B13E100A76401 /* UILayoutSupport+Extensions 14-29-03-510.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524F10208B13E100A76401 /* UILayoutSupport+Extensions 14-29-03-510.swift */; };
 		B1524F85208B13E100A76401 /* UIView+Haneke 14-29-03-619.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524F11208B13E100A76401 /* UIView+Haneke 14-29-03-619.swift */; };
-		B1524F86208B7A0600A76401 /* ItemCell 14-29-03-543.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1524F88208B7A0600A76401 /* ItemCell 14-29-03-543.xib */; };
+		B15FE511208F064E005325E9 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FE50F208F064E005325E9 /* ItemCell.swift */; };
 		B16A8C7C205E03440062EEE5 /* CLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A8C76205E03430062EEE5 /* CLTextView.m */; };
 		B16A8C7D205E03440062EEE5 /* images_01@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B16A8C78205E03430062EEE5 /* images_01@3x.png */; };
 		B16A8C7E205E03440062EEE5 /* error_wine.png in Resources */ = {isa = PBXBuildFile; fileRef = B16A8C79205E03440062EEE5 /* error_wine.png */; };
@@ -257,9 +259,11 @@
 		2465112042A47600978D33AA /* Pods-Ability.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ability.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ability/Pods-Ability.debug.xcconfig"; sourceTree = "<group>"; };
 		6D6AB2AEB71F22A6A013BEEC /* Pods-Ability.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ability.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ability/Pods-Ability.release.xcconfig"; sourceTree = "<group>"; };
 		B103D092208ECB1000B7C504 /* StoryboardMine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardMine.storyboard; sourceTree = "<group>"; };
+		B103D097208EE92F00B7C504 /* GoodFriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodFriViewController.swift; sourceTree = "<group>"; };
+		B103D09A208EE9A500B7C504 /* DyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyViewController.swift; sourceTree = "<group>"; };
+		B107E40A208F0D5800658DE8 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		B11AA22C1FF0E79400F98203 /* NSString+SHA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		B11AA22D1FF0E7C500F98203 /* NSString+SHA1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
-		B11E3035208E196600CD9DA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/ItemCell 14-29-03-543.xib"; sourceTree = "<group>"; };
 		B12600492055458200511DCC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		B126004D2055480400511DCC /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		B126004E2055480400511DCC /* ImageVIewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageVIewExtension.swift; sourceTree = "<group>"; };
@@ -346,7 +350,6 @@
 		B1524EC6208B13E100A76401 /* Info 14-29-03-477.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info 14-29-03-477.plist"; sourceTree = "<group>"; };
 		B1524EC7208B13E100A76401 /* Info-iOS 14-29-03-568.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS 14-29-03-568.plist"; sourceTree = "<group>"; };
 		B1524EC8208B13E100A76401 /* Info-tvOS 14-29-03-512.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS 14-29-03-512.plist"; sourceTree = "<group>"; };
-		B1524ECA208B13E100A76401 /* ItemCell 14-29-03-578.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemCell 14-29-03-578.swift"; sourceTree = "<group>"; };
 		B1524ECC208B13E100A76401 /* Layout 14-29-03-627.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Layout 14-29-03-627.swift"; sourceTree = "<group>"; };
 		B1524ECD208B13E100A76401 /* LayoutConstraint 14-29-03-506.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayoutConstraint 14-29-03-506.swift"; sourceTree = "<group>"; };
 		B1524ECE208B13E100A76401 /* LayoutConstraintItem 14-29-03-628.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayoutConstraintItem 14-29-03-628.swift"; sourceTree = "<group>"; };
@@ -415,7 +418,7 @@
 		B1524F0F208B13E100A76401 /* UIImageView+Haneke 14-29-03-630.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Haneke 14-29-03-630.swift"; sourceTree = "<group>"; };
 		B1524F10208B13E100A76401 /* UILayoutSupport+Extensions 14-29-03-510.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions 14-29-03-510.swift"; sourceTree = "<group>"; };
 		B1524F11208B13E100A76401 /* UIView+Haneke 14-29-03-619.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Haneke 14-29-03-619.swift"; sourceTree = "<group>"; };
-		B1524F87208B7A0600A76401 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/ItemCell 14-29-03-543.xib"; sourceTree = "<group>"; };
+		B15FE50F208F064E005325E9 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		B16A8C75205E03430062EEE5 /* CLPhotosVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPhotosVIew.h; sourceTree = "<group>"; };
 		B16A8C76205E03430062EEE5 /* CLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTextView.m; sourceTree = "<group>"; };
 		B16A8C77205E03430062EEE5 /* CLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTextView.h; sourceTree = "<group>"; };
@@ -598,6 +601,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B103D096208EE8FE00B7C504 /* GooDFri */ = {
+			isa = PBXGroup;
+			children = (
+				B103D097208EE92F00B7C504 /* GoodFriViewController.swift */,
+			);
+			path = GooDFri;
+			sourceTree = "<group>";
+		};
+		B103D099208EE98200B7C504 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				B103D09A208EE9A500B7C504 /* DyViewController.swift */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		B103D09C208EEC8100B7C504 /* OtherPeo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OtherPeo;
+			sourceTree = "<group>";
+		};
 		B12600472055453700511DCC /* LOGIN */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +757,8 @@
 				B136C5D51FEE80B200658B76 /* LaunchScreen.storyboard */,
 				B136C5D81FEE80B200658B76 /* Info.plist */,
 				B136C5D01FEE80B200658B76 /* Ability.xcdatamodeld */,
+				B15FE50F208F064E005325E9 /* ItemCell.swift */,
+				B107E40A208F0D5800658DE8 /* ItemCell.xib */,
 			);
 			path = Ability;
 			sourceTree = "<group>";
@@ -773,6 +801,9 @@
 		B14473952058CB6000D89E08 /* TABLEBAR */ = {
 			isa = PBXGroup;
 			children = (
+				B103D09C208EEC8100B7C504 /* OtherPeo */,
+				B103D099208EE98200B7C504 /* Dynamic */,
+				B103D096208EE8FE00B7C504 /* GooDFri */,
 				B138D0E6205DEF8D00C23A6E /* pushNewPost */,
 				B144739A2058CCF000D89E08 /* Mine */,
 				B14473992058CCD500D89E08 /* Message */,
@@ -860,8 +891,6 @@
 				B1524EC6208B13E100A76401 /* Info 14-29-03-477.plist */,
 				B1524EC7208B13E100A76401 /* Info-iOS 14-29-03-568.plist */,
 				B1524EC8208B13E100A76401 /* Info-tvOS 14-29-03-512.plist */,
-				B1524F88208B7A0600A76401 /* ItemCell 14-29-03-543.xib */,
-				B1524ECA208B13E100A76401 /* ItemCell 14-29-03-578.swift */,
 				B1524ECB208B13E100A76401 /* Layout */,
 				B1524ECC208B13E100A76401 /* Layout 14-29-03-627.swift */,
 				B1524ECD208B13E100A76401 /* LayoutConstraint 14-29-03-506.swift */,
@@ -1428,13 +1457,13 @@
 				B126004A2055458200511DCC /* LoginStoryboard.storyboard in Resources */,
 				B1524F7F208B13E100A76401 /* Contents.json in Resources */,
 				B1524F80208B13E100A76401 /* timg.jpeg in Resources */,
-				B1524F86208B7A0600A76401 /* ItemCell 14-29-03-543.xib in Resources */,
 				B16A8C7F205E03440062EEE5 /* images_01@2x.png in Resources */,
 				B1524F40208B13E100A76401 /* Info-iOS 14-29-03-568.plist in Resources */,
 				B136C5D41FEE80B200658B76 /* Assets.xcassets in Resources */,
 				B16A8C7D205E03440062EEE5 /* images_01@3x.png in Resources */,
 				B1524F3D208B13E100A76401 /* timg.jpeg in Resources */,
 				B1CF07202057EEA200E45BEF /* HZPhotoBrowser in Resources */,
+				B107E40B208F0D5800658DE8 /* ItemCell.xib in Resources */,
 				B1524F3F208B13E100A76401 /* Info 14-29-03-477.plist in Resources */,
 				B1524F41208B13E100A76401 /* Info-tvOS 14-29-03-512.plist in Resources */,
 				B1524F7E208B13E100A76401 /* timg 13-43-53-299.jpeg in Resources */,
@@ -1544,6 +1573,7 @@
 				B1524F82208B13E100A76401 /* UIImage+Haneke 14-29-03-563.swift in Sources */,
 				B1850FBF205D0763007CD28B /* SWTableViewCell.m in Sources */,
 				B1524F6F208B13E100A76401 /* NVActivityIndicatorView 14-29-03-609.swift in Sources */,
+				B103D098208EE92F00B7C504 /* GoodFriViewController.swift in Sources */,
 				B12600592055613400511DCC /* RtwoViewController.swift in Sources */,
 				B1524F34208B13E100A76401 /* CryptoSwiftMD5 14-29-03-554.swift in Sources */,
 				B1524F19208B13E100A76401 /* ConstraintConfig 14-29-03-548.swift in Sources */,
@@ -1559,6 +1589,7 @@
 				B1CF07172057EEA200E45BEF /* UIButton+WebCache.m in Sources */,
 				B1524F2D208B13E100A76401 /* ConstraintPriority 14-29-03-565.swift in Sources */,
 				B1CF07152057EEA200E45BEF /* SDWebImageManager.m in Sources */,
+				B15FE511208F064E005325E9 /* ItemCell.swift in Sources */,
 				B1A3FCD3201C9D63000D8F13 /* LoginViewController.swift in Sources */,
 				B12B9C0D207E504700DBB36E /* TableViewCell.swift in Sources */,
 				B16A8CA0205E03590062EEE5 /* UIView+Layout.m in Sources */,
@@ -1632,11 +1663,11 @@
 				B1524F31208B13E100A76401 /* ConstraintView 14-29-03-559.swift in Sources */,
 				B1524F39208B13E100A76401 /* Fetch 14-29-03-601.swift in Sources */,
 				B1524F59208B13E100A76401 /* NVActivityIndicatorAnimationBallScaleMultiple 14-29-03-492.swift in Sources */,
+				B103D09B208EE9A500B7C504 /* DyViewController.swift in Sources */,
 				B1CF07332057EEA300E45BEF /* MJRefreshGifHeader.m in Sources */,
 				B1CF07142057EEA200E45BEF /* SDWebImageDownloaderOperation.m in Sources */,
 				B1CF07392057EEA300E45BEF /* UIScrollView+MJRefresh.m in Sources */,
 				B1524F6D208B13E100A76401 /* NVActivityIndicatorPresenter 14-29-03-562.swift in Sources */,
-				B1524F43208B13E100A76401 /* ItemCell 14-29-03-578.swift in Sources */,
 				B1CF071B2057EEA200E45BEF /* UIImageView+HighlightedWebCache.m in Sources */,
 				B1524F53208B13E100A76401 /* NVActivityIndicatorAnimationBallPulse 14-29-03-496.swift in Sources */,
 				B1524F38208B13E100A76401 /* DiskFetcher 14-29-03-584.swift in Sources */,
@@ -1783,15 +1814,6 @@
 				B136C5D61FEE80B200658B76 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B1524F88208B7A0600A76401 /* ItemCell 14-29-03-543.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B1524F87208B7A0600A76401 /* Base */,
-				B11E3035208E196600CD9DA8 /* en */,
-			);
-			name = "ItemCell 14-29-03-543.xib";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

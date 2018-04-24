@@ -70,11 +70,16 @@ return 4
     
     @objc func btnClick(sender:UIButton?) {
         
+        let v=GoodFriViewController()
+        self.navigationController?.pushViewController(v, animated: true)
+        
             print("GGGGG")
         }
     
     @objc func btn2Click(sender:UIButton?) {
         
+        let v=DyViewController()
+        self.navigationController?.pushViewController(v, animated: true)
         print("DDDD")
     }
     override func didReceiveMemoryWarning() {

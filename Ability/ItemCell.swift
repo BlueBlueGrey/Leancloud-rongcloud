@@ -1,9 +1,9 @@
 //
 //  ItemCell.swift
-//  PhotoBrowser
+//  Ability
 //
-//  Created by 成林 on 15/7/29.
-//  Copyright (c) 2015年 冯成林. All rights reserved.
+//  Created by BlueGrey on 2018/4/24.
+//  Copyright © 2018年 blueGrey. All rights reserved.
 //
 
 import UIKit
@@ -48,7 +48,7 @@ class ItemCell: UICollectionViewCell {
     
     
     
-//    @IBOutlet weak var layoutView: UIView!
+    //    @IBOutlet weak var layoutView: UIView!
     
     @IBOutlet weak var asHUD: NVActivityIndicatorView!
     
@@ -100,8 +100,8 @@ extension ItemCell: UIScrollViewDelegate{
         
         //HUD初始化
         asHUD.layer.cornerRadius = 40
-//        scrollView.layer.borderColor = UIColor.redColor().CGColor
-//        scrollView.layer.borderWidth = 5
+        //        scrollView.layer.borderColor = UIColor.redColor().CGColor
+        //        scrollView.layer.borderWidth = 5
         asHUD.type = NVActivityIndicatorType.ballTrianglePath
         
         //更新约束:默认居中
@@ -118,13 +118,13 @@ extension ItemCell: UIScrollViewDelegate{
     
     
     @objc func didRotate(){
-
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {[unowned self] () -> Void in
             if self.imageV.image != nil {self.imageIsLoaded(self.imageV.image!, needAnim: false)}
         })
     }
     
-
+    
     @objc  func doubleTap(_ tapG: UITapGestureRecognizer){
         
         if !hasHDImage {return}
@@ -138,7 +138,7 @@ extension ItemCell: UIScrollViewDelegate{
             let location = tapG.location(in: tapG.view)
             
             let rect = CGRect(x: location.x, y: location.y, width: 10, height: 10)
-
+            
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
                 self.scrollView.zoom(to: rect, animated: false)
@@ -164,7 +164,7 @@ extension ItemCell: UIScrollViewDelegate{
         
         
     }
-    @objc  
+    @objc
     func singleTap(_ tapG: UITapGestureRecognizer){
         
         if scrollView.zoomScale > 1 {
@@ -178,19 +178,19 @@ extension ItemCell: UIScrollViewDelegate{
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {return imageV}
-
+    
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        UIView.animateWithDuration(0.3, animations: { () -> Void in
-//            UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
-            var c = (self.screenH - self.imageV.frame.height) / 2
-            if c <= 0 {c = 0}
-            self.imgVTMC.constant = c
-//            print(self.imgVTMC.constant)
-//            self.imageV.setNeedsLayout()
-//            self.imageV.layoutIfNeeded()
-//        })
+        //        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        //            UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
+        var c = (self.screenH - self.imageV.frame.height) / 2
+        if c <= 0 {c = 0}
+        self.imgVTMC.constant = c
+        //            print(self.imgVTMC.constant)
+        //            self.imageV.setNeedsLayout()
+        //            self.imageV.layoutIfNeeded()
+        //        })
     }
-
+    
     
     /**  复位  */
     func reset(){
@@ -211,7 +211,7 @@ extension ItemCell: UIScrollViewDelegate{
             imageV.image = photoModel.localImg
             /** 图片数据已经装载 */
             imageIsLoaded(photoModel.localImg, needAnim: false)
-
+            
         }else{
             
             self.hasHDImage = false
@@ -228,7 +228,7 @@ extension ItemCell: UIScrollViewDelegate{
             if format == nil{format = Format(name: photoModel.hostHDImgURL, diskCapacity: 10 * 1024 * 1024, transform: { img in
                 return img
             })}
-
+            
             cache.fetch(key: photoModel.hostHDImgURL,  failure: {[unowned self] fail in
                 
                 if !self.isAlive {return}
@@ -246,7 +246,7 @@ extension ItemCell: UIScrollViewDelegate{
                     
                     print("失败\(fail)")
                     
-                    }, success: {[unowned self] img in
+                }, success: {[unowned self] img in
                     
                     if !UserDefaults.standard.bool(forKey: CFPBShowKey) {return}
                     
@@ -263,30 +263,30 @@ extension ItemCell: UIScrollViewDelegate{
                     
                 })
                 
-            }, success: {[unowned self] img in
-                
-                if !self.isAlive {return}
-                
-                self.dismissAsHUD(false)
-                
-                self.imageV.image = img
-
-                self.hasHDImage = true
-
-                /** 图片数据已经装载 */
-
-                if !self.isFix && self.vc.view.bounds.size.width > self.vc.view.bounds.size.height{
-
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.06 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {[unowned self] () -> Void in
-
-                        self.imageIsLoaded(img, needAnim: false)
-                        self.isFix = true
-                        })
-                }else{
+                }, success: {[unowned self] img in
                     
-                    self.imageIsLoaded(img, needAnim: false)
-                }
-
+                    if !self.isAlive {return}
+                    
+                    self.dismissAsHUD(false)
+                    
+                    self.imageV.image = img
+                    
+                    self.hasHDImage = true
+                    
+                    /** 图片数据已经装载 */
+                    
+                    if !self.isFix && self.vc.view.bounds.size.width > self.vc.view.bounds.size.height{
+                        
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.06 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {[unowned self] () -> Void in
+                            
+                            self.imageIsLoaded(img, needAnim: false)
+                            self.isFix = true
+                        })
+                    }else{
+                        
+                        self.imageIsLoaded(img, needAnim: false)
+                    }
+                    
             })
         }
         
@@ -297,8 +297,8 @@ extension ItemCell: UIScrollViewDelegate{
         if photoModel.descStr != nil {msgContentTextView.text = photoModel.descStr}
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {[unowned self] () -> Void in
-                
-                self.reset()
+            
+            self.reset()
         }
     }
     
@@ -322,18 +322,18 @@ extension ItemCell: UIScrollViewDelegate{
         
         //这里有一个奇怪的bug，横屏时，bounds居然是竖屏的bounds
         if vc.view.bounds.size.width > vc.view.bounds.size.height {
-        
-            if boundsSize.width < boundsSize.height {
             
+            if boundsSize.width < boundsSize.height {
+                
                 boundsSize = CGSize(width: boundsSize.height, height: boundsSize.width)
             }
-        
+            
         }
         
         let contentSize = boundsSize.sizeMinusExtraWidth
-
+        
         let showSize = CGSize.decisionShowSize(imgSize, contentSize: contentSize)
-    
+        
         imageV.showSize = showSize
         
         DispatchQueue.main.async(execute: {[unowned self] () -> Void in
@@ -343,7 +343,7 @@ extension ItemCell: UIScrollViewDelegate{
             self.imgVLMC.constant = 0
             self.imgVTMC.constant = (self.screenH - showSize.height) / 2
             if self.photoModel.isLocal! {return}
-  
+            
             if !needAnim{return}
             self.scrollView.contentSize = showSize
             UIView.animate(withDuration: 0.25, animations: {[unowned self] () -> Void in
@@ -354,7 +354,7 @@ extension ItemCell: UIScrollViewDelegate{
         })
     }
     
-
+    
     /** 展示进度HUD */
     func showAsHUD(){
         
@@ -375,13 +375,13 @@ extension ItemCell: UIScrollViewDelegate{
         if asHUD == nil {return}
         
         if needAnim{
-        
+            
             UIView.animate(withDuration: 0.25, animations: {[unowned self] () -> Void in
                 self.asHUD?.alpha = 0
                 }, completion: { (complete) -> Void in
                     self.asHUD?.isHidden = true
                     self.asHUD?.stopAnimating()
-            }) 
+            })
             
         }else{
             
@@ -389,9 +389,10 @@ extension ItemCell: UIScrollViewDelegate{
             self.asHUD?.isHidden = true
             self.asHUD?.stopAnimating()
         }
-
-
+        
+        
     }
     
-
+    
 }
+

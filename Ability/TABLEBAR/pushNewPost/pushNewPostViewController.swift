@@ -103,7 +103,7 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
       //  print(imgArr.count)
         
         let obj=AVObject(className: "newPost")
-        obj.setObject(AVUser.current(), forKey: "user")
+        obj.setObject(AVUser.current()?.username, forKey: "id")
         obj.setObject(textView.text, forKey: "text")
         
         for i in 0..<imgArr.count{
@@ -113,16 +113,24 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
             file.saveInBackground({ (success, error) in
                 if(success){
                     print("sdafsdf")
-                    obj.addUniqueObjects(from: [file.objectId], forKey: "pictureArr")
-                    obj.saveInBackground()
+                    obj.addUniqueObjects(from: [file.url], forKey: "pictureArr")
+                 
+                    obj.saveInBackground({ (s, e) in
+                        if(s){
+                            ProgressHUD.showSuccess("第\(i+1)张图片上传成功", interaction: true)
+                        }else{
+                           ProgressHUD.showSuccess("第\(i+1)张图片上传失败", interaction: true)
+                        }
+                       
+                    })
                 }else{
                     print("sdafsdf     error")
                 }
             }, progressBlock: { (num) in
                 print(num)
             })
-          
         }
+        
         obj.saveInBackground()
         /*
         let obj=AVObject(className: "factory")

@@ -110,10 +110,10 @@ class RtwoViewController: UIViewController {
         
         user.signUp { (result) in
             if(result.isSuccess){
-                print("success!")
+                print("success!sdafsadfasdfasdf\n\n\n\n\n\n\n")
              
-                
-              let obj=AVObject(className: "Custom_User")
+              
+                  let obj=AVObject(className: "Custom_User")
                    obj.setObject(self.id, forKey: "id")
                    obj.setObject(file, forKey: "portrait")
                    obj.setObject(self.f1, forKey: "study")
@@ -124,7 +124,11 @@ class RtwoViewController: UIViewController {
                 obj.saveInBackground({ (resultbool, error) in
                    error.debugDescription
                 })
+ 
                 
+                
+                
+               
             }
             print(result.error?.code)
         }

@@ -22,16 +22,15 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     let imagePic=UIImageView()
     let nameLable = UILabel()
     let avatorImage = UIImageView()
+    var biaozhi = true
+    var selectItems: [Bool] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         // 单前 用户登录
-         AVUser.logOut()
-        
-      
-        
-        
+        // AVUser.logOut()
         if AVUser.current() == nil {
             print("nil    ----------------")
             print("nil    ===============----------------")
@@ -45,8 +44,12 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
                 
             })}
         
+        for _ in 0...10{
+            selectItems.append(false)
+            //  likeItems.append(false)
+        }
         
-        
+    
         self.setNavigationBar()
         
         self.tableView=UITableView(frame: self.view.frame)
@@ -54,12 +57,14 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.tableView?.delegate=self
         self.tableView?.dataSource=self
         self.tableView?.tableHeaderView=headerView()
+        self.tableView?.tableFooterView=UIView()
+        self.tableView?.contentInset = UIEdgeInsets(top: 50,left: 0,bottom: 0,right: 0)
         self.view.addSubview(self.tableView!)
         
         
         
-        self.tableView?.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: Selector("headerRefresh"))
-        self.tableView?.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: Selector("footerRefresh"))
+        self.tableView?.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
+        self.tableView?.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         
         self.tableView?.mj_header.beginRefreshing()
         
@@ -74,6 +79,14 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.navigationView.isHidden = true
     }
     
+    override func viewDidLayoutSubviews() {
+        self.tableView?.separatorInset = UIEdgeInsets.zero
+        self.tableView?.layoutMargins = UIEdgeInsets.zero
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+        cell.layoutMargins = UIEdgeInsets.zero
+        cell.separatorInset = UIEdgeInsets.zero
+    }
     
     func headerView() ->UIView{
         
@@ -108,8 +121,32 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell=UITableViewCell()
-        return cell
+        let identify:String = "SwiftCell\(indexPath.row)"
+        //禁止重用机制
+        var cell:defalutTableViewCell? = tableView.cellForRow(at: indexPath) as? defalutTableViewCell
+        if cell == nil{
+            cell = defalutTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: identify)
+        }
+        
+       
+        var obj=dataArray[indexPath.row] as! AVObject
+        
+        let idString=obj["id"] as! String
+        
+        cell!.setData(idString, imagePic: idString,content: obj["text"]! as! String,imgData: obj["pictureArr"]! as! [String],indexRow:indexPath,selectItem: selectItems[indexPath.row])
+        cell!.displayView.tapedImageV = {[unowned self] index in
+            cell!.pbVC.show(inVC: self,index: index)
+        }
+        cell!.selectionStyle = .none
+        
+        cell!.heightZhi = { cellflag in
+            self.selectItems[indexPath.row] = cellflag
+            self.tableView?.reloadData()
+        }
+ 
+        
+        
+        return cell!
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,14 +154,46 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataArray.count
+        return self.dataArray.count 
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        let obj=dataArray[indexPath.row] as! AVObject
+        var h_content = cellHeightByData(obj["text"]! as! String)
+        let h_image = cellHeightByData1((obj["pictureArr"] as AnyObject).count)
+        
+        
+        if h_content>13*5{
+            if !self.selectItems[indexPath.row]{
+                h_content = 13*5
+            }
+        }
+        
+        return h_content + h_image + 50 + 20
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView){
+        let offset:CGPoint = scrollView.contentOffset
+        
+        if (offset.y < 0) {
+            var rect:CGRect = imagePic.frame
+            rect.origin.y = offset.y
+            rect.size.height = 200 - offset.y
+            imagePic.frame = rect
+        }
+    }
+    
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            //    self.commentView.commentTextField.resignFirstResponder()
+        }
+        sender.cancelsTouchesInView = false
+    }
+    
     func setNavigationBar(){
         
        
@@ -171,28 +240,35 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     /**
      *  上拉加载 、 下拉刷新
      */
-    func headerRefresh(){
-        let query = AVQuery(className: "Book")
+    @objc func headerRefresh(){
+        
+        
+        print("headerRefresh\n\n\n\n\n\n\n\n\n\n\n")
+        let query = AVQuery(className: "newPost")
         query.order(byDescending: "createdAt")
         query.limit = 20
         query.skip = 0
-        query.whereKey("user", equalTo: AVUser.current())
+      //  query.whereKey("user", equalTo: AVUser.current())
         query.findObjectsInBackground { (results, error) -> Void in
             self.tableView?.mj_header.endRefreshing()
             
-            self.dataArray.removeAllObjects()
-            self.dataArray.addObjects(from: results!)
-            self.tableView?.reloadData()
+            if let Result=results{
+                self.dataArray.removeAllObjects()
+                self.dataArray.addObjects(from: (Result))
+                self.tableView?.reloadData()
+            }
+          
             
         }
         
     }
-    func footerRefresh(){
-        let query = AVQuery(className: "Book")
+    @objc func footerRefresh(){
+        print("footerRefresh\n\n\n\n\n\n\n\n\n\n")
+        let query = AVQuery(className: "newPost")
         query.order(byDescending: "createdAt")
         query.limit = 20
         query.skip = self.dataArray.count
-        query.whereKey("user", equalTo: AVUser.current())
+      //  query.whereKey("user", equalTo: AVUser.current())
         query.findObjectsInBackground { (results, error) -> Void in
             self.tableView?.mj_footer.endRefreshing()
             

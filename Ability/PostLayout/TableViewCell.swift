@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import  AVOSCloud
 typealias heightChange = (_ cellFlag:Bool) -> Void
 typealias likeChange = (_ cellFlag:Bool) -> Void
 typealias commentChange = () -> Void
@@ -67,7 +67,9 @@ class defalutTableViewCell: UITableViewCell {
     }
     
     @objc func click(){
-        menuview.clickMenu()
+        
+        btn.setImage(UIImage(named:"good"), for: UIControlState())
+        //menuview.clickMenu()
     }
     
     
@@ -75,19 +77,35 @@ class defalutTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
-    func setData(_ name:String,imagePic:String,content:String,imgData:[String],indexRow:IndexPath,selectItem:Bool,like:[String],likeItem:Bool,CommentNameArray:[String],CommentArray:[String]){
+    func setData(_ name:String,imagePic:String,content:String,imgData:[String],indexRow:IndexPath,selectItem:Bool){
         var h = cellHeightByData(content)
         let h1 = cellHeightByData1(imgData.count)
         var h2:CGFloat = 0.0
         nameLabel.text = name
-        avatorImage.image = UIImage(named: imagePic)
+        
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", matchesRegex: name)
+        let temp=query.findObjects() as! [AVObject]
+        if(temp.count>0)
+        {
+            let U=temp[0]["portrait"] as! AVFile
+            self.avatorImage.image=UIImage(data: U.getData()!)
+            //  let U=temp!["image"] as! AVFile
+            //  photoImageView.image=UIImage(data: U.getData()!)
+            // text.text=temp?["string"] as! String
+        }
+        
+        
+        
+        
+      //  avatorImage.image = UIImage(named: imagePic)
         if h<13*5{
             contentLabel.frame = CGRect(x: 55, y: 25, width: UIScreen.main.bounds.width - 55 - 10, height: h)
             collectionViewFrame = CGRect(x: 50, y: h+10+15, width: 230, height: h1)
@@ -100,7 +118,7 @@ class defalutTableViewCell: UITableViewCell {
                 contentLabel.frame = CGRect(x: 55, y: 25, width: UIScreen.main.bounds.width - 55 - 10, height: h)
                 zhankaiBtn = UIButton(frame: CGRect(x: 55,y: h+10+17,width: 60,height: 15))
                 zhankaiBtn.setTitle("展开全文", for: UIControlState())
-                zhankaiBtn.addTarget(self, action: #selector(defalutTableViewCell.clickDown(_:)), for: .touchUpInside)
+                zhankaiBtn.addTarget(self, action: #selector(clickDown), for: .touchUpInside)
                 zhankaiBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
                 zhankaiBtn.setTitleColor(UIColor(red: 74/255, green: 83/255, blue: 130/255, alpha: 1), for: UIControlState())
                 self.contentView.addSubview(zhankaiBtn)
@@ -127,15 +145,8 @@ class defalutTableViewCell: UITableViewCell {
         btn.frame.origin.x = UIScreen.main.bounds.width - 10 - 15
         self.menuview.frame = CGRect(x: 0, y: h2 - 8, width: 14.5, height: 0)
         self.menuview.frame.origin.x = UIScreen.main.bounds.width - 10 - 15
-        self.menuview.likeBtn.setImage(UIImage(named: "likewhite"), for: UIControlState())
-        if !likeItem{
-            self.menuview.likeBtn.setTitle("赞", for: UIControlState())
-            likeflag = !likeItem
-        }
-        if likeItem{
-            self.menuview.likeBtn.setTitle("取消赞", for: UIControlState())
-            likeflag = !likeItem
-        }
+        self.menuview.likeBtn.setImage(UIImage(named: "btn_star_evaluation_press"), for: UIControlState())
+        
         
         self.menuview.likeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         self.menuview.commentBtn.setImage(UIImage(named: "c"), for: UIControlState())
@@ -159,33 +170,13 @@ class defalutTableViewCell: UITableViewCell {
             models.append(model)
         }
         pbVC.photoModels = models
-        if like.count > 0{
-            
-            self.likeView.frame = CGRect(x: 55,y: h2+19.5,width: UIScreen.main.bounds.width - 10 - 55 - 15,height: 40)
-            for i in 0..<like.count{
-                likeLabelArray.append(like[i])
-            }
-            self.likeView.likeLabel.text = likeLabelArray.joined(separator: ",")
-            self.contentView.addSubview(self.likeView)
-        }
-        if CommentNameArray.count>0{
-            var h3 = h2+19.5+20
-            if like.count == 0{
-                 h3 = h2+19.5
-            }
-            for i in 0..<CommentNameArray.count{
-                let comment_view = CommentView()
-                comment_view.frame = CGRect(x: 55,y: h3+(CGFloat(i*20)),width: UIScreen.main.bounds.width - 10 - 55 - 15,height: 20)
-                comment_view.nameLabel.text = CommentNameArray[i]
-                comment_view.commentLabel.text = CommentArray[i]
-                self.contentView.addSubview(comment_view)
-            }
-        }
+        
+        
         self.contentView.addSubview(self.menuview)
     }
+    
+    @objc func clickDown(_ sender:UIButton){
         
-    @objc  func clickDown(_ sender:UIButton){
-
         if flag{
             flag = false
             if self.heightZhi != nil{
@@ -208,7 +199,7 @@ class defalutTableViewCell: UITableViewCell {
         }
         menuview.menuHide()
     }
-
+    
     @objc func LikeBtn(_ sender:UIButton){
         
         
@@ -231,3 +222,4 @@ class defalutTableViewCell: UITableViewCell {
         
     }
 }
+

@@ -140,9 +140,10 @@
 }
 
 - (IBAction)publishButtonClick:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(publishButtonDidClick:)]) {
-        [self.delegate publishButtonDidClick:sender];
-    }
+//    if ([self.delegate respondsToSelector:@selector(publishButtonDidClick:)]) {
+//        [self.delegate publishButtonDidClick:sender];
+//    }
+     [self.delegate publishButtonDidClick];
 }
 
 - (void)resetInputView

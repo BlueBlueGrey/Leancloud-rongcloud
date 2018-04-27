@@ -11,8 +11,11 @@ import  AVOSCloud
 typealias heightChange = (_ cellFlag:Bool) -> Void
 typealias likeChange = (_ cellFlag:Bool) -> Void
 typealias commentChange = () -> Void
-
+protocol clickImageDelegate {
+    func showOpV()-> Void
+}
 class defalutTableViewCell: UITableViewCell {
+    var clickdelegate:clickImageDelegate?
     var flag = true
     var show = false
     var likeflag = true
@@ -59,6 +62,9 @@ class defalutTableViewCell: UITableViewCell {
         btn.setImage(UIImage(named:"menu"), for: UIControlState())
         btn.addTarget(self, action: #selector(defalutTableViewCell.click), for: .touchUpInside)
         
+        
+        
+        
         self.contentView.addSubview(contentLabel)
         self.contentView.addSubview(displayView)
         self.contentView.addSubview(timeLabel)
@@ -71,6 +77,7 @@ class defalutTableViewCell: UITableViewCell {
         btn.setImage(UIImage(named:"good"), for: UIControlState())
         //menuview.clickMenu()
     }
+    
     
     
     
@@ -222,4 +229,6 @@ class defalutTableViewCell: UITableViewCell {
         
     }
 }
+
+
 

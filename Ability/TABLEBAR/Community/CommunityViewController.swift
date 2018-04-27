@@ -8,10 +8,14 @@
 
 import UIKit
 import AVOSCloud
+import Alamofire
 class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextViewDelegate,SWTableViewCellDelegate{
-
+   var token=""
     var dataArray = NSMutableArray()
     
+    
+    
+    var IndexClick:IndexPath?
     
     var tableView:UITableView?
     var navigationView:UIView!
@@ -30,7 +34,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         // 单前 用户登录
-        // AVUser.logOut()
+       // AVUser.logOut()
         if AVUser.current() == nil {
             print("nil    ----------------")
             print("nil    ===============----------------")
@@ -74,6 +78,25 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationView.isHidden = false
+        
+        
+        
+        if AVUser.current() == nil {
+            print("nil    ----------------")
+            print("nil    ===============----------------")
+            print("nil    ===============----------------")
+            print("nil    ===============----------------")
+            print("nil    ===============----------------")
+            // story
+            let story = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+            let loginVC = story.instantiateViewController(withIdentifier: "NavigationLogin")
+            self.present(loginVC, animated: true, completion: { () -> Void in
+                
+            })}
+        else{
+            requestToken1(userID: (AVUser.current()?.username)!)
+        }
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationView.isHidden = true
@@ -88,6 +111,9 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         cell.separatorInset = UIEdgeInsets.zero
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        IndexClick=indexPath
+    }
     func headerView() ->UIView{
         
         CGRect(x: 0, y: 200, width: self.view.bounds.width, height:26)
@@ -128,15 +154,15 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
             cell = defalutTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: identify)
         }
         
-       
+        
+       // cell?.clickdelegate=self
         var obj=dataArray[indexPath.row] as! AVObject
-        
         let idString=obj["id"] as! String
-        
         cell!.setData(idString, imagePic: idString,content: obj["text"]! as! String,imgData: obj["pictureArr"]! as! [String],indexRow:indexPath,selectItem: selectItems[indexPath.row])
         cell!.displayView.tapedImageV = {[unowned self] index in
             cell!.pbVC.show(inVC: self,index: index)
         }
+        cell?.avatorImage.tag=indexPath.row
         cell!.selectionStyle = .none
         
         cell!.heightZhi = { cellflag in
@@ -145,6 +171,10 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
  
         
+        cell?.avatorImage.isUserInteractionEnabled=true
+        
+        var tap=UITapGestureRecognizer(target: self, action: #selector(showOpV))
+        cell?.avatorImage.addGestureRecognizer(tap)
         
         return cell!
     }
@@ -159,6 +189,27 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @objc func showOpV(recognizer:UITapGestureRecognizer){
+        
+        var obj=dataArray[(recognizer.view?.tag)!] as! AVObject
+        
+        let idString=obj["id"] as! String
+        
+        print("showOpV   showOpV  showOpV")
+       
+        if(idString==AVUser.current()?.username){
+        self.tabBarController?.selectedIndex=2
+        }
+        else{
+          let v=UIStoryboard(name: "StoryboardOp", bundle: nil).instantiateViewController(withIdentifier: "OpStoryboard") as! OpTableViewController
+            v.PostObject=obj
+            v.idString=idString
+            
+            
+            self.navigationController?.pushViewController(v, animated: true)
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
@@ -262,6 +313,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
         
     }
+    
     @objc func footerRefresh(){
         print("footerRefresh\n\n\n\n\n\n\n\n\n\n")
         let query = AVQuery(className: "newPost")
@@ -279,5 +331,55 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
 
+    
+    func requestToken1(userID:String) -> Void {
+        let dicUser = ["userId":userID,
+                       "name":userID,
+                       "portraitUrl":"http://img3.duitang.com/uploads/item/201508/30/20150830083023_N3rTL.png"
+        ] //请求token的用户信息
+        let urlStr = "https://api.cn.ronghub.com/user/getToken.json" //网址接口
+        let appKey = "3argexb630cme"
+        let appSecret = "11pfdtC8NnB"
+        let nonce = "\(arc4random())"   //生成随机数
+        let timestamp = "\(NSDate().timeIntervalSince1970)"//时间戳
+        var sha1Value = appSecret + nonce + timestamp
+        sha1Value = sha1Value.sha1()//数据签名,sha1是一个加密的方法
+        let headers = [ //照着文档要求写的Http 请求的 4个head
+            "App-key":appKey
+            ,"Nonce":nonce
+            ,"Timestamp":timestamp
+            ,"Signature":sha1Value
+        ]
+        Alamofire.request(urlStr, method: .post, parameters: dicUser , encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
+            print(response)
+            if let dic = response.result.value  as? NSDictionary{
+                let code = dic.value(forKey: "code") as! NSNumber
+                if code.stringValue == "200" {
+                    print(dic.value(forKey: "token"))
+                    self.token=dic.value(forKey: "token") as! String
+                    
+                    print("sadfasf  "+self.token)
+                    self.ConnectOne()
+                }
+            }
+        }
+    }
+    
+    func ConnectOne()->Void{
+        RCIM.shared().initWithAppKey("3argexb630cme")
+        
+        
+        RCIM.shared().connect(withToken: token,success: { (userId) -> Void in
+            print("登陆成功。当前登录的用户ID：\(userId)")
+        }, error: { (status) -> Void in
+            print("登陆的错误码为:\(status.rawValue)")
+        }, tokenIncorrect: {
+            //token过期或者不正确。
+            //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+            //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+            print("token错误")
+        })
+        
+    }
 
 }

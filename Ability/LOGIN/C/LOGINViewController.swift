@@ -55,7 +55,7 @@ class LOGINViewController: UIViewController,UITextFieldDelegate{
             
             print("id.text")
             let  query=AVQuery(className: "Custom_User")
-            query.whereKey("id", matchesRegex: id.text!)
+            query.whereKey("id", equalTo: id.text)
             let temp=query.findObjects() as! [AVObject]
             if(temp.count>0)
             {

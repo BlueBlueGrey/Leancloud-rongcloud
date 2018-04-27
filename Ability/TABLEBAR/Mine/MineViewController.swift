@@ -7,29 +7,60 @@
 //
 
 import UIKit
-
+import AVOSCloud
 class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-return 4
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell=tableView.dequeueReusableCell(withIdentifier: "default")
         
-        cell?.textLabel?.text="sdaf"
+        var cellId: String
+        var cell: UITableViewCell? = nil
+        var style: UITableViewCellStyle
+        let image = UIImage (named: "cellImage")
+        var text: String
+        let detailText = "detail_text"
+        cellId = "default"
+        style = UITableViewCellStyle.default
+        text = "default_text"
+        switch indexPath.row {
+        case 0:
+           
+            text = "评论"
+        case 1:
+         
+            text = "设置"
+        case 2:
+           
+            text = "3"
+        default:
+          
+            text = "2"
+        }
+        cell = tableView.dequeueReusableCell(withIdentifier: cellId)
+        if cell == nil {
+            cell = UITableViewCell (style: style, reuseIdentifier: cellId)
+        }
+        cell?.imageView?.image = image
+        cell?.textLabel?.text = text
+        cell?.detailTextLabel?.text = detailText
+        cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell!
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
    
     var imageine:UIImageView?
     var buttonG:UIButton?
     var buttonD:UIButton?
+    var buttonB:UIButton?
     var tableview:UITableView?
-
+    var labelId:UILabel?
+    var labelIn:UILabel?
     
     
     override func viewDidLoad() {
@@ -39,12 +70,39 @@ return 4
         // Do any additional setup after loading the view.
         
         
+        
+        
+        
         imageine=UIImageView(frame: CGRect(x: self.view.frame.width/2-50, y: 75, width: 100, height: 100))
         self.view.addSubview(imageine!)
         
-        imageine?.image=UIImage(named:"alien")
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", equalTo: AVUser.current()?.username)
+        let temp=query.findObjects() as! [AVObject]
+        if(temp.count>0)
+        {
+            let U=temp[0]["portrait"] as! AVFile
+             imageine?.image=UIImage(data: U.getData()!)
+            //  let U=temp!["image"] as! AVFile
+            //  photoImageView.image=UIImage(data: U.getData()!)
+            // text.text=temp?["string"] as! String
+        }
+      //  imageine?.image=UIImage(named:"alien")
         
-        buttonG=UIButton(frame: CGRect(x: 0, y: 200, width: self.view.frame.width/2, height: 40))
+        
+        labelId=UILabel(frame: CGRect(x: self.view.frame.width/2-50, y: 200, width: 100, height: 40))
+       // labelId?.backgroundColor=UIColor.black
+        labelId?.text=AVUser.current()?.username
+        labelId?.textAlignment=NSTextAlignment.center
+        self.view.addSubview(labelId!)
+        
+        labelIn=UILabel(frame: CGRect(x: self.view.frame.width/2-100, y: 250, width: 200, height: 40))
+        // labelId?.backgroundColor=UIColor.black
+        labelIn?.text="sdfsdfasdfsdaf"
+        labelIn?.textAlignment=NSTextAlignment.center
+        self.view.addSubview(labelIn!)
+        
+        buttonG=UIButton(frame: CGRect(x: 0, y: 300, width: self.view.frame.width/2, height: 40))
         buttonG?.setTitle("关注", for: .normal)
           buttonG?.backgroundColor=UIColor.black
         self.view.addSubview(buttonG!)
@@ -52,7 +110,7 @@ return 4
         buttonG?.addTarget(self, action: #selector(btnClick), for:
             .touchUpInside)
         
-        buttonD=UIButton(frame:CGRect(x:  self.view.frame.width/2, y:200, width: self.view.frame.width/2, height: 40) )
+        buttonD=UIButton(frame:CGRect(x:  self.view.frame.width/2, y:300, width: self.view.frame.width/2, height: 40) )
         buttonD?.backgroundColor=UIColor.black
         buttonD?.setTitle("动态", for:.normal)
         self.view.addSubview(buttonD!)
@@ -60,10 +118,23 @@ return 4
         buttonD?.addTarget(self, action: #selector(btn2Click), for:
             .touchUpInside)
         
+        
+        
+        buttonB=UIButton(frame:CGRect(x:  self.view.frame.width/2-50, y:550, width: 100, height: 40) )
+        buttonB?.backgroundColor=UIColor.black
+        buttonB?.setTitle("退出", for:.normal)
+        self.view.addSubview(buttonB!)
+        
+        buttonB?.addTarget(self, action: #selector(btn3Click), for:
+            .touchUpInside)
+        
+        
+        tableview?.backgroundColor=UIColor.gray
+        tableview=UITableView(frame: CGRect(x:0, y: 300, width: self.view.frame.width, height: 200))
         tableview?.delegate=self
         tableview?.dataSource=self
-        tableview?.backgroundColor=UIColor.gray
-        tableview=UITableView(frame: CGRect(x:0, y: 250, width: self.view.frame.width, height: 400))
+        self.tableview?.tableFooterView=UIView()
+        
         self.view.addSubview(tableview!)
     }
 
@@ -81,6 +152,15 @@ return 4
         let v=DyViewController()
         self.navigationController?.pushViewController(v, animated: true)
         print("DDDD")
+    }
+    
+    
+    @objc func btn3Click(sender:UIButton?) {
+        
+        AVUser.logOut()
+        print("BBBBB========\n\n\n")
+        self.tabBarController?.selectedIndex=0
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -21,8 +21,8 @@
 
 - (void)addButtonDidClick:(UIButton *)button;
 
-- (void)publishButtonDidClick:(UIButton *)button;
-
+//- (void)publishButtonDidClick:(UIButton *)button;
+- (void)publishButtonDidClick;
 - (void)textViewHeightDidChange:(CGFloat)height;
 
 @end

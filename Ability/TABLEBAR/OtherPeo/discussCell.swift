@@ -8,7 +8,7 @@
 
 import UIKit
 
-class discussCell: UITableViewCell {
+class discussCell: SWTableViewCell {
     
     var avatarImage:UIImageView?
     

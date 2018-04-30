@@ -45,8 +45,13 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden=true
+
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden=true
+        self.tabBarController?.tabBar.isHidden=false
     }
     
     @IBAction func talk(_ sender: UIButton) {
@@ -79,10 +84,6 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
         
         self.tableView?.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
         self.tableView?.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
-        
-        
-        //self.tableView.rowHeight=UITableViewAutomaticDimension
-        
         headerRefresh()
         self.input = Bundle.main.loadNibNamed("InputView", owner: self, options: nil)?.last as? InputView
        
@@ -164,7 +165,7 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
      */
     func textViewHeightDidChange(height: CGFloat) {
         self.input?.height = height+10
-        self.input?.bottom = SCREEN_HEIGHT - self.keyBoardHeight-60
+        self.input?.bottom = SCREEN_HEIGHT - self.keyBoardHeight
     }
   
     
@@ -190,12 +191,12 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
     func keyboardWillHide(_ inputView: InputView!, keyboardHeight: CGFloat, animationDuration duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
         UIView.animate(withDuration: duration, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
             self.layView?.alpha = 0
-            self.input?.bottom = SCREEN_HEIGHT-self.tg
+            self.input?.bottom = SCREEN_HEIGHT
         }) { (finish) -> Void in
             self.layView?.isHidden = true
             self.input?.resetInputView()
             self.input?.inputTextView?.text = ""
-            self.input?.bottom = SCREEN_HEIGHT-self.tg
+            self.input?.bottom = SCREEN_HEIGHT
         }
         
     }
@@ -204,7 +205,7 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
         self.layView?.isHidden = false
         UIView.animate(withDuration: duration, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
             self.layView?.alpha = 0
-            self.input?.bottom = SCREEN_HEIGHT-keyboardHeight-self.tg
+            self.input?.bottom = SCREEN_HEIGHT-keyboardHeight
             
          
         

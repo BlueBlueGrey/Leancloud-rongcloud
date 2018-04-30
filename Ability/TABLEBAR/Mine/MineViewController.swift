@@ -50,6 +50,13 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row==0){
+            let vc=CommentPageViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -90,19 +97,19 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
       //  imageine?.image=UIImage(named:"alien")
         
         
-        labelId=UILabel(frame: CGRect(x: self.view.frame.width/2-50, y: 200, width: 100, height: 40))
+        labelId=UILabel(frame: CGRect(x: self.view.frame.width/2-50, y: 175, width: 100, height: 40))
        // labelId?.backgroundColor=UIColor.black
         labelId?.text=AVUser.current()?.username
         labelId?.textAlignment=NSTextAlignment.center
         self.view.addSubview(labelId!)
         
-        labelIn=UILabel(frame: CGRect(x: self.view.frame.width/2-100, y: 250, width: 200, height: 40))
+        labelIn=UILabel(frame: CGRect(x: self.view.frame.width/2-100, y: 200, width: 200, height: 40))
         // labelId?.backgroundColor=UIColor.black
         labelIn?.text="sdfsdfasdfsdaf"
         labelIn?.textAlignment=NSTextAlignment.center
         self.view.addSubview(labelIn!)
         
-        buttonG=UIButton(frame: CGRect(x: 0, y: 300, width: self.view.frame.width/2, height: 40))
+        buttonG=UIButton(frame: CGRect(x: 0, y: 250, width: self.view.frame.width/2, height: 40))
         buttonG?.setTitle("关注", for: .normal)
           buttonG?.backgroundColor=UIColor.black
         self.view.addSubview(buttonG!)
@@ -110,7 +117,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         buttonG?.addTarget(self, action: #selector(btnClick), for:
             .touchUpInside)
         
-        buttonD=UIButton(frame:CGRect(x:  self.view.frame.width/2, y:300, width: self.view.frame.width/2, height: 40) )
+        buttonD=UIButton(frame:CGRect(x:  self.view.frame.width/2, y:250, width: self.view.frame.width/2, height: 40) )
         buttonD?.backgroundColor=UIColor.black
         buttonD?.setTitle("动态", for:.normal)
         self.view.addSubview(buttonD!)
@@ -120,7 +127,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         
-        buttonB=UIButton(frame:CGRect(x:  self.view.frame.width/2-50, y:550, width: 100, height: 40) )
+        buttonB=UIButton(frame:CGRect(x:  self.view.frame.width/2-50, y:500, width: 100, height: 40) )
         buttonB?.backgroundColor=UIColor.black
         buttonB?.setTitle("退出", for:.normal)
         self.view.addSubview(buttonB!)

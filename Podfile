@@ -6,4 +6,8 @@ target 'Ability' do
     pod 'LeanCloud'
     pod 'AVOSCloud'
     pod 'AVOSCloudIM'
+    pod 'SGPagingView'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'IBAnimatable'
 end

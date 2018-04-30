@@ -45,7 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mineViewController=UINavigationController(rootViewController: MineViewController())
         
-        tabbatController.viewControllers=[communityViewController,messageViewController,mineViewController]
+       let home=UINavigationController(rootViewController: HomepageViewController())
+        tabbatController.viewControllers=[communityViewController,messageViewController,mineViewController,home]
         
         
         

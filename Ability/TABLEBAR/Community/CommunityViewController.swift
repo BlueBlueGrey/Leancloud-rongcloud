@@ -184,7 +184,8 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataArray.count 
+        //return self.dataArray.count
+        return 0
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2A7E69B3E15DB4ABA8CDE828 /* Pods_Ability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97E9928C0B428F5620852D1 /* Pods_Ability.framework */; };
+		B102A63220944D0800E58028 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B102A63120944D0800E58028 /* HomepageViewController.swift */; };
+		B102A63520944DBB00E58028 /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B102A63320944DBA00E58028 /* HomeNavigationView.swift */; };
+		B102A63620944DBB00E58028 /* HomeNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B102A63420944DBB00E58028 /* HomeNavigationView.xib */; };
+		B102A638209459D700E58028 /* UIkit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B102A637209459D700E58028 /* UIkit+Extension.swift */; };
+		B102A63A20945B0500E58028 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = B102A63920945B0500E58028 /* Emoji.swift */; };
+		B102A63C2094BDB200E58028 /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B102A63B2094BDB200E58028 /* CommentPageViewController.swift */; };
 		B103D098208EE92F00B7C504 /* GoodFriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D097208EE92F00B7C504 /* GoodFriViewController.swift */; };
 		B103D09B208EE9A500B7C504 /* DyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D09A208EE9A500B7C504 /* DyViewController.swift */; };
 		B107E40B208F0D5800658DE8 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B107E40A208F0D5800658DE8 /* ItemCell.xib */; };
@@ -159,6 +165,7 @@
 		B1524F83208B13E100A76401 /* UIImageView+Haneke 14-29-03-630.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524F0F208B13E100A76401 /* UIImageView+Haneke 14-29-03-630.swift */; };
 		B1524F84208B13E100A76401 /* UILayoutSupport+Extensions 14-29-03-510.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524F10208B13E100A76401 /* UILayoutSupport+Extensions 14-29-03-510.swift */; };
 		B1524F85208B13E100A76401 /* UIView+Haneke 14-29-03-619.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1524F11208B13E100A76401 /* UIView+Haneke 14-29-03-619.swift */; };
+		B159C4052093691B005EA551 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159C4042093691B005EA551 /* CommentViewController.swift */; };
 		B15FE511208F064E005325E9 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FE50F208F064E005325E9 /* ItemCell.swift */; };
 		B16A8C7C205E03440062EEE5 /* CLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A8C76205E03430062EEE5 /* CLTextView.m */; };
 		B16A8C7D205E03440062EEE5 /* images_01@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B16A8C78205E03430062EEE5 /* images_01@3x.png */; };
@@ -261,6 +268,12 @@
 /* Begin PBXFileReference section */
 		2465112042A47600978D33AA /* Pods-Ability.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ability.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ability/Pods-Ability.debug.xcconfig"; sourceTree = "<group>"; };
 		6D6AB2AEB71F22A6A013BEEC /* Pods-Ability.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ability.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ability/Pods-Ability.release.xcconfig"; sourceTree = "<group>"; };
+		B102A63120944D0800E58028 /* HomepageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
+		B102A63320944DBA00E58028 /* HomeNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
+		B102A63420944DBB00E58028 /* HomeNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeNavigationView.xib; sourceTree = "<group>"; };
+		B102A637209459D700E58028 /* UIkit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIkit+Extension.swift"; sourceTree = "<group>"; };
+		B102A63920945B0500E58028 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		B102A63B2094BDB200E58028 /* CommentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
 		B103D097208EE92F00B7C504 /* GoodFriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodFriViewController.swift; sourceTree = "<group>"; };
 		B103D09A208EE9A500B7C504 /* DyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyViewController.swift; sourceTree = "<group>"; };
 		B107E40A208F0D5800658DE8 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
@@ -423,6 +436,7 @@
 		B1524F0F208B13E100A76401 /* UIImageView+Haneke 14-29-03-630.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Haneke 14-29-03-630.swift"; sourceTree = "<group>"; };
 		B1524F10208B13E100A76401 /* UILayoutSupport+Extensions 14-29-03-510.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions 14-29-03-510.swift"; sourceTree = "<group>"; };
 		B1524F11208B13E100A76401 /* UIView+Haneke 14-29-03-619.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Haneke 14-29-03-619.swift"; sourceTree = "<group>"; };
+		B159C4042093691B005EA551 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		B15FE50F208F064E005325E9 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		B16A8C75205E03430062EEE5 /* CLPhotosVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPhotosVIew.h; sourceTree = "<group>"; };
 		B16A8C76205E03430062EEE5 /* CLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTextView.m; sourceTree = "<group>"; };
@@ -811,6 +825,7 @@
 		B14473952058CB6000D89E08 /* TABLEBAR */ = {
 			isa = PBXGroup;
 			children = (
+				B159C40320936866005EA551 /* Comment */,
 				B103D09C208EEC8100B7C504 /* OtherPeo */,
 				B103D099208EE98200B7C504 /* Dynamic */,
 				B103D096208EE8FE00B7C504 /* GooDFri */,
@@ -825,7 +840,12 @@
 		B14473982058CCC600D89E08 /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				B102A637209459D700E58028 /* UIkit+Extension.swift */,
+				B102A63120944D0800E58028 /* HomepageViewController.swift */,
+				B102A63920945B0500E58028 /* Emoji.swift */,
 				B144739B2058CD7400D89E08 /* CommunityViewController.swift */,
+				B102A63320944DBA00E58028 /* HomeNavigationView.swift */,
+				B102A63420944DBB00E58028 /* HomeNavigationView.xib */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -1072,6 +1092,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B159C40320936866005EA551 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				B159C4042093691B005EA551 /* CommentViewController.swift */,
+				B102A63B2094BDB200E58028 /* CommentPageViewController.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		B16A8C74205E02EF0062EEE5 /* CLPhotoView */ = {
@@ -1482,6 +1511,7 @@
 				B1CF071E2057EEA200E45BEF /* 隶变体.ttf in Resources */,
 				B16A8C7E205E03440062EEE5 /* error_wine.png in Resources */,
 				B16A8C96205E03590062EEE5 /* error_wine.png in Resources */,
+				B102A63620944DBB00E58028 /* HomeNavigationView.xib in Resources */,
 				B1CF07222057EEA200E45BEF /* ProgressHUD.bundle in Resources */,
 				B1CF070C2057EEA200E45BEF /* InputView.xib in Resources */,
 				B16A8C9A205E03590062EEE5 /* TZImagePickerController.bundle in Resources */,
@@ -1555,14 +1585,22 @@
 				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
 				"${BUILT_PRODUCTS_DIR}/AVOSCloudIM/AVOSCloudIM.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/LeanCloud/LeanCloud.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SGPagingView/SGPagingView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloudIM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LeanCloud.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGPagingView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1596,6 +1634,7 @@
 				B1524F13208B13E100A76401 /* Cache 14-29-03-637.swift in Sources */,
 				B1524F49208B13E100A76401 /* NSFileManager+Haneke 14-29-03-509.swift in Sources */,
 				B1CF07172057EEA200E45BEF /* UIButton+WebCache.m in Sources */,
+				B102A63A20945B0500E58028 /* Emoji.swift in Sources */,
 				B1524F2D208B13E100A76401 /* ConstraintPriority 14-29-03-565.swift in Sources */,
 				B1CF07152057EEA200E45BEF /* SDWebImageManager.m in Sources */,
 				B15FE511208F064E005325E9 /* ItemCell.swift in Sources */,
@@ -1676,6 +1715,7 @@
 				B1CF07332057EEA300E45BEF /* MJRefreshGifHeader.m in Sources */,
 				B1CF07142057EEA200E45BEF /* SDWebImageDownloaderOperation.m in Sources */,
 				B1CF07392057EEA300E45BEF /* UIScrollView+MJRefresh.m in Sources */,
+				B102A638209459D700E58028 /* UIkit+Extension.swift in Sources */,
 				B1524F6D208B13E100A76401 /* NVActivityIndicatorPresenter 14-29-03-562.swift in Sources */,
 				B1CF071B2057EEA200E45BEF /* UIImageView+HighlightedWebCache.m in Sources */,
 				B1524F53208B13E100A76401 /* NVActivityIndicatorAnimationBallPulse 14-29-03-496.swift in Sources */,
@@ -1685,6 +1725,7 @@
 				B1850FBE205D0763007CD28B /* SWLongPressGestureRecognizer.m in Sources */,
 				B1524F3E208B13E100A76401 /* Haneke 14-29-03-532.swift in Sources */,
 				B12B9C07207E504700DBB36E /* CommentView.swift in Sources */,
+				B102A63C2094BDB200E58028 /* CommentPageViewController.swift in Sources */,
 				B1524F4D208B13E100A76401 /* NVActivityIndicatorAnimationBallBeat 14-29-03-579.swift in Sources */,
 				B1524F1B208B13E100A76401 /* ConstraintDescription 14-29-03-615.swift in Sources */,
 				B1524F2A208B13E100A76401 /* ConstraintMakerRelatable 14-29-03-592.swift in Sources */,
@@ -1692,6 +1733,7 @@
 				B1524F1F208B13E100A76401 /* ConstraintItem 14-29-03-426.swift in Sources */,
 				B1524F37208B13E100A76401 /* DiskCache 14-29-03-567.swift in Sources */,
 				B138D0E5205DEEAB00C23A6E /* GeneralFactory.swift in Sources */,
+				B159C4052093691B005EA551 /* CommentViewController.swift in Sources */,
 				B1524F61208B13E100A76401 /* NVActivityIndicatorAnimationCubeTransition 14-29-03-533.swift in Sources */,
 				B1524F1C208B13E100A76401 /* ConstraintDSL 14-29-03-529.swift in Sources */,
 				B12B9C0A207E504700DBB36E /* extension.swift in Sources */,
@@ -1739,6 +1781,7 @@
 				B1524F65208B13E100A76401 /* NVActivityIndicatorAnimationLineScalePulseOut 14-29-03-576.swift in Sources */,
 				B1524F70208B13E100A76401 /* NVActivityIndicatorViewable 14-29-03-572.swift in Sources */,
 				B1524F47208B13E100A76401 /* Log 14-29-03-536.swift in Sources */,
+				B102A63220944D0800E58028 /* HomepageViewController.swift in Sources */,
 				B1524F29208B13E100A76401 /* ConstraintMakerPriortizable 14-29-03-595.swift in Sources */,
 				B1524F48208B13E100A76401 /* NetworkFetcher 14-29-03-638.swift in Sources */,
 				B138D0E8205DEFCD00C23A6E /* pushNewPostViewController.swift in Sources */,
@@ -1769,6 +1812,7 @@
 				B16A8C80205E03440062EEE5 /* CLPhotosVIew.m in Sources */,
 				B1524F76208B13E100A76401 /* PhotoBrowser+Main 14-29-03-582.swift in Sources */,
 				B1524F6E208B13E100A76401 /* NVActivityIndicatorShape 14-29-03-552.swift in Sources */,
+				B102A63520944DBB00E58028 /* HomeNavigationView.swift in Sources */,
 				B140C54520230ABE00293DBC /* TEXTViewController.swift in Sources */,
 				B1524F36208B13E100A76401 /* Debugging 14-29-03-636.swift in Sources */,
 				B1850FC0205D0763007CD28B /* SWUtilityButtonTapGestureRecognizer.m in Sources */,

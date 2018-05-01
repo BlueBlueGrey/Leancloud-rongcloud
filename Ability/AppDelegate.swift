@@ -11,12 +11,13 @@ import CoreData
 import Alamofire
 import LeanCloud
 import AVOSCloud
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+ 
     var window: UIWindow?
     var token=""
-
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
       
@@ -45,25 +46,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mineViewController=UINavigationController(rootViewController: MineViewController())
         
-       let home=UINavigationController(rootViewController: HomepageViewController())
+       //let home=UINavigationController(rootViewController: HomepageViewController())
+        //tabbatController.viewControllers=[communityViewController,messageViewController,mineViewCo//ntroller,home]
+//        let home=UINavigationController(rootViewController: LocationViewController())
+//        tabbatController.viewControllers=[communityViewController,messageViewController,mineViewController,home]
+        
+        
+        let home=UINavigationController(rootViewController: LocalTwpViewController())
         tabbatController.viewControllers=[communityViewController,messageViewController,mineViewController,home]
-        
-        
         
         let tabitem1 = UITabBarItem(title: "广场", image: UIImage(named: "bio"), selectedImage: UIImage(named: "bio_red"))
         let tabitem2 = UITabBarItem(title: "消息", image: UIImage(named: "chat 3"), selectedImage: UIImage(named: "chat 3_red"))
         let tabitem3 = UITabBarItem(title: "我的", image: UIImage(named: "pencil"), selectedImage: UIImage(named: "pencil_red"))
        
-        
+        let tabitem4=UITabBarItem(title: "推荐", image: UIImage(named: "jian"), selectedImage: UIImage(named: "jian"))
         communityViewController.tabBarItem=tabitem1
         messageViewController.tabBarItem=tabitem2
         mineViewController.tabBarItem=tabitem3
         
+        home.tabBarItem=tabitem4
         communityViewController.tabBarController?.tabBar.tintColor=MAIN_RED
         
         self.window?.rootViewController = tabbatController
         self.window?.makeKeyAndVisible()
- 
  
  
         
@@ -195,4 +200,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
 

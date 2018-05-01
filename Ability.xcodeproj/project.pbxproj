@@ -19,6 +19,8 @@
 		B107E40B208F0D5800658DE8 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B107E40A208F0D5800658DE8 /* ItemCell.xib */; };
 		B107E411208F14FB00658DE8 /* StoryboardOp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B107E410208F14FB00658DE8 /* StoryboardOp.storyboard */; };
 		B107E413208F1C0E00658DE8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B107E412208F1C0E00658DE8 /* File.swift */; };
+		B10E44F520983F6400A4FF7C /* CaiyiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E44F420983F6400A4FF7C /* CaiyiViewController.swift */; };
+		B10E44F92098464000A4FF7C /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E44F82098464000A4FF7C /* SSButton.swift */; };
 		B115BD052091C9A000EDE7EC /* discussCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B115BD042091C9A000EDE7EC /* discussCell.swift */; };
 		B11AA22E1FF0E7C500F98203 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = B11AA22D1FF0E7C500F98203 /* NSString+SHA1.m */; };
 		B126004A2055458200511DCC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12600492055458200511DCC /* LoginStoryboard.storyboard */; };
@@ -47,6 +49,12 @@
 		B138D0E5205DEEAB00C23A6E /* GeneralFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138D0E4205DEEAB00C23A6E /* GeneralFactory.swift */; };
 		B138D0E8205DEFCD00C23A6E /* pushNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138D0E7205DEFCD00C23A6E /* pushNewPostViewController.swift */; };
 		B138D0EA205DF3CF00C23A6E /* CSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138D0E9205DF3CF00C23A6E /* CSViewController.swift */; };
+		B13D731A20973AED0002356C /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13D731920973AED0002356C /* DesignViewController.swift */; };
+		B13D731C20973AFB0002356C /* DesignStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B13D731B20973AFB0002356C /* DesignStoryboard.storyboard */; };
+		B13D731E209747D20002356C /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13D731D209747D20002356C /* SignatureViewController.swift */; };
+		B13E36FF2097082300543BAE /* LAXLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13E36FE2097082300543BAE /* LAXLocationManager.swift */; };
+		B13E3703209715C600543BAE /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13E3702209715C600543BAE /* LocationViewController.swift */; };
+		B13E3705209717FD00543BAE /* LocalTwpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13E3704209717FD00543BAE /* LocalTwpViewController.swift */; };
 		B140C54520230ABE00293DBC /* TEXTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140C54420230ABE00293DBC /* TEXTViewController.swift */; };
 		B144739C2058CD7400D89E08 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144739B2058CD7400D89E08 /* CommunityViewController.swift */; };
 		B144739E2058CE7D00D89E08 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144739D2058CE7D00D89E08 /* MessageViewController.swift */; };
@@ -279,6 +287,8 @@
 		B107E40A208F0D5800658DE8 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		B107E410208F14FB00658DE8 /* StoryboardOp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardOp.storyboard; sourceTree = "<group>"; };
 		B107E412208F1C0E00658DE8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B10E44F420983F6400A4FF7C /* CaiyiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaiyiViewController.swift; sourceTree = "<group>"; };
+		B10E44F82098464000A4FF7C /* SSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
 		B115BD042091C9A000EDE7EC /* discussCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discussCell.swift; sourceTree = "<group>"; };
 		B11AA22C1FF0E79400F98203 /* NSString+SHA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		B11AA22D1FF0E7C500F98203 /* NSString+SHA1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
@@ -315,6 +325,12 @@
 		B138D0E4205DEEAB00C23A6E /* GeneralFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralFactory.swift; sourceTree = "<group>"; };
 		B138D0E7205DEFCD00C23A6E /* pushNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pushNewPostViewController.swift; sourceTree = "<group>"; };
 		B138D0E9205DF3CF00C23A6E /* CSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSViewController.swift; sourceTree = "<group>"; };
+		B13D731920973AED0002356C /* DesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
+		B13D731B20973AFB0002356C /* DesignStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DesignStoryboard.storyboard; sourceTree = "<group>"; };
+		B13D731D209747D20002356C /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
+		B13E36FE2097082300543BAE /* LAXLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAXLocationManager.swift; sourceTree = "<group>"; };
+		B13E3702209715C600543BAE /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		B13E3704209717FD00543BAE /* LocalTwpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTwpViewController.swift; sourceTree = "<group>"; };
 		B140C54420230ABE00293DBC /* TEXTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEXTViewController.swift; sourceTree = "<group>"; };
 		B144739B2058CD7400D89E08 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		B144739D2058CE7D00D89E08 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -653,6 +669,7 @@
 				B12600532055491000511DCC /* M */,
 				B12600522055490D00511DCC /* V */,
 				B12600512055490600511DCC /* C */,
+				B13E36FE2097082300543BAE /* LAXLocationManager.swift */,
 			);
 			path = LOGIN;
 			sourceTree = "<group>";
@@ -760,6 +777,7 @@
 		B136C5C81FEE80B200658B76 /* Ability */ = {
 			isa = PBXGroup;
 			children = (
+				B13E37012097155000543BAE /* Localtion */,
 				B12B9BFD207E504700DBB36E /* PostLayout */,
 				B138D0E1205DEE7100C23A6E /* Factory */,
 				B14473952058CB6000D89E08 /* TABLEBAR */,
@@ -822,9 +840,31 @@
 			path = pushNewPost;
 			sourceTree = "<group>";
 		};
+		B13D731820973ACC0002356C /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				B13D731920973AED0002356C /* DesignViewController.swift */,
+				B10E44F82098464000A4FF7C /* SSButton.swift */,
+				B13D731B20973AFB0002356C /* DesignStoryboard.storyboard */,
+				B13D731D209747D20002356C /* SignatureViewController.swift */,
+				B10E44F420983F6400A4FF7C /* CaiyiViewController.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		B13E37012097155000543BAE /* Localtion */ = {
+			isa = PBXGroup;
+			children = (
+				B13E3702209715C600543BAE /* LocationViewController.swift */,
+				B13E3704209717FD00543BAE /* LocalTwpViewController.swift */,
+			);
+			path = Localtion;
+			sourceTree = "<group>";
+		};
 		B14473952058CB6000D89E08 /* TABLEBAR */ = {
 			isa = PBXGroup;
 			children = (
+				B13D731820973ACC0002356C /* Design */,
 				B159C40320936866005EA551 /* Comment */,
 				B103D09C208EEC8100B7C504 /* OtherPeo */,
 				B103D099208EE98200B7C504 /* Dynamic */,
@@ -1487,6 +1527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B136C5D71FEE80B200658B76 /* LaunchScreen.storyboard in Resources */,
+				B13D731C20973AFB0002356C /* DesignStoryboard.storyboard in Resources */,
 				B1524F7D208B13E100A76401 /* timg 13-43-48-008.jpeg in Resources */,
 				B1CF07272057EEA200E45BEF /* whiteplaceholder.png in Resources */,
 				B1524F3C208B13E100A76401 /* Contents.json in Resources */,
@@ -1614,6 +1655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10E44F520983F6400A4FF7C /* CaiyiViewController.swift in Sources */,
 				B1524F4E208B13E100A76401 /* NVActivityIndicatorAnimationBallClipRotate 14-29-03-651.swift in Sources */,
 				B16A8C97205E03590062EEE5 /* TZAssetCell.m in Sources */,
 				B12B9C08207E504700DBB36E /* data.swift in Sources */,
@@ -1624,6 +1666,7 @@
 				B12600592055613400511DCC /* RtwoViewController.swift in Sources */,
 				B1524F34208B13E100A76401 /* CryptoSwiftMD5 14-29-03-554.swift in Sources */,
 				B1524F19208B13E100A76401 /* ConstraintConfig 14-29-03-548.swift in Sources */,
+				B10E44F92098464000A4FF7C /* SSButton.swift in Sources */,
 				B16A8C9C205E03590062EEE5 /* TZPhotoPickerController.m in Sources */,
 				B1524F63208B13E100A76401 /* NVActivityIndicatorAnimationLineScale 14-29-03-537.swift in Sources */,
 				B1524F74208B13E100A76401 /* PhotoBrowser+HUD 14-29-03-620.swift in Sources */,
@@ -1690,6 +1733,7 @@
 				B1CF07282057EEA200E45BEF /* MJRefreshAutoFooter.m in Sources */,
 				B1524F26208B13E100A76401 /* ConstraintMakerEditable 14-29-03-617.swift in Sources */,
 				B1CF07262057EEA200E45BEF /* HZPhotoBrowserView.m in Sources */,
+				B13E3705209717FD00543BAE /* LocalTwpViewController.swift in Sources */,
 				B1CF071A2057EEA200E45BEF /* UIImage+WebP.m in Sources */,
 				B16A8C9F205E03590062EEE5 /* TZVideoPlayerController.m in Sources */,
 				B1524F81208B13E100A76401 /* UIButton+Haneke 14-29-03-541.swift in Sources */,
@@ -1697,6 +1741,7 @@
 				B1524F15208B13E100A76401 /* CGSize+Swift 14-29-03-480.swift in Sources */,
 				B1CF07102057EEA200E45BEF /* SDImageCache.m in Sources */,
 				B16A8C9E205E03590062EEE5 /* TZPhotoPreviewController.m in Sources */,
+				B13D731A20973AED0002356C /* DesignViewController.swift in Sources */,
 				B1524F25208B13E100A76401 /* ConstraintMaker 14-29-03-586.swift in Sources */,
 				B1524F17208B13E100A76401 /* Constraint 14-29-03-539.swift in Sources */,
 				B1524F4C208B13E100A76401 /* NVActivityIndicatorAnimationAudioEqualizer 14-29-03-571.swift in Sources */,
@@ -1745,6 +1790,7 @@
 				B107E413208F1C0E00658DE8 /* File.swift in Sources */,
 				B1CF072F2057EEA200E45BEF /* MJRefreshAutoStateFooter.m in Sources */,
 				B126004F2055480400511DCC /* ImageHelper.swift in Sources */,
+				B13D731E209747D20002356C /* SignatureViewController.swift in Sources */,
 				B1CF07062057EEA200E45BEF /* IGLDropDownItem.m in Sources */,
 				B1CF070F2057EEA200E45BEF /* NSData+ImageContentType.m in Sources */,
 				B16A8C7C205E03440062EEE5 /* CLTextView.m in Sources */,
@@ -1773,6 +1819,7 @@
 				B1524F75208B13E100A76401 /* PhotoBrowser+Indicator 14-29-03-634.swift in Sources */,
 				B1524F51208B13E100A76401 /* NVActivityIndicatorAnimationBallGridBeat 14-29-03-589.swift in Sources */,
 				B1524F57208B13E100A76401 /* NVActivityIndicatorAnimationBallRotateChase 14-29-03-534.swift in Sources */,
+				B13E3703209715C600543BAE /* LocationViewController.swift in Sources */,
 				B1524F6C208B13E100A76401 /* NVActivityIndicatorAnimationTriangleSkewSpin 14-29-03-613.swift in Sources */,
 				B1524F1A208B13E100A76401 /* ConstraintConstantTarget 14-29-03-547.swift in Sources */,
 				B1524F16208B13E100A76401 /* CollectionView 14-29-03-599.swift in Sources */,
@@ -1786,6 +1833,7 @@
 				B1524F48208B13E100A76401 /* NetworkFetcher 14-29-03-638.swift in Sources */,
 				B138D0E8205DEFCD00C23A6E /* pushNewPostViewController.swift in Sources */,
 				B1524F58208B13E100A76401 /* NVActivityIndicatorAnimationBallScale 14-29-03-555.swift in Sources */,
+				B13E36FF2097082300543BAE /* LAXLocationManager.swift in Sources */,
 				B1CF07382057EEA300E45BEF /* UIScrollView+MJExtension.m in Sources */,
 				B1FAC0AB201D840000211DC4 /* GoodFriendTableViewController.swift in Sources */,
 				B1524F54208B13E100A76401 /* NVActivityIndicatorAnimationBallPulseRise 14-29-03-622.swift in Sources */,

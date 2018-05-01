@@ -165,6 +165,15 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         cell?.avatorImage.tag=indexPath.row
         cell!.selectionStyle = .none
         
+        
+        let format = DateFormatter()
+        format.dateFormat = "yy-MM-dd hh:mm"
+        
+        
+        let date = obj["createdAt"] as? NSDate
+        cell?.timeLabel.numberOfLines=0
+        cell?.timeLabel.text = format.string(from: date! as Date)
+        
         cell!.heightZhi = { cellflag in
             self.selectItems[indexPath.row] = cellflag
             self.tableView?.reloadData()
@@ -184,8 +193,8 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.dataArray.count
-        return 0
+    return self.dataArray.count
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

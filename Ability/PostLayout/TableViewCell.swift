@@ -59,7 +59,7 @@ class defalutTableViewCell: UITableViewCell {
         timeLabel.font = UIFont.systemFont(ofSize: 12)
         timeLabel.textColor = UIColor.gray
         timeLabel.text = "两小时前"
-        btn.setImage(UIImage(named:"menu"), for: UIControlState())
+        btn.setImage(UIImage(named:"heart"), for: UIControlState())
         btn.addTarget(self, action: #selector(defalutTableViewCell.click), for: .touchUpInside)
         
         
@@ -74,7 +74,7 @@ class defalutTableViewCell: UITableViewCell {
     
     @objc func click(){
         
-        btn.setImage(UIImage(named:"good"), for: UIControlState())
+        btn.setImage(UIImage(named:"redheart"), for: UIControlState())
         //menuview.clickMenu()
     }
     
@@ -152,11 +152,11 @@ class defalutTableViewCell: UITableViewCell {
         btn.frame.origin.x = UIScreen.main.bounds.width - 10 - 15
         self.menuview.frame = CGRect(x: 0, y: h2 - 8, width: 14.5, height: 0)
         self.menuview.frame.origin.x = UIScreen.main.bounds.width - 10 - 15
-        self.menuview.likeBtn.setImage(UIImage(named: "btn_star_evaluation_press"), for: UIControlState())
+        self.menuview.likeBtn.setImage(UIImage(named: "redheart"), for: UIControlState())
         
         
         self.menuview.likeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        self.menuview.commentBtn.setImage(UIImage(named: "c"), for: UIControlState())
+        self.menuview.commentBtn.setImage(UIImage(named: "redheart"), for: UIControlState())
         self.menuview.commentBtn.setTitle("评论", for: UIControlState())
         self.menuview.commentBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         self.menuview.likeBtn.tag = indexRow.row

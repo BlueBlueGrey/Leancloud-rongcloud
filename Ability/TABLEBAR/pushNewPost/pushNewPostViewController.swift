@@ -30,6 +30,9 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
         
         // Do any additional setup after loading the view.
         
+        
+        
+        
         let width = self.view.frame.size.width
         let height=self.view.frame.size.height
         // let textView = CLTextView(frame: CGRect(x: 0, y: 64, width: width, height: 300))

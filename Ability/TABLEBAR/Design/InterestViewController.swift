@@ -1,5 +1,5 @@
 //
-//  CaiyiViewController.swift
+//  InterestViewController.swift
 //  Ability
 //
 //  Created by BlueGrey on 2018/5/1.
@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
-class CaiyiViewController: CSViewController {
-
+import AVOSCloud
+class InterestViewController: CSViewController {
+    
     var xueke:SSButton?
     var shougong:SSButton?
     var wudao:SSButton?
@@ -25,22 +25,22 @@ class CaiyiViewController: CSViewController {
     var closure:(( _ x:[Bool] ) -> ())?
     
     let BGcolor=UIColor.gray
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.white
         
         label=UILabel(frame: CGRect(x: 20, y: 65, width: view.frame.width, height: 20))
-        label?.text="    请选择你擅长的选项"
+        label?.text="    请选择你感兴趣的选项"
         self.view.addSubview(label!)
         
         let w=view.frame.width/2
         let h:CGFloat=20
         xueke = SSButton.init(frame: CGRect.zero,
-                                             type: .custom,
-                                             imageSize: CGSize(width:40,height:40),
-                                             space: 8,
-                                             titleTextType: SSButton.TitleTextType(rawValue: 0)!)
+                              type: .custom,
+                              imageSize: CGSize(width:40,height:40),
+                              space: 8,
+                              titleTextType: SSButton.TitleTextType(rawValue: 0)!)
         
         xueke?.setTitle("学科", for: .normal)
         xueke?.setTitleColor(UIColor.black, for: .normal)
@@ -58,10 +58,10 @@ class CaiyiViewController: CSViewController {
         
         
         shougong = SSButton.init(frame: CGRect.zero,
-                              type: .custom,
-                              imageSize: CGSize(width:40,height:40),
-                              space: 8,
-                              titleTextType: SSButton.TitleTextType(rawValue: 0)!)
+                                 type: .custom,
+                                 imageSize: CGSize(width:40,height:40),
+                                 space: 8,
+                                 titleTextType: SSButton.TitleTextType(rawValue: 0)!)
         
         shougong?.setTitle("手工", for: .normal)
         
@@ -98,12 +98,12 @@ class CaiyiViewController: CSViewController {
         wudao?.addTarget(self, action: #selector(Click3), for: .touchUpInside)
         wudao?.isSelected=shanchang![2]
         
-       
+        
         yingyue = SSButton.init(frame: CGRect.zero,
-                              type: .custom,
-                              imageSize: CGSize(width:40,height:40),
-                              space: 8,
-                              titleTextType: SSButton.TitleTextType(rawValue: 0)!)
+                                type: .custom,
+                                imageSize: CGSize(width:40,height:40),
+                                space: 8,
+                                titleTextType: SSButton.TitleTextType(rawValue: 0)!)
         
         yingyue?.setTitle("音乐", for: .normal)
         yingyue?.setTitleColor(UIColor.black, for: .normal)
@@ -119,10 +119,10 @@ class CaiyiViewController: CSViewController {
         yingyue?.isSelected=shanchang![3]
         
         meishu = SSButton.init(frame: CGRect.zero,
-                              type: .custom,
-                              imageSize: CGSize(width:40,height:40),
-                              space: 8,
-                              titleTextType: SSButton.TitleTextType(rawValue: 0)!)
+                               type: .custom,
+                               imageSize: CGSize(width:40,height:40),
+                               space: 8,
+                               titleTextType: SSButton.TitleTextType(rawValue: 0)!)
         
         meishu?.setTitle("美术", for: .normal)
         meishu?.setTitleColor(UIColor.black, for: .normal)
@@ -137,7 +137,7 @@ class CaiyiViewController: CSViewController {
         meishu?.addTarget(self, action: #selector(Click5), for: .touchUpInside)
         
         meishu?.isSelected=shanchang![4]
-    
+        
         youxi = SSButton.init(frame: CGRect.zero,
                               type: .custom,
                               imageSize: CGSize(width:40,height:40),
@@ -158,10 +158,10 @@ class CaiyiViewController: CSViewController {
         youxi?.isSelected=shanchang![5]
         
         sheying = SSButton.init(frame: CGRect.zero,
-                              type: .custom,
-                              imageSize: CGSize(width:40,height:40),
-                              space: 8,
-                              titleTextType: SSButton.TitleTextType(rawValue: 0)!)
+                                type: .custom,
+                                imageSize: CGSize(width:40,height:40),
+                                space: 8,
+                                titleTextType: SSButton.TitleTextType(rawValue: 0)!)
         
         sheying?.setTitle("摄影", for: .normal)
         sheying?.setTitleColor(UIColor.black, for: .normal)
@@ -177,10 +177,10 @@ class CaiyiViewController: CSViewController {
         sheying?.isSelected=shanchang![6]
         
         yundong = SSButton.init(frame: CGRect.zero,
-                              type: .custom,
-                              imageSize: CGSize(width:40,height:40),
-                              space: 8,
-                              titleTextType: SSButton.TitleTextType(rawValue: 0)!)
+                                type: .custom,
+                                imageSize: CGSize(width:40,height:40),
+                                space: 8,
+                                titleTextType: SSButton.TitleTextType(rawValue: 0)!)
         
         yundong?.setTitle("运动", for: .normal)
         yundong?.setTitleColor(UIColor.black, for: .normal)
@@ -195,10 +195,10 @@ class CaiyiViewController: CSViewController {
         yundong?.isSelected=shanchang![7]
         
         qita = SSButton.init(frame: CGRect.zero,
-                              type: .custom,
-                              imageSize: CGSize(width:40,height:40),
-                              space: 8,
-                              titleTextType: SSButton.TitleTextType(rawValue: 0)!)
+                             type: .custom,
+                             imageSize: CGSize(width:40,height:40),
+                             space: 8,
+                             titleTextType: SSButton.TitleTextType(rawValue: 0)!)
         
         qita?.setTitle("其他", for: .normal)
         qita?.setTitleColor(UIColor.black, for: .normal)
@@ -211,12 +211,12 @@ class CaiyiViewController: CSViewController {
         qita?.setTitleColor(UIColor.white, for: .selected)
         qita?.addTarget(self, action: #selector(Click9), for: .touchUpInside)
         qita?.isSelected=shanchang![8]
-     
+        
         
         /*
-    shougong wudao yingyue meishu youxi sheying yundong qita
+         shougong wudao yingyue meishu youxi sheying yundong qita
          */
- 
+        
         
         if(shougong?.isSelected)!{
             shougong?.backgroundColor=BGcolor
@@ -248,14 +248,14 @@ class CaiyiViewController: CSViewController {
         }
     }
     @objc func Click1(sender:SSButton){
-    
+        
         sender.isSelected = !(sender.isSelected)
         shanchang![0] = !shanchang![0]
         
         if(sender.isSelected){
             sender.backgroundColor=BGcolor
         }else{
-             sender.backgroundColor=UIColor.white
+            sender.backgroundColor=UIColor.white
         }
     }
     
@@ -343,13 +343,13 @@ class CaiyiViewController: CSViewController {
             sender.backgroundColor=UIColor.white
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     override func sure(){
         
         print("sure")
@@ -364,13 +364,14 @@ class CaiyiViewController: CSViewController {
         self.dismiss(animated: true, completion: nil)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+

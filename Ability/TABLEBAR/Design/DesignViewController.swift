@@ -13,7 +13,10 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     
-    let dataArry=[" 个性签名","特长标签"," 性别"," 生日"," 学校"," 行业"," 职业"," 兴趣标签"]
+    let dataArry=[" 个性签名"," 特长标签"," 性别"," 生日"," 学校"," 行业"," 职业"," 兴趣标签"]
+    let caiyi=["学科","手工","舞蹈","音乐","美术","游戏","摄影","运动","其他"]
+    var shanchang=[false,false,false,false,false,false,false,false,false]
+    var ganxingqu=[false,false,false,false,false,false,false,false,false]
     var IndexClick:IndexPath?
     
     var tableView:UITableView?
@@ -25,7 +28,16 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     var labelId:UILabel?
     
+    var obj:AVObject?
     
+    var l1=""
+    var l2=""
+    var l3=""
+    var l4=""
+    var l5=""
+    var l6=""
+    var l7=""
+    var l8=""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +52,138 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tableView?.tableFooterView=UIView()
         self.view.addSubview(self.tableView!)
       
+        
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", equalTo: AVUser.current()?.username)
+        let temp=query.findObjects() as! [AVObject]
+        if(temp.count>0)
+        {
+         obj=temp[0]
+        }
      
+        
+            if let detail=obj!["signature"]
+            {
+                l1 = detail as! String
+            }
+        
+            if let detail=obj!["special"]
+            {
+                let arry=detail as! [Bool]
+                for i in 0...8{
+                    shanchang[i]=arry[i]
+                    if(arry[i]){
+                        l2=l2+"\(caiyi[i])、"
+                    }
+                }
+               
+            }
+        
+            
+            if let detail=obj!["sex"]
+            {
+                l3 = detail as! String
+            }
+        
+            if let detail=obj!["birth"]
+            {
+                l4 = detail as! String
+            }
+          
+            if let detail=obj!["school"]
+            {
+                l5 = detail as! String
+            }
+       
+            if let detail=obj!["business"]
+            {
+                l6 = detail as! String
+            }
+            
+            if let detail=obj!["work"]
+            {
+                l7 = detail as! String
+            }
+         
+            if let detail=obj!["interest"]
+            {
+                let arry=detail as! [Bool]
+                for i in 0...8{
+                    ganxingqu[i]=arry[i]
+                    if(arry[i]){
+                        l8=l8+"\(caiyi[i])、"
+                    }
+                }
+            
+            }
+           
         
         // Do any additional setup after loading the view.
     }
     
     
+    
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden=true
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", equalTo: AVUser.current()?.username)
+        let temp=query.findObjects() as! [AVObject]
+        if(temp.count>0)
+        {
+            obj=temp[0]
+        }
         
+        
+        if let detail=obj!["signature"]
+        {
+            l1 = detail as! String
+        }
+        
+        if let detail=obj!["special"]
+        {
+            let arry=detail as! [Bool]
+            for i in 0...8{
+                shanchang[i]=arry[i]
+                if(arry[i]){
+                    l2=l2+"\(caiyi[i])、"
+                }
+            }
+            l2 = detail as! String
+        }
+        
+        
+        if let detail=obj!["sex"]
+        {
+            l3 = detail as! String
+        }
+        
+        if let detail=obj!["birth"]
+        {
+            l4 = detail as! String
+        }
+        
+        if let detail=obj!["school"]
+        {
+            l5 = detail as! String
+        }
+        
+        if let detail=obj!["business"]
+        {
+            l6 = detail as! String
+        }
+        
+        if let detail=obj!["work"]
+        {
+            l7 = detail as! String
+        }
+        
+        if let detail=obj!["interest"]
+        {
+            l8 = detail as! String
+        }
+        
+        
+        tableView?.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
        self.tabBarController?.tabBar.isHidden=false
@@ -102,17 +237,79 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
         var text: String
         let detailText = "detail_text"
         cellId = "value1xx"
-        style = UITableViewCellStyle.default
-        text = "default_text"
+        style = UITableViewCellStyle.value1
+        
         var text_detail=""
         cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         if cell == nil {
             cell = UITableViewCell (style: style, reuseIdentifier: cellId)
         }
         text=dataArry[indexPath.row]
-        cell?.imageView?.image = image
+        //cell?.imageView?.image = image
         cell?.textLabel?.text = text
-        cell?.detailTextLabel?.text = detailText
+        
+        switch indexPath.row {
+        case 0:
+            
+                cell?.detailTextLabel?.text = l1
+            break
+            
+        case 1:
+            
+            l2=""
+            for i in 0...8{
+                if(shanchang[i]){
+                    l2=l2+"\(caiyi[i])、"
+                }
+            }
+                cell?.detailTextLabel?.text = l2
+           
+            break
+        case 2:
+            
+            
+                cell?.detailTextLabel?.text = l3
+            
+            break
+        case 3:
+            
+            
+                cell?.detailTextLabel?.text = l4
+            
+            break
+        case 4:
+            
+            
+                cell?.detailTextLabel?.text = l5
+            
+            break
+        case 5:
+            
+            
+                cell?.detailTextLabel?.text = l6
+            
+            break
+        case 6:
+            
+        
+                cell?.detailTextLabel?.text = l7
+            
+            break
+        case 7:
+            l2=""
+            for i in 0...8{
+                if(ganxingqu[i]){
+                    l8=l8+"\(caiyi[i])、"
+                }
+            }
+        
+                cell?.detailTextLabel?.text = l8
+            
+            break
+        default:
+            break
+        }
+       
         cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell!
     }
@@ -131,17 +328,37 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             print("sdfasd\n\n")
             print(indexPath.row)
             let vc=SignatureViewController()
+            vc.placehoderStr="Ta说这个性签名还得再想想"
             GeneralFactory.addTitleWithTile(target: vc)
+            if(l1 != ""){
+                vc.textView.text=l1
+            }
+            vc.closure={
+                (str:String) -> ()
+                in
+                self.l1=str
+            }
             self.present(vc, animated: true, completion: nil)
             
             break
             //    text = " 个性签名"
             
-        case "特长标签"?:
+        case " 特长标签"?:
               let vc=CaiyiViewController()
-            GeneralFactory.addTitleWithTile(target: vc)
+              vc.shanchang=self.shanchang
+              GeneralFactory.addTitleWithTile(target: vc)
+              
+              vc.closure={
+                (x:[Bool]) -> ()
+                in
+                self.shanchang=x
+              }
+             
             self.present(vc, animated: true, completion: nil)
             
+              
+              
+              
             break
             
             //    text = " 特长标签"
@@ -149,12 +366,13 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
         case " 性别"?:
             
             let alertController = UIAlertController()
-            let cancelAction = UIAlertAction(title: "男", style: .default, handler: nil)
-            let deleteAction = UIAlertAction(title: "女", style: .default, handler: nil)
-            let archiveAction = UIAlertAction(title: "保存", style: .destructive, handler: nil)
+            let cancelAction = UIAlertAction(title: "男", style: .default, handler:
+            {(action:UIAlertAction)->Void in self.l3="男"})
+            let deleteAction = UIAlertAction(title: "女", style: .default, handler: {(action:UIAlertAction)->Void in self.l3="女"})
+           
             alertController.addAction(cancelAction)
             alertController.addAction(deleteAction)
-            alertController.addAction(archiveAction)
+            alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel,handler:nil))
             self.present(alertController, animated: true, completion: nil)
             
             break
@@ -175,12 +393,14 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             // datePicker.addTarget(self, action:Selector("datePickerValueChange:"), forControlEvents: UIControlEvents.ValueChanged)
             alertController.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default){
                 (alertAction)->Void in
-                print("date select: \(datePicker.date.description)")
-                //获取上一节中自定义的按钮外观DateButton类，设置DateButton类属性thedate
-              //  let myDateButton=self.Datebutt as? DateButton
-             //   myDateButton?.thedate=datePicker.date
-                //强制刷新
-              //  myDateButton?.setNeedsDisplay()
+                
+               // print("date select: \(datePicker.date.description)山东分公司的风格")
+                
+                let format = DateFormatter()
+                format.dateFormat = "yyyy-MM-dd"
+                
+                print("date select: \(format.string(for:datePicker.date))山东分公司的风格")
+                self.l4=format.string(for:datePicker.date)!
             })
             alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel,handler:nil))
             
@@ -193,6 +413,7 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
         //    text = " 生日"
         case " 学校"?:
             let vc=SignatureViewController()
+            vc.placehoderStr="请输入您的学校"
             GeneralFactory.addTitleWithTile(target: vc)
             self.present(vc, animated: true, completion: nil)
             
@@ -201,8 +422,12 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
         //   text = " 学校"
         case " 行业"?:
             
-            let vc=SignatureViewController()
-            GeneralFactory.addTitleWithTile(target: vc)
+            let vc=HangTableViewController()
+            vc.closure={
+                (str:String) -> ()
+                in
+                self.l6=str
+            }
             self.present(vc, animated: true, completion: nil)
             
             
@@ -211,13 +436,27 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
         case " 职业"?:
             
             let vc=SignatureViewController()
+             vc.placehoderStr="请输入您的职业"
             GeneralFactory.addTitleWithTile(target: vc)
             self.present(vc, animated: true, completion: nil)
             
             break
             
        
-        case " 兴趣标签"?: break
+        case " 兴趣标签"?:
+            let vc=InterestViewController()
+            
+            vc.shanchang=self.ganxingqu
+            GeneralFactory.addTitleWithTile(target: vc)
+            
+            vc.closure={
+                (x:[Bool]) -> ()
+                in
+                self.ganxingqu=x
+            }
+            GeneralFactory.addTitleWithTile(target: vc)
+            self.present(vc, animated: true, completion: nil)
+            break
             
        
         default: break
@@ -225,7 +464,7 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             //  text = ""
         }
         
-        
+        tableView.reloadData()
     }
  
     func numberOfSections(in tableView: UITableView) -> Int {

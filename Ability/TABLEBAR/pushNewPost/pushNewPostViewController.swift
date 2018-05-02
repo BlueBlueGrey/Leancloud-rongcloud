@@ -15,6 +15,7 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
     var textView:CLTextView!
     var phontView:CLPhotosVIew!
     var imgArr:NSMutableArray!
+    var kind:Int?
     /*懒加载*/
     func ImgArr() -> NSMutableArray {
         if imgArr == nil {
@@ -108,7 +109,10 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
         let obj=AVObject(className: "newPost")
         obj.setObject(AVUser.current()?.username, forKey: "id")
         obj.setObject(textView.text, forKey: "text")
-        
+        obj.setObject(kind, forKey: "kind")
+        self.view.isUserInteractionEnabled=false
+        var flag=0
+        ProgressHUD.show("")
         for i in 0..<imgArr.count{
             
             var file=AVFile(data:UIImagePNGRepresentation(imgArr[i] as! UIImage)!)
@@ -120,9 +124,14 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
                  
                     obj.saveInBackground({ (s, e) in
                         if(s){
-                            ProgressHUD.showSuccess("第\(i+1)张图片上传成功", interaction: true)
+                            flag=flag+1
+                            if(flag==self.imgArr.count){
+                                ProgressHUD.showSuccess("上传成功", interaction: true)
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                           
                         }else{
-                           ProgressHUD.showSuccess("第\(i+1)张图片上传失败", interaction: true)
+                           ProgressHUD.showSuccess("上传失败", interaction: true)
                         }
                        
                     })

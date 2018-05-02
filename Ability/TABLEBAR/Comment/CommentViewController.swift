@@ -31,25 +31,31 @@ class CommentViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identify:String = "discussCell\(indexPath.row)"
+        var cell:discussCell? = tableView.cellForRow(at: indexPath) as? discussCell
+        if cell == nil{
+            cell = discussCell(style: UITableViewCellStyle.default, reuseIdentifier: identify)
+        }
+        /*
         var cell = self.tableView?.dequeueReusableCell(withIdentifier: "discussCell") as! discussCell
+        */
+        cell?.initFrame()
         
-        cell.initFrame()
+        cell?.rightUtilityButtons = self.returnRightBtn()
         
-        cell.rightUtilityButtons = self.returnRightBtn()
-        
-        cell.delegate = self
+        cell?.delegate = self
         let object = self.dataArray[indexPath.row] as? AVObject
         
         let id = object!["id"] as? String
-        cell.nameLabel?.text = id
-        cell.avatarImage?.image = #imageLiteral(resourceName: "alien")
+        cell?.nameLabel?.text = id
+        cell?.avatarImage?.image = #imageLiteral(resourceName: "alien")
         let  query=AVQuery(className: "Custom_User")
         query.whereKey("id", equalTo: id )
         let temp=query.findObjects() as! [AVObject]
         if(temp.count>0)
         {
             let U=temp[0]["portrait"] as! AVFile
-            cell.avatarImage?.image=UIImage(data: U.getData()!)
+            cell?.avatarImage?.image=UIImage(data: U.getData()!)
         }
         
         
@@ -60,9 +66,9 @@ class CommentViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         // cell.detailLabel=UILabel(frame: CGRect(x: 56, y: 30, width: SCREEN_WIDTH-56-8, height: (textSize?.height)!+10))
         
-        cell.detailLabel?.text = object!["text"] as? String
+        cell?.detailLabel?.text = object!["text"] as? String
         
-        
+    //    cell?.initFrame()
         //  cell.dateLabel=UILabel(frame: CGRect(x: 56, y: (textSize?.height)!+30, width: SCREEN_WIDTH-56-8, height: 10))
         
         let format = DateFormatter()
@@ -70,8 +76,8 @@ class CommentViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         let date = object!["createdAt"] as? NSDate
-        cell.dateLabel?.text = format.string(from: date! as Date)
-        return cell
+        cell?.dateLabel?.text = format.string(from: date! as Date)
+        return cell!
     }
     
     override func viewDidLoad() {
@@ -84,7 +90,7 @@ class CommentViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         self.tableView?.tableFooterView=UIView()
         self.view.addSubview(tableView!)
-        self.tableView?.register(discussCell.self, forCellReuseIdentifier: "discussCell")
+       /* self.tableView?.register(discussCell.self, forCellReuseIdentifier: "discussCell")*/
         
         self.tableView?.delegate=self
         self.tableView?.dataSource=self
@@ -98,7 +104,7 @@ class CommentViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         
-        return (textSize?.height)! + 30 + 25
+        return (textSize?.height)! + 80
     }
     
     
@@ -157,7 +163,7 @@ class CommentViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     
-    func swipeableTableViewCell(cell: SWTableViewCell!, scrollingToState state: SWCellState) {
+    func swipeableTableViewCell(_ cell: SWTableViewCell!, scrollingTo state: SWCellState) {
         let indexPath = self.tableView?.indexPath(for: cell)
         if state == .cellStateRight{
             if self.swipIndexPath != nil && self.swipIndexPath?.row != indexPath?.row {

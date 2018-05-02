@@ -10,4 +10,10 @@ target 'Ability' do
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'IBAnimatable'
+    
+    pod 'Kingfisher'
+    pod 'KYCircularProgress'
+    pod 'SnapKit'
+    pod 'GrowingTextView'
+    
 end

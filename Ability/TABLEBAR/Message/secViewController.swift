@@ -130,8 +130,10 @@ class secViewController: RCConversationListViewController,RCIMUserInfoDataSource
         //打开会话界面
         let chat = RCConversationViewController(conversationType: model.conversationType, targetId: model.targetId)
         chat?.title = model.conversationTitle
-        self.navigationController?.pushViewController(chat!, animated: true)
         self.tabBarController?.tabBar.isHidden=true
+       self.navigationController?.pushViewController(chat!, animated: true)
+        
+       // self.tabBarController?.tabBar.isHidden=true
     }
     
     

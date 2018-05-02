@@ -13,7 +13,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
    var token=""
     var dataArray = NSMutableArray()
     
-    
+    var kind:Int?
     
     var IndexClick:IndexPath?
     
@@ -54,7 +54,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
         
     
-        self.setNavigationBar()
+      //  self.setNavigationBar()
         
         self.tableView=UITableView(frame: self.view.frame)
         
@@ -77,7 +77,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationView.isHidden = false
+      //  self.navigationView.isHidden = false
         
         
         
@@ -99,7 +99,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationView.isHidden = true
+      //  self.navigationView.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -310,6 +310,10 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         query.limit = 20
         query.skip = 0
       //  query.whereKey("user", equalTo: AVUser.current())
+        if(kind != -1){
+             query.whereKey("kind", equalTo: kind)
+        }
+        
         query.findObjectsInBackground { (results, error) -> Void in
             self.tableView?.mj_header.endRefreshing()
             

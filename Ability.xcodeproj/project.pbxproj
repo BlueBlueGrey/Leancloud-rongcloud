@@ -31,6 +31,19 @@
 		B12600552055496100511DCC /* LOGINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12600542055496100511DCC /* LOGINViewController.swift */; };
 		B12600572055565E00511DCC /* REGISTERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12600562055565E00511DCC /* REGISTERViewController.swift */; };
 		B12600592055613400511DCC /* RtwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12600582055613400511DCC /* RtwoViewController.swift */; };
+		B12B7D25209956D7003D41ED /* PublishTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D1E209956D7003D41ED /* PublishTagViewController.swift */; };
+		B12B7D26209956D7003D41ED /* PublishTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D1F209956D7003D41ED /* PublishTextViewController.swift */; };
+		B12B7D27209956D7003D41ED /* PublishTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12B7D20209956D7003D41ED /* PublishTextViewController.xib */; };
+		B12B7D28209956D7003D41ED /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D21209956D7003D41ED /* PublishViewController.swift */; };
+		B12B7D29209956D7003D41ED /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12B7D22209956D7003D41ED /* PublishViewController.xib */; };
+		B12B7D2A209956D7003D41ED /* PublishTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D24209956D7003D41ED /* PublishTagBtn.swift */; };
+		B12B7D3920995768003D41ED /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D2F20995767003D41ED /* MeViewController.swift */; };
+		B12B7D3A20995768003D41ED /* MeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D3020995767003D41ED /* MeWebViewController.swift */; };
+		B12B7D3C20995768003D41ED /* MeFootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D3320995767003D41ED /* MeFootModel.swift */; };
+		B12B7D3D20995768003D41ED /* MeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D3520995767003D41ED /* MeFooterView.swift */; };
+		B12B7D3E20995768003D41ED /* VeticalSqureBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D3620995767003D41ED /* VeticalSqureBtn.swift */; };
+		B12B7D3F20995768003D41ED /* MeFootViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D3820995767003D41ED /* MeFootViewVM.swift */; };
+		B12B7D43209975DE003D41ED /* recommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D42209975DE003D41ED /* recommendViewController.swift */; };
 		B12B9C06207E504700DBB36E /* Comment_Like_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B9BFE207E504700DBB36E /* Comment_Like_View.swift */; };
 		B12B9C07207E504700DBB36E /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B9BFF207E504700DBB36E /* CommentView.swift */; };
 		B12B9C08207E504700DBB36E /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B9C00207E504700DBB36E /* data.swift */; };
@@ -255,6 +268,18 @@
 		B1CF07382057EEA300E45BEF /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF07012057EEA200E45BEF /* UIScrollView+MJExtension.m */; };
 		B1CF07392057EEA300E45BEF /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF07032057EEA200E45BEF /* UIScrollView+MJRefresh.m */; };
 		B1CF073A2057EEA300E45BEF /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF07052057EEA200E45BEF /* UIView+MJExtension.m */; };
+		B1D9ED472099472300683707 /* Controller in Resources */ = {isa = PBXBuildFile; fileRef = B1D9ED392099472300683707 /* Controller */; };
+		B1D9ED482099472300683707 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED3A2099472300683707 /* Date+Extension.swift */; };
+		B1D9ED492099472300683707 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED3B2099472300683707 /* String+Extension.swift */; };
+		B1D9ED4A2099472300683707 /* UIBarButtonItem+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED3C2099472300683707 /* UIBarButtonItem+Extesion.swift */; };
+		B1D9ED4B2099472300683707 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED3D2099472300683707 /* UIColor+Extension.swift */; };
+		B1D9ED4C2099472300683707 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED3E2099472300683707 /* UIImage+Extension.swift */; };
+		B1D9ED4D2099472300683707 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED3F2099472300683707 /* UIImageView+Extension.swift */; };
+		B1D9ED4E2099472300683707 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED402099472300683707 /* UIView+Extension.swift */; };
+		B1D9ED4F2099472300683707 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED422099472300683707 /* MainNavigationController.swift */; };
+		B1D9ED502099472300683707 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED432099472300683707 /* MainTabBar.swift */; };
+		B1D9ED512099472300683707 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED442099472300683707 /* MainTabBarController.swift */; };
+		B1D9ED522099472300683707 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9ED462099472300683707 /* Common.swift */; };
 		B1FAC0AB201D840000211DC4 /* GoodFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FAC0AA201D840000211DC4 /* GoodFriendTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -302,6 +327,19 @@
 		B12600542055496100511DCC /* LOGINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOGINViewController.swift; sourceTree = "<group>"; };
 		B12600562055565E00511DCC /* REGISTERViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REGISTERViewController.swift; sourceTree = "<group>"; };
 		B12600582055613400511DCC /* RtwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtwoViewController.swift; sourceTree = "<group>"; };
+		B12B7D1E209956D7003D41ED /* PublishTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTagViewController.swift; sourceTree = "<group>"; };
+		B12B7D1F209956D7003D41ED /* PublishTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTextViewController.swift; sourceTree = "<group>"; };
+		B12B7D20209956D7003D41ED /* PublishTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishTextViewController.xib; sourceTree = "<group>"; };
+		B12B7D21209956D7003D41ED /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		B12B7D22209956D7003D41ED /* PublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
+		B12B7D24209956D7003D41ED /* PublishTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTagBtn.swift; sourceTree = "<group>"; };
+		B12B7D2F20995767003D41ED /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		B12B7D3020995767003D41ED /* MeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeWebViewController.swift; sourceTree = "<group>"; };
+		B12B7D3320995767003D41ED /* MeFootModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeFootModel.swift; sourceTree = "<group>"; };
+		B12B7D3520995767003D41ED /* MeFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeFooterView.swift; sourceTree = "<group>"; };
+		B12B7D3620995767003D41ED /* VeticalSqureBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VeticalSqureBtn.swift; sourceTree = "<group>"; };
+		B12B7D3820995767003D41ED /* MeFootViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeFootViewVM.swift; sourceTree = "<group>"; };
+		B12B7D42209975DE003D41ED /* recommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recommendViewController.swift; sourceTree = "<group>"; };
 		B12B9BFE207E504700DBB36E /* Comment_Like_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment_Like_View.swift; sourceTree = "<group>"; };
 		B12B9BFF207E504700DBB36E /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		B12B9C00207E504700DBB36E /* data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
@@ -602,6 +640,18 @@
 		B1CF07032057EEA200E45BEF /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		B1CF07042057EEA200E45BEF /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		B1CF07052057EEA200E45BEF /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		B1D9ED392099472300683707 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = file; path = Controller; sourceTree = "<group>"; };
+		B1D9ED3A2099472300683707 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B1D9ED3B2099472300683707 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B1D9ED3C2099472300683707 /* UIBarButtonItem+Extesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extesion.swift"; sourceTree = "<group>"; };
+		B1D9ED3D2099472300683707 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B1D9ED3E2099472300683707 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		B1D9ED3F2099472300683707 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		B1D9ED402099472300683707 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B1D9ED422099472300683707 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		B1D9ED432099472300683707 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		B1D9ED442099472300683707 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		B1D9ED462099472300683707 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B1FAC0AA201D840000211DC4 /* GoodFriendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodFriendTableViewController.swift; sourceTree = "<group>"; };
 		C97E9928C0B428F5620852D1 /* Pods_Ability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -740,6 +790,88 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+		B12B7D1C209956D7003D41ED /* 发布 */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D1D209956D7003D41ED /* Controller */,
+				B12B7D23209956D7003D41ED /* View */,
+			);
+			path = "发布";
+			sourceTree = "<group>";
+		};
+		B12B7D1D209956D7003D41ED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D1E209956D7003D41ED /* PublishTagViewController.swift */,
+				B12B7D1F209956D7003D41ED /* PublishTextViewController.swift */,
+				B12B7D20209956D7003D41ED /* PublishTextViewController.xib */,
+				B12B7D21209956D7003D41ED /* PublishViewController.swift */,
+				B12B7D22209956D7003D41ED /* PublishViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B12B7D23209956D7003D41ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D24209956D7003D41ED /* PublishTagBtn.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B12B7D2D20995767003D41ED /* 我 */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D2E20995767003D41ED /* Controller */,
+				B12B7D3220995767003D41ED /* Model */,
+				B12B7D3420995767003D41ED /* View */,
+				B12B7D3720995767003D41ED /* ViewModel */,
+			);
+			path = "我";
+			sourceTree = "<group>";
+		};
+		B12B7D2E20995767003D41ED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D2F20995767003D41ED /* MeViewController.swift */,
+				B12B7D3020995767003D41ED /* MeWebViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B12B7D3220995767003D41ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D3320995767003D41ED /* MeFootModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B12B7D3420995767003D41ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D3520995767003D41ED /* MeFooterView.swift */,
+				B12B7D3620995767003D41ED /* VeticalSqureBtn.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B12B7D3720995767003D41ED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D3820995767003D41ED /* MeFootViewVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B12B7D4020997565003D41ED /* recommend */ = {
+			isa = PBXGroup;
+			children = (
+				B12B7D42209975DE003D41ED /* recommendViewController.swift */,
+			);
+			path = recommend;
+			sourceTree = "<group>";
+		};
 		B12B9BFD207E504700DBB36E /* PostLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,6 +891,7 @@
 			isa = PBXGroup;
 			children = (
 				B136C5FA1FEE834000658B76 /* RongCloud.h */,
+				B12B7D2D20995767003D41ED /* 我 */,
 				B136C5C81FEE80B200658B76 /* Ability */,
 				B136C5E01FEE80B200658B76 /* AbilityTests */,
 				B136C5EB1FEE80B200658B76 /* AbilityUITests */,
@@ -781,6 +914,7 @@
 		B136C5C81FEE80B200658B76 /* Ability */ = {
 			isa = PBXGroup;
 			children = (
+				B1D9ED372099472300683707 /* Other */,
 				B13E37012097155000543BAE /* Localtion */,
 				B12B9BFD207E504700DBB36E /* PostLayout */,
 				B138D0E1205DEE7100C23A6E /* Factory */,
@@ -830,6 +964,7 @@
 		B138D0E1205DEE7100C23A6E /* Factory */ = {
 			isa = PBXGroup;
 			children = (
+				B12B7D1C209956D7003D41ED /* 发布 */,
 				B138D0E4205DEEAB00C23A6E /* GeneralFactory.swift */,
 			);
 			path = Factory;
@@ -870,6 +1005,7 @@
 		B14473952058CB6000D89E08 /* TABLEBAR */ = {
 			isa = PBXGroup;
 			children = (
+				B12B7D4020997565003D41ED /* recommend */,
 				B13D731820973ACC0002356C /* Design */,
 				B159C40320936866005EA551 /* Comment */,
 				B103D09C208EEC8100B7C504 /* OtherPeo */,
@@ -1414,6 +1550,49 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		B1D9ED372099472300683707 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				B1D9ED382099472300683707 /* Category */,
+				B1D9ED412099472300683707 /* Controller */,
+				B1D9ED452099472300683707 /* Tools */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		B1D9ED382099472300683707 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B1D9ED392099472300683707 /* Controller */,
+				B1D9ED3A2099472300683707 /* Date+Extension.swift */,
+				B1D9ED3B2099472300683707 /* String+Extension.swift */,
+				B1D9ED3C2099472300683707 /* UIBarButtonItem+Extesion.swift */,
+				B1D9ED3D2099472300683707 /* UIColor+Extension.swift */,
+				B1D9ED3E2099472300683707 /* UIImage+Extension.swift */,
+				B1D9ED3F2099472300683707 /* UIImageView+Extension.swift */,
+				B1D9ED402099472300683707 /* UIView+Extension.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		B1D9ED412099472300683707 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B1D9ED422099472300683707 /* MainNavigationController.swift */,
+				B1D9ED432099472300683707 /* MainTabBar.swift */,
+				B1D9ED442099472300683707 /* MainTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B1D9ED452099472300683707 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				B1D9ED462099472300683707 /* Common.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		E084C8CCE172F55C7DEC7F61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1532,6 +1711,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12B7D29209956D7003D41ED /* PublishViewController.xib in Resources */,
 				B136C5D71FEE80B200658B76 /* LaunchScreen.storyboard in Resources */,
 				B13D731C20973AFB0002356C /* DesignStoryboard.storyboard in Resources */,
 				B1524F7D208B13E100A76401 /* timg 13-43-48-008.jpeg in Resources */,
@@ -1541,6 +1721,7 @@
 				B1524F7A208B13E100A76401 /* pic 14-29-03-588.bundle in Resources */,
 				B126004A2055458200511DCC /* LoginStoryboard.storyboard in Resources */,
 				B1524F7F208B13E100A76401 /* Contents.json in Resources */,
+				B12B7D27209956D7003D41ED /* PublishTextViewController.xib in Resources */,
 				B1524F80208B13E100A76401 /* timg.jpeg in Resources */,
 				B16A8C7F205E03440062EEE5 /* images_01@2x.png in Resources */,
 				B1524F40208B13E100A76401 /* Info-iOS 14-29-03-568.plist in Resources */,
@@ -1562,6 +1743,7 @@
 				B1CF07222057EEA200E45BEF /* ProgressHUD.bundle in Resources */,
 				B1CF070C2057EEA200E45BEF /* InputView.xib in Resources */,
 				B16A8C9A205E03590062EEE5 /* TZImagePickerController.bundle in Resources */,
+				B1D9ED472099472300683707 /* Controller in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1632,22 +1814,30 @@
 				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
 				"${BUILT_PRODUCTS_DIR}/AVOSCloudIM/AVOSCloudIM.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GrowingTextView/GrowingTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
+				"${BUILT_PRODUCTS_DIR}/KYCircularProgress/KYCircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LeanCloud/LeanCloud.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SGPagingView/SGPagingView.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloudIM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrowingTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KYCircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LeanCloud.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGPagingView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1664,6 +1854,7 @@
 				B10E44F520983F6400A4FF7C /* CaiyiViewController.swift in Sources */,
 				B1524F4E208B13E100A76401 /* NVActivityIndicatorAnimationBallClipRotate 14-29-03-651.swift in Sources */,
 				B16A8C97205E03590062EEE5 /* TZAssetCell.m in Sources */,
+				B12B7D3C20995768003D41ED /* MeFootModel.swift in Sources */,
 				B12B9C08207E504700DBB36E /* data.swift in Sources */,
 				B1524F82208B13E100A76401 /* UIImage+Haneke 14-29-03-563.swift in Sources */,
 				B1850FBF205D0763007CD28B /* SWTableViewCell.m in Sources */,
@@ -1679,12 +1870,16 @@
 				B1CF072D2057EEA200E45BEF /* MJRefreshAutoGifFooter.m in Sources */,
 				B1524F22208B13E100A76401 /* ConstraintLayoutGuideDSL 14-29-03-605.swift in Sources */,
 				B1524F4A208B13E100A76401 /* NSHTTPURLResponse+Haneke 14-29-03-476.swift in Sources */,
+				B1D9ED4F2099472300683707 /* MainNavigationController.swift in Sources */,
 				B1524F27208B13E100A76401 /* ConstraintMakerExtendable 14-29-03-585.swift in Sources */,
 				B1524F13208B13E100A76401 /* Cache 14-29-03-637.swift in Sources */,
 				B1524F49208B13E100A76401 /* NSFileManager+Haneke 14-29-03-509.swift in Sources */,
+				B1D9ED4E2099472300683707 /* UIView+Extension.swift in Sources */,
+				B12B7D3E20995768003D41ED /* VeticalSqureBtn.swift in Sources */,
 				B1CF07172057EEA200E45BEF /* UIButton+WebCache.m in Sources */,
 				B102A63A20945B0500E58028 /* Emoji.swift in Sources */,
 				B1524F2D208B13E100A76401 /* ConstraintPriority 14-29-03-565.swift in Sources */,
+				B12B7D3D20995768003D41ED /* MeFooterView.swift in Sources */,
 				B1CF07152057EEA200E45BEF /* SDWebImageManager.m in Sources */,
 				B15FE511208F064E005325E9 /* ItemCell.swift in Sources */,
 				B1A3FCD3201C9D63000D8F13 /* LoginViewController.swift in Sources */,
@@ -1699,6 +1894,7 @@
 				B1524F21208B13E100A76401 /* ConstraintLayoutGuide+Extensions 14-29-03-581.swift in Sources */,
 				B1524F5A208B13E100A76401 /* NVActivityIndicatorAnimationBallScaleRipple 14-29-03-641.swift in Sources */,
 				B10E44FB209887EF00A4FF7C /* InterestViewController.swift in Sources */,
+				B12B7D28209956D7003D41ED /* PublishViewController.swift in Sources */,
 				B1CF07132057EEA200E45BEF /* SDWebImageDownloader.m in Sources */,
 				B1524F73208B13E100A76401 /* PhotoBrowser+Common 14-29-03-498.swift in Sources */,
 				B1CF07342057EEA300E45BEF /* MJRefreshNormalHeader.m in Sources */,
@@ -1714,6 +1910,7 @@
 				B1CF07112057EEA200E45BEF /* SDWebImageCompat.m in Sources */,
 				B1CF07292057EEA200E45BEF /* MJRefreshBackFooter.m in Sources */,
 				B144739E2058CE7D00D89E08 /* MessageViewController.swift in Sources */,
+				B12B7D43209975DE003D41ED /* recommendViewController.swift in Sources */,
 				B16A8C9D205E03590062EEE5 /* TZPhotoPreviewCell.m in Sources */,
 				B1524F56208B13E100A76401 /* NVActivityIndicatorAnimationBallRotate 14-29-03-602.swift in Sources */,
 				B1CF07302057EEA300E45BEF /* MJRefreshBackGifFooter.m in Sources */,
@@ -1722,6 +1919,7 @@
 				B1CF071D2057EEA200E45BEF /* UIView+WebCacheOperation.m in Sources */,
 				B1CF07082057EEA200E45BEF /* JVFloatLabeledTextField.m in Sources */,
 				B1524F1D208B13E100A76401 /* ConstraintInsets 14-29-03-410.swift in Sources */,
+				B1D9ED502099472300683707 /* MainTabBar.swift in Sources */,
 				B1524F7B208B13E100A76401 /* ShowImageView 14-29-03-644.swift in Sources */,
 				B1524F3A208B13E100A76401 /* Fetcher 14-29-03-623.swift in Sources */,
 				B1CF07092057EEA200E45BEF /* JVFloatLabeledTextView.m in Sources */,
@@ -1739,6 +1937,7 @@
 				B1524F35208B13E100A76401 /* Data 14-29-03-546.swift in Sources */,
 				B1CF07282057EEA200E45BEF /* MJRefreshAutoFooter.m in Sources */,
 				B1524F26208B13E100A76401 /* ConstraintMakerEditable 14-29-03-617.swift in Sources */,
+				B12B7D3920995768003D41ED /* MeViewController.swift in Sources */,
 				B1CF07262057EEA200E45BEF /* HZPhotoBrowserView.m in Sources */,
 				B13E3705209717FD00543BAE /* LocalTwpViewController.swift in Sources */,
 				B1CF071A2057EEA200E45BEF /* UIImage+WebP.m in Sources */,
@@ -1763,11 +1962,13 @@
 				B1524F31208B13E100A76401 /* ConstraintView 14-29-03-559.swift in Sources */,
 				B1524F39208B13E100A76401 /* Fetch 14-29-03-601.swift in Sources */,
 				B1524F59208B13E100A76401 /* NVActivityIndicatorAnimationBallScaleMultiple 14-29-03-492.swift in Sources */,
+				B12B7D3A20995768003D41ED /* MeWebViewController.swift in Sources */,
 				B103D09B208EE9A500B7C504 /* DyViewController.swift in Sources */,
 				B1CF07332057EEA300E45BEF /* MJRefreshGifHeader.m in Sources */,
 				B1CF07142057EEA200E45BEF /* SDWebImageDownloaderOperation.m in Sources */,
 				B1CF07392057EEA300E45BEF /* UIScrollView+MJRefresh.m in Sources */,
 				B102A638209459D700E58028 /* UIkit+Extension.swift in Sources */,
+				B12B7D26209956D7003D41ED /* PublishTextViewController.swift in Sources */,
 				B1524F6D208B13E100A76401 /* NVActivityIndicatorPresenter 14-29-03-562.swift in Sources */,
 				B1CF071B2057EEA200E45BEF /* UIImageView+HighlightedWebCache.m in Sources */,
 				B1524F53208B13E100A76401 /* NVActivityIndicatorAnimationBallPulse 14-29-03-496.swift in Sources */,
@@ -1783,6 +1984,7 @@
 				B1524F2A208B13E100A76401 /* ConstraintMakerRelatable 14-29-03-592.swift in Sources */,
 				B1524F85208B13E100A76401 /* UIView+Haneke 14-29-03-619.swift in Sources */,
 				B1524F1F208B13E100A76401 /* ConstraintItem 14-29-03-426.swift in Sources */,
+				B1D9ED4A2099472300683707 /* UIBarButtonItem+Extesion.swift in Sources */,
 				B1524F37208B13E100A76401 /* DiskCache 14-29-03-567.swift in Sources */,
 				B138D0E5205DEEAB00C23A6E /* GeneralFactory.swift in Sources */,
 				B159C4052093691B005EA551 /* CommentViewController.swift in Sources */,
@@ -1792,14 +1994,19 @@
 				B138D0EA205DF3CF00C23A6E /* CSViewController.swift in Sources */,
 				B1524F50208B13E100A76401 /* NVActivityIndicatorAnimationBallClipRotatePulse 14-29-03-501.swift in Sources */,
 				B1524F2F208B13E100A76401 /* ConstraintRelatableTarget 14-29-03-604.swift in Sources */,
+				B12B7D25209956D7003D41ED /* PublishTagViewController.swift in Sources */,
 				B136C5CC1FEE80B200658B76 /* ViewController.swift in Sources */,
 				B1CF07072057EEA200E45BEF /* IGLDropDownMenu.m in Sources */,
+				B12B7D2A209956D7003D41ED /* PublishTagBtn.swift in Sources */,
 				B107E413208F1C0E00658DE8 /* File.swift in Sources */,
 				B1CF072F2057EEA200E45BEF /* MJRefreshAutoStateFooter.m in Sources */,
 				B126004F2055480400511DCC /* ImageHelper.swift in Sources */,
 				B13D731E209747D20002356C /* SignatureViewController.swift in Sources */,
+				B1D9ED482099472300683707 /* Date+Extension.swift in Sources */,
 				B1CF07062057EEA200E45BEF /* IGLDropDownItem.m in Sources */,
 				B1CF070F2057EEA200E45BEF /* NSData+ImageContentType.m in Sources */,
+				B12B7D3F20995768003D41ED /* MeFootViewVM.swift in Sources */,
+				B1D9ED492099472300683707 /* String+Extension.swift in Sources */,
 				B16A8C7C205E03440062EEE5 /* CLTextView.m in Sources */,
 				B1524F72208B13E100A76401 /* PhotoBrowser+CollectionViewExtend 14-29-03-558.swift in Sources */,
 				B10E28EB2098AA33004B34FE /* HangTableViewController.swift in Sources */,
@@ -1814,6 +2021,7 @@
 				B1524F46208B13E100A76401 /* LayoutConstraintItem 14-29-03-628.swift in Sources */,
 				B1524F62208B13E100A76401 /* NVActivityIndicatorAnimationDelegate 14-29-03-557.swift in Sources */,
 				B1524F83208B13E100A76401 /* UIImageView+Haneke 14-29-03-630.swift in Sources */,
+				B1D9ED4D2099472300683707 /* UIImageView+Extension.swift in Sources */,
 				B1524F28208B13E100A76401 /* ConstraintMakerFinalizable 14-29-03-494.swift in Sources */,
 				B1524F52208B13E100A76401 /* NVActivityIndicatorAnimationBallGridPulse 14-29-03-561.swift in Sources */,
 				B1CF070B2057EEA200E45BEF /* InputView.m in Sources */,
@@ -1837,8 +2045,10 @@
 				B1524F70208B13E100A76401 /* NVActivityIndicatorViewable 14-29-03-572.swift in Sources */,
 				B1524F47208B13E100A76401 /* Log 14-29-03-536.swift in Sources */,
 				B102A63220944D0800E58028 /* HomepageViewController.swift in Sources */,
+				B1D9ED4B2099472300683707 /* UIColor+Extension.swift in Sources */,
 				B1524F29208B13E100A76401 /* ConstraintMakerPriortizable 14-29-03-595.swift in Sources */,
 				B1524F48208B13E100A76401 /* NetworkFetcher 14-29-03-638.swift in Sources */,
+				B1D9ED4C2099472300683707 /* UIImage+Extension.swift in Sources */,
 				B138D0E8205DEFCD00C23A6E /* pushNewPostViewController.swift in Sources */,
 				B1524F58208B13E100A76401 /* NVActivityIndicatorAnimationBallScale 14-29-03-555.swift in Sources */,
 				B13E36FF2097082300543BAE /* LAXLocationManager.swift in Sources */,
@@ -1851,11 +2061,13 @@
 				B1CF072E2057EEA200E45BEF /* MJRefreshAutoNormalFooter.m in Sources */,
 				B1CF07162057EEA200E45BEF /* SDWebImagePrefetcher.m in Sources */,
 				B1524F20208B13E100A76401 /* ConstraintLayoutGuide 14-29-03-474.swift in Sources */,
+				B1D9ED522099472300683707 /* Common.swift in Sources */,
 				B1524F18208B13E100A76401 /* ConstraintAttributes 14-29-03-633.swift in Sources */,
 				B1CF072C2057EEA200E45BEF /* MJRefreshHeader.m in Sources */,
 				B1524F77208B13E100A76401 /* PhotoBrowser+Model 14-29-03-642.swift in Sources */,
 				B1524F4F208B13E100A76401 /* NVActivityIndicatorAnimationBallClipRotateMultiple 14-29-03-631.swift in Sources */,
 				B1CF07352057EEA300E45BEF /* MJRefreshStateHeader.m in Sources */,
+				B1D9ED512099472300683707 /* MainTabBarController.swift in Sources */,
 				B1850FC1205D0763007CD28B /* SWUtilityButtonView.m in Sources */,
 				B1524F5B208B13E100A76401 /* NVActivityIndicatorAnimationBallScaleRippleMultiple 14-29-03-499.swift in Sources */,
 				B16A8C98205E03590062EEE5 /* TZAssetModel.m in Sources */,

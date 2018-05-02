@@ -14,7 +14,7 @@ import SGPagingView
 class HomepageViewController: UIViewController{
     
     /// 标题内容
-    var titles = ["全部内容","数学","英语","计算机","化学","物理","生物"]
+    var titles = ["全部内容","学科","手工","舞蹈","音乐","美术","游戏","摄影","运动","其他"]
     /// 标题和内容
     private var pageTitleView: SGPageTitleView?
     private var pageContentView: SGPageContentView?
@@ -66,30 +66,9 @@ class HomepageViewController: UIViewController{
 // MARK: - 添加控制器
 extension HomepageViewController {
     func setupChildViewControllers() {
-        for i in 0..<7 {
-            let vc = UIViewController()
-            
-            if(i==0){
-                
-                vc.view.backgroundColor=UIColor.gray
-            }
-            if(i==1){
-                
-                vc.view.backgroundColor=UIColor.green
-            }
-            if(i==2){
-                
-                vc.view.backgroundColor=UIColor.red
-            }
-            if(i==3){
-                
-                vc.view.backgroundColor=UIColor.blue
-            }
-            if(i==4){
-                
-                vc.view.backgroundColor=UIColor.gray
-            }
-            
+        for i in 0..<10 {
+            let vc = CommunityViewController()
+            vc.kind=i-1
             addChildViewController(vc)
         }
     }

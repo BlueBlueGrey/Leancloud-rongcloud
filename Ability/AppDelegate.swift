@@ -65,9 +65,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mineViewController.tabBarItem=tabitem3
         
         home.tabBarItem=tabitem4
-        communityViewController.tabBarController?.tabBar.tintColor=MAIN_RED
+       // communityViewController.tabBarController?.tabBar.tintColor=MAIN_RED
         
-        self.window?.rootViewController = tabbatController
+       // self.window?.rootViewController = tabbatController
+        
+        
+        let rootViewController = MainTabBarController()
+        rootViewController.delegate = self
+        window?.rootViewController = rootViewController
+        rootViewController.tabBarController?.tabBar.tintColor=MAIN_RED
         self.window?.makeKeyAndVisible()
  
  
@@ -201,5 +207,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-
+extension AppDelegate: UITabBarControllerDelegate{
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("\(viewController)")
+    }
+}
 

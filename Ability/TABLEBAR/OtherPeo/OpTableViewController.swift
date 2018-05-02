@@ -64,6 +64,7 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
         
         
     }
+    /*  signature  special sex   birth  school  business work interest */
     override func viewDidLoad() {
         super.viewDidLoad()
         imaginView.image=#imageLiteral(resourceName: "alien")
@@ -77,6 +78,11 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
             {
                 let U=temp[0]["portrait"] as! AVFile
                 self.imaginView.image=UIImage(data: U.getData()!)
+                if let sign=temp[0]["signature"]
+                {
+                      self.introduce.text=sign  as! String
+                }
+             
             }
         }
         

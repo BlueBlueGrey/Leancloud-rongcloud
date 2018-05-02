@@ -8,7 +8,7 @@
 
 import UIKit
 import AVOSCloud
-class DesignViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class DesignViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     var token=""
     
     
@@ -22,6 +22,77 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
     var tableView:UITableView?
     let imagePicView = UIView()
 
+    
+    @objc func clickitem(){
+        
+        print("clickitem\n\n =====")
+        
+        
+        
+         /*  signature  special sex   birth  school  business work interest */
+        let data=UIImagePNGRepresentation((imageine?.image!)!)
+        let file=AVFile(data: data!)
+        obj?.setObject(file, forKey: "portrait")
+        obj?.setObject(l1, forKey: "signature")
+        
+        /*  signature  special sex   birth  school  business work interest */
+        
+        obj?.setObject(shanchang, forKey: "special")
+        
+        obj?.setObject(l3, forKey: "sex")
+        
+        obj?.setObject(l4, forKey: "birth")
+        
+        obj?.setObject(l5, forKey: "school")
+        
+        obj?.setObject(l5, forKey: "business")
+        obj?.setObject(l6, forKey: "work")
+
+        obj?.setObject(ganxingqu, forKey: "interest")
+        ProgressHUD.show("")
+        obj?.saveEventually({ (success, error) in
+            
+            if(success){
+                   ProgressHUD.showSuccess("保存成功", interaction: true)
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
+     
+        
+    }
+    @IBAction func selectphoto(_ sender:UITapGestureRecognizer){
+        print("select picture")
+        
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    //MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // The info dictionary may contain multiple representations of the image. You want to use the original.
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Set photoImageView to display the selected image.
+        
+        imageine?.image = selectedImage.roundCornersToCircle()
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
     
     
     var imageine:UIImageView?
@@ -53,6 +124,15 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.view.addSubview(self.tableView!)
       
         
+        imageine?.isUserInteractionEnabled=true
+        
+        let tagGR=UITapGestureRecognizer(target: self, action: #selector(DesignViewController.selectphoto(_:)))
+        imageine?.addGestureRecognizer(tagGR)
+        
+        let item=UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clickitem))
+       
+        self.navigationItem.rightBarButtonItem=item
+        
         let  query=AVQuery(className: "Custom_User")
         query.whereKey("id", equalTo: AVUser.current()?.username)
         let temp=query.findObjects() as! [AVObject]
@@ -61,7 +141,7 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
          obj=temp[0]
         }
      
-        
+        /*  signature  special  */
             if let detail=obj!["signature"]
             {
                 l1 = detail as! String
@@ -79,7 +159,7 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
                
             }
         
-            
+        
             if let detail=obj!["sex"]
             {
                 l3 = detail as! String
@@ -94,7 +174,7 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             {
                 l5 = detail as! String
             }
-       
+    /*  signature  special sex   birth  school  business work interest */
             if let detail=obj!["business"]
             {
                 l6 = detail as! String
@@ -125,63 +205,6 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden=true
-        let  query=AVQuery(className: "Custom_User")
-        query.whereKey("id", equalTo: AVUser.current()?.username)
-        let temp=query.findObjects() as! [AVObject]
-        if(temp.count>0)
-        {
-            obj=temp[0]
-        }
-        
-        
-        if let detail=obj!["signature"]
-        {
-            l1 = detail as! String
-        }
-        
-        if let detail=obj!["special"]
-        {
-            let arry=detail as! [Bool]
-            for i in 0...8{
-                shanchang[i]=arry[i]
-                if(arry[i]){
-                    l2=l2+"\(caiyi[i])、"
-                }
-            }
-            l2 = detail as! String
-        }
-        
-        
-        if let detail=obj!["sex"]
-        {
-            l3 = detail as! String
-        }
-        
-        if let detail=obj!["birth"]
-        {
-            l4 = detail as! String
-        }
-        
-        if let detail=obj!["school"]
-        {
-            l5 = detail as! String
-        }
-        
-        if let detail=obj!["business"]
-        {
-            l6 = detail as! String
-        }
-        
-        if let detail=obj!["work"]
-        {
-            l7 = detail as! String
-        }
-        
-        if let detail=obj!["interest"]
-        {
-            l8 = detail as! String
-        }
-        
         
         tableView?.reloadData()
     }
@@ -296,7 +319,7 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             break
         case 7:
-            l2=""
+            l8=""
             for i in 0...8{
                 if(ganxingqu[i]){
                     l8=l8+"\(caiyi[i])、"
@@ -367,8 +390,14 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             let alertController = UIAlertController()
             let cancelAction = UIAlertAction(title: "男", style: .default, handler:
-            {(action:UIAlertAction)->Void in self.l3="男"})
-            let deleteAction = UIAlertAction(title: "女", style: .default, handler: {(action:UIAlertAction)->Void in self.l3="女"})
+            {(action:UIAlertAction)->Void in self.l3="男"
+                
+                 tableView.reloadData()
+            })
+            let deleteAction = UIAlertAction(title: "女", style: .default, handler: {(action:UIAlertAction)->Void in self.l3="女"
+                
+                 tableView.reloadData()
+            })
            
             alertController.addAction(cancelAction)
             alertController.addAction(deleteAction)
@@ -399,7 +428,7 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
                 let format = DateFormatter()
                 format.dateFormat = "yyyy-MM-dd"
                 
-                print("date select: \(format.string(for:datePicker.date))山东分公司的风格")
+              tableView.reloadData()
                 self.l4=format.string(for:datePicker.date)!
             })
             alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel,handler:nil))
@@ -415,6 +444,16 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             let vc=SignatureViewController()
             vc.placehoderStr="请输入您的学校"
             GeneralFactory.addTitleWithTile(target: vc)
+            
+            if(l5 != ""){
+                vc.textView.text=l5
+            }
+            vc.closure={
+                (str:String) -> ()
+                in
+                self.l5=str
+            }
+            
             self.present(vc, animated: true, completion: nil)
             
             break
@@ -438,6 +477,14 @@ class DesignViewController: UIViewController,UITableViewDelegate,UITableViewData
             let vc=SignatureViewController()
              vc.placehoderStr="请输入您的职业"
             GeneralFactory.addTitleWithTile(target: vc)
+            if(l7 != ""){
+                vc.textView.text=l7
+            }
+            vc.closure={
+                (str:String) -> ()
+                in
+                self.l7=str
+            }
             self.present(vc, animated: true, completion: nil)
             
             break

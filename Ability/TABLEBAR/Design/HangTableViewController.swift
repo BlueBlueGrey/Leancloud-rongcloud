@@ -43,15 +43,15 @@ class HangTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "defaultX", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "default")
         if(cell==nil){
-            cell=UITableViewCell(style: .default, reuseIdentifier: "defaultX")
+            cell=UITableViewCell(style: .default, reuseIdentifier: "default")
         }
         
-        cell.textLabel?.text=dataArry[indexPath.row]
+        cell?.textLabel?.text=dataArry[indexPath.row]
         // Configure the cell...
 
-        return cell
+        return cell!
     }
     
     

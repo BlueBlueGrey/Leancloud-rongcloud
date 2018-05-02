@@ -7,17 +7,15 @@
 //
 import UIKit
 import AVOSCloud
-class OpTableViewController: UITableViewController,InputViewDelegate {
+class OpTableViewController: UITableViewController {
 
     var PostObject:AVObject?
     var dataArray = NSMutableArray()
-    var input:InputView?
     
-    var layView:UIView?
-    
+   
     var keyBoardHeight:CGFloat = 0.0
+    var flag=false
     
-    var tg:CGFloat=60.0
     
     var idString=""
     @IBOutlet weak var imaginView: UIImageView!
@@ -25,29 +23,81 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
     @IBOutlet weak var id: UILabel!
     
     
+    @IBOutlet weak var guanzhu: UIButton!
+    
     @IBOutlet weak var introduce: UILabel!
+    
+    @IBOutlet weak var xl: UILabel!
+    
+    
+    @IBAction func dianping(_ sender: UIButton) {
+        
+        
+        
+        
+        let alertController = UIAlertController(title: "对该用户进行评价",
+                                                message: "", preferredStyle: .alert)
+        alertController.addTextField {
+            (textField: UITextField!) -> Void in
+            textField.placeholder = "_______"
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "好的", style: .default, handler: {
+            action in
+            //也可以用下标的形式获取textField let login = alertController.textFields![0]
+            let login = alertController.textFields!.first!
+         
+           
+            
+          
+            let obj=AVObject(className: "discuss")
+            obj.setObject(self.PostObject, forKey: "PostObject")
+            obj.setObject(AVUser.current()?.username, forKey: "id")
+            obj.setObject(self.idString, forKey: "opid")
+            obj.setObject(login.text, forKey: "text")
+            obj.saveInBackground({ (success, error) in
+                if(success){
+                    self.tableView?.mj_header.beginRefreshing()
+                    self.tableView.reloadData()
+                }
+            })
+            
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+        
+    }
+    
+    
     
     
     @IBAction func addbuddy(_ sender: UIButton) {
         
         
-        let obj=AVObject(className: "AtoB")
-        obj.setObject(AVUser.current(), forKey: "A")
-        obj.setObject(idString, forKey: "B")
+        if(!flag)
+        {
+       flag = !flag
+            xl.text="已关注"
+            let obj=AVObject(className: "AtoB")
+            obj.setObject(AVUser.current()?.username, forKey: "A")
+            obj.setObject(self.idString, forKey: "B")
+            obj.saveInBackground({ (success, error) in
+                if(success){
+                   ProgressHUD.showSuccess("关注成功", interaction: true)
+                }
+            })
         
-        obj.saveInBackground { (success, error) in
-            if(success){
-                 ProgressHUD.showSuccess("关注成功", interaction: true)
-            }else{
-                ProgressHUD.showError("关注失败", interaction: true)
-            }
+        
         }
-        
+   
     }
     
     override func viewDidDisappear(_ animated: Bool) {
     self.tabBarController?.tabBar.isHidden=true
-
+   
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,48 +134,52 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
                 }
              
             }
+            
+            
+            let  query2=AVQuery(className: "AtoB")
+            query2.whereKey("A", equalTo: AVUser.current()?.username)
+            if let temp2=query2.findObjects()
+            {
+                let temp3=temp2 as! [AVObject]
+            if(temp3.count>0)
+            {
+                for i in 0 ..< temp3.count {
+                    if(temp3[i]["id"]as!String==idString){
+                        flag=true
+                    }
+                }
+          
+                
+            }
+            }
+            if(flag){
+                xl.text="已关注"
+            }else{
+                xl.text="+关注"
+            }
+            
         }
         
        
-        
+        tableView?.register(discussCell.self, forCellReuseIdentifier: "discussCell")
         self.tableView?.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
         self.tableView?.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         headerRefresh()
-        self.input = Bundle.main.loadNibNamed("InputView", owner: self, options: nil)?.last as? InputView
+        
+
        
        
-        self.input?.frame =  CGRect(x: 0, y: SCREEN_HEIGHT-100, width: SCREEN_WIDTH, height: 44)
-        self.input?.bottom = SCREEN_HEIGHT-tg
-        self.input?.delegate = self
-        self.view.addSubview(self.input!)
-        self.tableView.tableFooterView=input
-        /*
-        self.layView = UIView(frame: self.view.frame)
-        self.layView?.backgroundColor = UIColor.gray
-        self.layView?.alpha = 0
-        let tap = UITapGestureRecognizer(target: self, action: Selector("tapLayView"))
-        self.layView?.addGestureRecognizer(tap)
-       
-*/
-       // self.view.insertSubview(self.layView!, belowSubview: self.input!)
-       
+        self.tableView.tableFooterView=UIView()
+      self.tableView?.mj_header.beginRefreshing()
         
         self.tableView.register(discussCell.self, forCellReuseIdentifier: "discussCell")
-    }
-    func tapInputView(){
-        self.input?.inputTextView?.resignFirstResponder()
-    }
+  
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let object = self.dataArray[indexPath.row] as? AVObject
-        let text = object!["text"] as? NSString
-        
-        let textSize = text?.boundingRect(with: CGSize(width: SCREEN_WIDTH-56-8, height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], context: nil).size
-        
-        
-        
-        return (textSize?.height)! + 30 + 25
+    
     }
+   
+    
+    
     
     /**
      *  上拉加载、下啦刷新
@@ -166,59 +220,9 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
         }
     }
     
-    /**
-     *  InputViewDelegate
-     */
-    func textViewHeightDidChange(height: CGFloat) {
-        self.input?.height = height+10
-        self.input?.bottom = SCREEN_HEIGHT - self.keyBoardHeight
-    }
   
-    
-  func publishButtonDidClick() {
-        ProgressHUD.show("")
-    
-        let object = AVObject(className: "discuss")
-        object.setObject(self.input?.inputTextView?.text, forKey: "text")
-        object.setObject(AVUser.current()?.username, forKey: "id")
-        object.setObject(self.PostObject, forKey: "PostObject")
-        object.saveInBackground { (success, error) -> Void in
-            if success {
-                self.input?.inputTextView?.resignFirstResponder()
-                ProgressHUD.showSuccess("评论成功")
-                
-        
-            }else{
-                
-            }
-        }
-    }
  
-    func keyboardWillHide(_ inputView: InputView!, keyboardHeight: CGFloat, animationDuration duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
-        UIView.animate(withDuration: duration, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-            self.layView?.alpha = 0
-            self.input?.bottom = SCREEN_HEIGHT
-        }) { (finish) -> Void in
-            self.layView?.isHidden = true
-            self.input?.resetInputView()
-            self.input?.inputTextView?.text = ""
-            self.input?.bottom = SCREEN_HEIGHT
-        }
-        
-    }
-    func keyboardWillShow(_ inputView: InputView!, keyboardHeight: CGFloat, animationDuration duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
-        self.keyBoardHeight = keyboardHeight
-        self.layView?.isHidden = false
-        UIView.animate(withDuration: duration, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-            self.layView?.alpha = 0
-            self.input?.bottom = SCREEN_HEIGHT-keyboardHeight
-            
-         
-        
-        }) { (finish) -> Void in
-            
-        }
-    }
+ 
 
     
     override func didReceiveMemoryWarning() {
@@ -244,7 +248,7 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
       
         var cell = self.tableView?.dequeueReusableCell(withIdentifier: "discussCell") as! discussCell
         
-        cell.initFrame()
+       
     
         let object = self.dataArray[indexPath.row] as? AVObject
         
@@ -263,15 +267,12 @@ class OpTableViewController: UITableViewController,InputViewDelegate {
         
         
         
-         let textSize = (object!["text"] as? String)?.boundingRect(with: CGSize(width: SCREEN_WIDTH-56-8, height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)], context: nil).size
         
-        
-       // cell.detailLabel=UILabel(frame: CGRect(x: 56, y: 30, width: SCREEN_WIDTH-56-8, height: (textSize?.height)!+10))
         
          cell.detailLabel?.text = object!["text"] as? String
        
         
-      //  cell.dateLabel=UILabel(frame: CGRect(x: 56, y: (textSize?.height)!+30, width: SCREEN_WIDTH-56-8, height: 10))
+    
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd hh:mm"

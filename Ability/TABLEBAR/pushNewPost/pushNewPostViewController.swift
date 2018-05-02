@@ -10,7 +10,7 @@ import UIKit
 import AVOSCloud
 //  发说说的页面
 
-class pushNewPostViewController: CSViewController,UITextViewDelegate{
+class pushNewPostViewController: CSViewController,UITextViewDelegate,CLLocationManagerDelegate{
 
     var textView:CLTextView!
     var phontView:CLPhotosVIew!
@@ -24,10 +24,27 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
         return imgArr
     }
     
+    let locationManager:CLLocationManager = CLLocationManager()
+    var lat:CLLocationDegrees?
+    var longi:CLLocationDegrees?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.white
+        
+        locationManager.delegate = self
+        //设置定位进度
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //更新距离
+        locationManager.distanceFilter = 100
+        ////发送授权申请
+        locationManager.requestAlwaysAuthorization()
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            //允许使用定位服务的话，开启定位服务更新
+            locationManager.startUpdatingLocation()
+            print("定位开始")
+        }
         
         // Do any additional setup after loading the view.
         
@@ -110,6 +127,8 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
         obj.setObject(AVUser.current()?.username, forKey: "id")
         obj.setObject(textView.text, forKey: "text")
         obj.setObject(kind, forKey: "kind")
+        obj.setObject(lat, forKey: "lat")
+        obj.setObject(longi, forKey: "longi")
         self.view.isUserInteractionEnabled=false
         var flag=0
         ProgressHUD.show("")
@@ -162,6 +181,20 @@ class pushNewPostViewController: CSViewController,UITextViewDelegate{
         print("close")
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        //获取最新的坐标
+        let currLocation:CLLocation = locations.last!
+      
+        longi = currLocation.coordinate.longitude
+        //获取纬度
+     
+        lat = currLocation.coordinate.latitude
+      
+        
+    }
+    
     /*
     // MARK: - Navigation
 

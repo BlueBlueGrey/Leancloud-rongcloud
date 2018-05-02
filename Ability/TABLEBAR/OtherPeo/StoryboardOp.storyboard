@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="隶变体.ttf">
+            <string>BauhausITC</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Op Table View Controller-->
         <scene sceneID="dcu-0z-SOk">
@@ -23,53 +28,87 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment.png" translatesAutoresizingMaskIntoConstraints="NO" id="l8U-JI-1uS">
-                                    <rect key="frame" x="137" y="29" width="100" height="100"/>
+                                    <rect key="frame" x="137" y="16" width="100" height="100"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="6ZW-D4-5hd"/>
+                                        <constraint firstAttribute="width" constant="100" id="fmd-a1-gWF"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Cz-nl-FQe">
-                                    <rect key="frame" x="166" y="151" width="42" height="21"/>
+                                    <rect key="frame" x="168" y="124" width="42" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="utB-qG-yXG"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRi-95-KYb">
-                                    <rect key="frame" x="235" y="146" width="31" height="30"/>
-                                    <state key="normal" title="聊天"/>
-                                    <connections>
-                                        <action selector="talk:" destination="Rmr-Wt-PLv" eventType="touchUpInside" id="2VA-am-ZK4"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k79-fA-WW3">
-                                    <rect key="frame" x="105" y="147" width="41" height="30"/>
-                                    <state key="normal" title="+关注"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k79-fA-WW3">
+                                    <rect key="frame" x="0.0" y="194" width="183" height="37"/>
+                                    <color key="backgroundColor" red="0.93448604060913709" green="0.7672865211089942" blue="0.75463045013688324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="BauhausITC" family="Bauhaus ITC" pointSize="25"/>
+                                    <state key="normal">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="addbuddy:" destination="Rmr-Wt-PLv" eventType="touchUpInside" id="oe2-gZ-AH6"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzf-Xu-iOW">
-                                    <rect key="frame" x="57" y="185" width="264" height="30"/>
+                                    <rect key="frame" x="0.0" y="145" width="375" height="41"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="41" id="Mbw-xc-MY2"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACg-ds-ofY">
+                                    <rect key="frame" x="75" y="200" width="63" height="25"/>
+                                    <fontDescription key="fontDescription" name="BauhausITC" family="Bauhaus ITC" pointSize="25"/>
+                                    <color key="textColor" red="0.9890765852809964" green="0.98625345215906768" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRi-95-KYb">
+                                    <rect key="frame" x="183" y="194" width="192" height="37"/>
+                                    <color key="backgroundColor" red="0.93448604060913709" green="0.57511307245561682" blue="0.64622573337096878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="BauhausITC" family="Bauhaus ITC" pointSize="25"/>
+                                    <state key="normal" title="聊天">
+                                        <color key="titleColor" red="1" green="0.99339284210000001" blue="0.98961054859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="talk:" destination="Rmr-Wt-PLv" eventType="touchUpInside" id="2VA-am-ZK4"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix4-wZ-5Xi">
+                                    <rect key="frame" x="245" y="86" width="84" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="BauhausITC" family="Bauhaus ITC" pointSize="24"/>
+                                    <state key="normal" title="点评" image="Geo3 Love"/>
+                                    <connections>
+                                        <action selector="dianping:" destination="Rmr-Wt-PLv" eventType="touchUpInside" id="uwJ-oq-af8"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.5308468862320308" blue="0.46793119569080466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="xzf-Xu-iOW" secondAttribute="bottom" constant="16" id="B00-mN-ZN8"/>
-                                <constraint firstItem="xzf-Xu-iOW" firstAttribute="leading" secondItem="KQD-LT-wOT" secondAttribute="leading" constant="57" id="Dbv-rs-70Q"/>
-                                <constraint firstItem="l8U-JI-1uS" firstAttribute="top" secondItem="KQD-LT-wOT" secondAttribute="top" constant="29" id="IPq-Ye-PA5"/>
-                                <constraint firstItem="oRi-95-KYb" firstAttribute="leading" secondItem="9Cz-nl-FQe" secondAttribute="trailing" constant="27" id="Lll-32-YwP"/>
-                                <constraint firstItem="9Cz-nl-FQe" firstAttribute="leading" secondItem="k79-fA-WW3" secondAttribute="trailing" constant="16" id="QFJ-Bf-YI7"/>
-                                <constraint firstAttribute="bottom" secondItem="k79-fA-WW3" secondAttribute="bottom" constant="54" id="XUM-xI-hdS"/>
-                                <constraint firstItem="l8U-JI-1uS" firstAttribute="centerX" secondItem="9Cz-nl-FQe" secondAttribute="centerX" id="auo-SA-eei"/>
-                                <constraint firstItem="xzf-Xu-iOW" firstAttribute="top" secondItem="k79-fA-WW3" secondAttribute="bottom" constant="8" symbolic="YES" id="buM-Gh-cLX"/>
-                                <constraint firstItem="9Cz-nl-FQe" firstAttribute="centerY" secondItem="oRi-95-KYb" secondAttribute="centerY" id="f4A-EN-bMm"/>
-                                <constraint firstItem="k79-fA-WW3" firstAttribute="centerY" secondItem="9Cz-nl-FQe" secondAttribute="centerY" id="iUB-2k-yQ1"/>
-                                <constraint firstItem="l8U-JI-1uS" firstAttribute="centerX" secondItem="KQD-LT-wOT" secondAttribute="centerX" id="kZJ-NW-oWf"/>
-                                <constraint firstItem="9Cz-nl-FQe" firstAttribute="top" secondItem="l8U-JI-1uS" secondAttribute="bottom" constant="22" id="v5x-nr-e1A"/>
-                                <constraint firstAttribute="trailing" secondItem="xzf-Xu-iOW" secondAttribute="trailing" constant="54" id="vs2-Ej-6qc"/>
+                                <constraint firstItem="xzf-Xu-iOW" firstAttribute="leading" secondItem="k79-fA-WW3" secondAttribute="leading" id="19q-Ps-YMp"/>
+                                <constraint firstItem="oRi-95-KYb" firstAttribute="leading" secondItem="ACg-ds-ofY" secondAttribute="trailing" constant="45" id="2zD-aO-cpN"/>
+                                <constraint firstItem="9Cz-nl-FQe" firstAttribute="leading" secondItem="KQD-LT-wOT" secondAttribute="leading" constant="168" id="9vq-I1-ZjE"/>
+                                <constraint firstItem="oRi-95-KYb" firstAttribute="leading" secondItem="k79-fA-WW3" secondAttribute="trailing" id="EXd-rY-rXV"/>
+                                <constraint firstItem="k79-fA-WW3" firstAttribute="bottom" secondItem="oRi-95-KYb" secondAttribute="bottom" id="HqN-G5-uW5"/>
+                                <constraint firstItem="k79-fA-WW3" firstAttribute="top" secondItem="oRi-95-KYb" secondAttribute="top" id="JRh-WV-6wY"/>
+                                <constraint firstAttribute="bottom" secondItem="k79-fA-WW3" secondAttribute="bottom" id="LT6-8M-6X1"/>
+                                <constraint firstItem="k79-fA-WW3" firstAttribute="top" secondItem="xzf-Xu-iOW" secondAttribute="bottom" constant="8" symbolic="YES" id="UCt-mo-9Cb"/>
+                                <constraint firstItem="9Cz-nl-FQe" firstAttribute="top" secondItem="l8U-JI-1uS" secondAttribute="bottom" constant="8" symbolic="YES" id="Xap-d6-bVn"/>
+                                <constraint firstItem="ACg-ds-ofY" firstAttribute="baseline" secondItem="oRi-95-KYb" secondAttribute="baseline" id="YG5-84-zLA"/>
+                                <constraint firstItem="l8U-JI-1uS" firstAttribute="top" secondItem="KQD-LT-wOT" secondAttribute="top" constant="16" id="euV-a6-YEE"/>
+                                <constraint firstItem="xzf-Xu-iOW" firstAttribute="leading" secondItem="KQD-LT-wOT" secondAttribute="leading" id="g9o-Ad-Wz9"/>
+                                <constraint firstItem="xzf-Xu-iOW" firstAttribute="trailing" secondItem="oRi-95-KYb" secondAttribute="trailing" id="kE2-3w-B2g"/>
+                                <constraint firstItem="xzf-Xu-iOW" firstAttribute="top" secondItem="9Cz-nl-FQe" secondAttribute="bottom" id="ncg-ei-Mf1"/>
+                                <constraint firstItem="ACg-ds-ofY" firstAttribute="leading" secondItem="KQD-LT-wOT" secondAttribute="leading" constant="75" id="q7o-Eo-FmG"/>
+                                <constraint firstItem="l8U-JI-1uS" firstAttribute="centerX" secondItem="xzf-Xu-iOW" secondAttribute="centerX" id="tyV-nx-zTY"/>
+                                <constraint firstAttribute="trailing" secondItem="xzf-Xu-iOW" secondAttribute="trailing" id="zUb-OU-AZj"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -88,17 +127,20 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="guanzhu" destination="k79-fA-WW3" id="kRK-Rh-fvP"/>
                         <outlet property="id" destination="9Cz-nl-FQe" id="ZUP-Jf-Yr4"/>
                         <outlet property="imaginView" destination="l8U-JI-1uS" id="D8c-tE-qL1"/>
                         <outlet property="introduce" destination="xzf-Xu-iOW" id="J6y-5b-nJU"/>
+                        <outlet property="xl" destination="ACg-ds-ofY" id="Wgd-UJ-O74"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhV-fL-zB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522.39999999999998" y="-55.322338830584712"/>
+            <point key="canvasLocation" x="-1118" y="-70"/>
         </scene>
     </scenes>
     <resources>
         <image name="Comment.png" width="120" height="120"/>
+        <image name="Geo3 Love" width="17" height="30"/>
     </resources>
 </document>

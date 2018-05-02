@@ -13,7 +13,7 @@ import SGPagingView
 
 class recommendViewController:UIViewController {
     
-    
+
     
     var titles = ["关注","附近"]
     /// 标题和内容
@@ -77,8 +77,9 @@ class recommendViewController:UIViewController {
 extension recommendViewController {
     func setupChildViewControllers() {
         for i in 0..<2 {
-            let vc = CommentViewController()
+            let vc = onerecommendViewController()
             
+            vc.kind=i
             
             addChildViewController(vc)
         }

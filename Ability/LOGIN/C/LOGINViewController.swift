@@ -61,9 +61,7 @@ class LOGINViewController: UIViewController,UITextFieldDelegate{
             {
             let U=temp[0]["portrait"] as! AVFile
             self.photo.image=UIImage(data: U.getData()!)
-          //  let U=temp!["image"] as! AVFile
-          //  photoImageView.image=UIImage(data: U.getData()!)
-           // text.text=temp?["string"] as! String
+         
             }
         }
         return true

@@ -30,7 +30,7 @@ extension MainTabBarController {
 
         setValue(MainTabBar(), forKey: "tabBar")
 
-        let vcArray:[UIViewController] = [HomepageViewController(), secViewController(), MineViewController(), CommentViewController()]
+        let vcArray:[UIViewController] = [HomepageViewController(), secViewController(), MineViewController(),recommendViewController() ]
         let titleArray = [("广场", "bio"), ("消息", "chat 3"), ("我的", "pencil"), ("推荐", "jian")]
         for (index, vc) in vcArray.enumerated() {
             vc.tabBarItem.title = titleArray[index].0

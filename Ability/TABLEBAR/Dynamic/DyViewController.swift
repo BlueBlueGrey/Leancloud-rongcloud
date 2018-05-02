@@ -76,27 +76,41 @@ class DyViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     func headerView() ->UIView{
         
-        CGRect(x: 0, y: 200, width: self.view.bounds.width, height:26)
-        
-        
-        
         imagePicView.frame =  CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 225)
         imagePic.frame =  CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200)
-        imagePic.image = UIImage(named: "mp")
+        imagePic.image = UIImage(named: "t\(arc4random()%6)")
         imagePicView.addSubview(imagePic)
         imagePic.clipsToBounds = true
-        self.nameLable.frame =  CGRect(x: 0, y: 170, width: 60, height: 18)
-        self.nameLable.frame.origin.x = self.view.bounds.width - 140
-        self.nameLable.text = "我的背景"
-        self.nameLable.font = UIFont.systemFont(ofSize: 16)
-        self.nameLable.textColor = UIColor.white
-        self.avatorImage.frame = CGRect(x: 0, y: 150, width: 70, height:70)
-        self.avatorImage.frame.origin.x = self.view.bounds.width - 80
+        self.nameLable.frame =  CGRect(x: 0, y: 165, width: 100, height: 18)
+        self.nameLable.frame.origin.x = self.view.bounds.width - 130
+        
+        
+        
+        self.nameLable.text = AVUser.current()?.username
+        self.nameLable.font = UIFont(name: MY_FONT, size: 20)
+        self.nameLable.textColor = UIColor.gray
+        self.avatorImage.frame = CGRect(x: 0, y: 150, width: 80, height:80)
+        self.avatorImage.frame.origin.x = self.view.bounds.width - 85
         self.avatorImage.image = UIImage(named: "gou")
-        self.avatorImage.layer.borderWidth = 2
-        self.avatorImage.layer.borderColor = UIColor.white.cgColor
+        
+        self.view.layer.cornerRadius=40
+        self.view.layer.masksToBounds=true
+        
         let view:UIView = UIView(frame: CGRect(x: 0, y: 200, width: self.view.bounds.width, height:26))
         view.backgroundColor = UIColor.white
+        
+        
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", equalTo: AVUser.current()?.username)
+        let temp=query.findObjects() as! [AVObject]
+        if(temp.count>0)
+        {
+            let U=temp[0]["portrait"] as! AVFile
+            self.avatorImage.image=UIImage(data: U.getData()!)
+            
+            
+        }
+        
         imagePicView.addSubview(nameLable)
         imagePicView.addSubview(view)
         imagePicView.addSubview(avatorImage)

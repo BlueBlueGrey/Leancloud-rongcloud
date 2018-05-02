@@ -7,67 +7,84 @@
 //
 
 import UIKit
-
-class discussCell: SWTableViewCell {
-    
-    var avatarImage:UIImageView?
-    
+import SnapKit
+class discussCell: UITableViewCell {
+    var avatarImage: UIImageView?
     var nameLabel:UILabel?
-    
     var detailLabel:UILabel?
-    
     var dateLabel:UILabel?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        setupUI()
     }
     
-    func initFrame(){
+    func setupUI() {
+        //初始化头像
+        avatarImage = UIImageView()
+        //imgView?.image = UIImage.init(named: "img.jpg")
+        // imgView?.layer.borderColor = UIColor.gray.cgColor
+        // imgView?.layer.borderWidth = 1.0
+        self.addSubview(avatarImage!)
         
-        for view in self.contentView.subviews {
-            view.removeFromSuperview()
-        }
+        //顶部的label 初始化
+        let label1 = UILabel()
+        label1.font = .systemFont(ofSize: 15)
+        label1.textColor = .red
+        self.addSubview(label1)
+        nameLabel = label1
         
+        //底部的label 初始化
+        let label2 = UILabel()
+        label2.font = .systemFont(ofSize: 14)
+        label2.textColor = .black
+        label2.numberOfLines = 0
+        self.addSubview(label2)
+        detailLabel = label2;
         
-        self.avatarImage = UIImageView(frame:  CGRect(x: 8, y: 8, width: 40, height: 40))
+        let label3 = UILabel()
+        label3.font = .systemFont(ofSize: 14)
+        label3.textColor = .black
+        label3.numberOfLines = 0
+        self.addSubview(label3)
+        dateLabel = label3;
+        
+        //设置布局 SnapKit  --- >相当去Objective-C中的Masonry
+        avatarImage?.snp.makeConstraints({ (make) in
+            make.top.left.equalTo(10)
+            make.width.height.equalTo(40)
+        })
         self.avatarImage?.layer.cornerRadius = 20
         self.avatarImage?.layer.masksToBounds = true
-        self.contentView.addSubview(self.avatarImage!)
         
+        label1.snp.makeConstraints { (make) in
+            make.top.equalTo(10)
+            make.left.equalTo((avatarImage?.snp.right)!).offset(10)
+            make.right.equalTo(-10)
+            make.height.equalTo(21)
+        }
         
+        label2.snp.makeConstraints { (make) in
+            make.top.equalTo(label1.snp.bottom).offset(10)
+            make.left.equalTo((avatarImage?.snp.right)!).offset(10)
+            make.right.equalTo(-10)
+            // make.bottom.equalTo((label3.snp.top)).offset(10)
+        }
         
-        self.nameLabel = UILabel(frame: CGRect(x: 56, y: 8, width: SCREEN_WIDTH-56-8, height: 15))
-        self.nameLabel?.font = UIFont(name: MY_FONT, size: 13)
-        self.contentView.addSubview(self.nameLabel!)
+        label3.snp.makeConstraints { (make) in
+            make.top.equalTo(label2.snp.bottom).offset(10)
+            make.left.equalTo((avatarImage?.snp.right)!).offset(10)
+            make.right.equalTo(-10)
+            
+            make.height.equalTo(10)
+            make.bottom.equalTo(-5)
+        }
         
-        
-        
-        self.dateLabel = UILabel(frame:  CGRect(x: 56, y: self.frame.size.height-8-10, width: SCREEN_WIDTH-56-8, height: 10))
-        self.dateLabel?.font = UIFont(name: MY_FONT, size: 13)
-        self.dateLabel?.textColor = UIColor.gray
-        self.contentView.addSubview(self.dateLabel!)
-        
-        
-        self.detailLabel = UILabel(frame:  CGRect(x: 56, y: 30, width: SCREEN_WIDTH-56-8, height: self.frame.size.height - 30 - 25))
-        self.detailLabel?.font = UIFont(name: MY_FONT, size: 15)
-        self.detailLabel?.numberOfLines = 0
-        self.contentView.addSubview(self.detailLabel!)
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
     
 }
-

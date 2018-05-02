@@ -48,7 +48,7 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
                 
             })}
         
-        for _ in 0...10{
+        for _ in 0...100{
             selectItems.append(false)
             //  likeItems.append(false)
         }
@@ -97,6 +97,23 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
             requestToken1(userID: (AVUser.current()?.username)!)
         }
         
+        dataArray.removeAllObjects()
+        self.tableView?.mj_header.beginRefreshing()
+        self.tableView?.reloadData()
+        
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", equalTo: AVUser.current()?.username)
+        if let temp=query.findObjects() {
+            let temp2=temp as! [AVObject]
+        if(temp2.count>0)
+        {
+            let U=temp2[0]["portrait"] as! AVFile
+            self.avatorImage.image=UIImage(data: U.getData()!)
+            
+            
+        }
+        }
+        nameLable.text=AVUser.current()?.username
     }
     override func viewWillDisappear(_ animated: Bool) {
       //  self.navigationView.isHidden = true
@@ -112,31 +129,47 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        IndexClick=indexPath
+       
     }
     func headerView() ->UIView{
-        
-        CGRect(x: 0, y: 200, width: self.view.bounds.width, height:26)
         
         
         
         imagePicView.frame =  CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 225)
         imagePic.frame =  CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200)
-        imagePic.image = UIImage(named: "mp")
+        imagePic.image = UIImage(named: "t\(arc4random()%6)")
         imagePicView.addSubview(imagePic)
         imagePic.clipsToBounds = true
-        self.nameLable.frame =  CGRect(x: 0, y: 170, width: 60, height: 18)
-        self.nameLable.frame.origin.x = self.view.bounds.width - 140
-        self.nameLable.text = "我的背景"
-        self.nameLable.font = UIFont.systemFont(ofSize: 16)
-        self.nameLable.textColor = UIColor.white
-        self.avatorImage.frame = CGRect(x: 0, y: 150, width: 70, height:70)
-        self.avatorImage.frame.origin.x = self.view.bounds.width - 80
-        self.avatorImage.image = UIImage(named: "gou")
-        self.avatorImage.layer.borderWidth = 2
-        self.avatorImage.layer.borderColor = UIColor.white.cgColor
+        self.nameLable.frame =  CGRect(x: 0, y: 165, width: 100, height: 18)
+        self.nameLable.frame.origin.x = self.view.bounds.width - 130
+        
+        
+        
+        self.nameLable.text = AVUser.current()?.username
+        self.nameLable.font = UIFont(name: MY_FONT, size: 20)
+        self.nameLable.textColor = UIColor.gray
+        self.avatorImage.frame = CGRect(x: 0, y: 150, width: 80, height:80)
+        self.avatorImage.frame.origin.x = self.view.bounds.width - 85
+        self.avatorImage.image = UIImage(named: "t2")
+        
+        self.view.layer.cornerRadius=40
+        self.view.layer.masksToBounds=true
+       
         let view:UIView = UIView(frame: CGRect(x: 0, y: 200, width: self.view.bounds.width, height:26))
         view.backgroundColor = UIColor.white
+        
+        
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", equalTo: AVUser.current()?.username)
+        let temp=query.findObjects() as! [AVObject]
+        if(temp.count>0)
+        {
+            let U=temp[0]["portrait"] as! AVFile
+            self.avatorImage.image=UIImage(data: U.getData()!)
+            
+            
+        }
+        
         imagePicView.addSubview(nameLable)
         imagePicView.addSubview(view)
         imagePicView.addSubview(avatorImage)
@@ -335,11 +368,19 @@ class CommunityViewController: UIViewController,UITableViewDelegate,UITableViewD
         query.limit = 20
         query.skip = self.dataArray.count
       //  query.whereKey("user", equalTo: AVUser.current())
+        if(kind != -1){
+            query.whereKey("kind", equalTo: kind)
+        }
+        
         query.findObjectsInBackground { (results, error) -> Void in
             self.tableView?.mj_footer.endRefreshing()
             
-            self.dataArray.addObjects(from: results!)
-            self.tableView?.reloadData()
+            if let Result=results{
+                self.dataArray.removeAllObjects()
+                self.dataArray.addObjects(from: (Result))
+                self.tableView?.reloadData()
+            }
+            
             
         }
         

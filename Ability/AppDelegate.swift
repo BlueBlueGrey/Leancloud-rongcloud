@@ -74,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rootViewController.delegate = self
         window?.rootViewController = rootViewController
         rootViewController.tabBarController?.tabBar.tintColor=MAIN_RED
+        rootViewController.view.tintColor=MAIN_RED
         self.window?.makeKeyAndVisible()
  
  

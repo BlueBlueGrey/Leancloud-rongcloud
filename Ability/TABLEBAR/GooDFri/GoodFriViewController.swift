@@ -32,7 +32,7 @@ class GoodFriViewController: UIViewController,UITableViewDelegate,UITableViewDat
         headerRefresh()
         
         
-        // Do any additional setup after loading the view.
+        tableView?.tableFooterView=UIView()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,7 +114,7 @@ class GoodFriViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         print("headerRefresh\n\n\n\n\n\n\n\n\n\n\n")
         let  query=AVQuery(className: "AtoB")
-        query.whereKey("A", equalTo: AVUser.current())
+        query.whereKey("A", equalTo: AVUser.current()?.username)
         
         query.limit = 20
         query.skip = 0
@@ -135,7 +135,7 @@ class GoodFriViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @objc func footerRefresh(){
         print("footerRefresh\n\n\n\n\n\n\n\n\n\n")
         let  query=AVQuery(className: "AtoB")
-        query.whereKey("A", equalTo: AVUser.current())
+        query.whereKey("A", equalTo: AVUser.current()?.username)
         query.limit = 20
         query.skip = self.dataArray.count
         //  query.whereKey("user", equalTo: AVUser.current())
@@ -149,4 +149,102 @@ class GoodFriViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
+    }
+    
+   
+    
+    
+    
+    //在这里修改删除按钮的文字
+    
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+        
+        return "点击删除"
+        
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            
+            let obj=dataArray[indexPath.row] as! AVObject
+            let  query=AVQuery(className: "AtoB")
+            query.whereKey("A", equalTo: AVUser.current()?.username)
+            
+            query.findObjectsInBackground { (results, error) -> Void in
+                
+                if let Result=results{
+                    
+                    let arr=Result as! [AVObject]
+                    for i in 0 ..< arr.count{
+                        
+                        
+                        if( arr[i]["B"]as! String  == obj["B"]as! String)
+                        {
+                            arr[i].delete()
+                            break;
+                        }
+                    }
+                }
+                
+                
+            }
+            
+            
+            self.dataArray.removeObject(at: indexPath.row)
+            
+            self.tableView!.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.fade)
+            
+            ProgressHUD.showSuccess("取消关注", interaction: true)
+        }
+        
+    }
+
+    
+    //点击删除按钮的响应方法，在这里处理删除的逻辑
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            
+            let obj=dataArray[indexPath.row] as! AVObject
+            let  query=AVQuery(className: "AtoB")
+            query.whereKey("A", equalTo: AVUser.current())
+            
+            query.findObjectsInBackground { (results, error) -> Void in
+             
+                if let Result=results{
+                   
+                    let arr=Result as! [AVObject]
+                    for i in 0 ..< arr.count{
+                        
+                        
+                        if( arr[i]["B"]as! String  == obj["B"]as! String)
+                        {
+                            arr[i].delete()
+                            break;
+                        }
+                    }
+                }
+                
+                
+            }
+            
+            
+            self.dataArray.removeObject(at: indexPath.row)
+            
+            self.tableView!.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.fade)
+            
+            ProgressHUD.show("取消关注")
+        }
+        
+    }
+    
 }

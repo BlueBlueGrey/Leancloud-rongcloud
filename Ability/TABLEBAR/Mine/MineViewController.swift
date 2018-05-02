@@ -88,19 +88,8 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         imageine=UIImageView(frame: CGRect(x: self.view.frame.width/2-50, y: 75, width: 100, height: 100))
         self.view.addSubview(imageine!)
-        
-        let  query=AVQuery(className: "Custom_User")
-        query.whereKey("id", equalTo: AVUser.current()?.username)
-        let temp=query.findObjects() as! [AVObject]
-        if(temp.count>0)
-        {
-            let U=temp[0]["portrait"] as! AVFile
-             imageine?.image=UIImage(data: U.getData()!)
-            //  let U=temp!["image"] as! AVFile
-            //  photoImageView.image=UIImage(data: U.getData()!)
-            // text.text=temp?["string"] as! String
-        }
-      //  imageine?.image=UIImage(named:"alien")
+       
+     
         
         
         labelId=UILabel(frame: CGRect(x: self.view.frame.width/2-50, y: 175, width: 100, height: 40))
@@ -111,20 +100,20 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         labelIn=UILabel(frame: CGRect(x: self.view.frame.width/2-100, y: 200, width: 200, height: 40))
         // labelId?.backgroundColor=UIColor.black
-        labelIn?.text="sdfsdfasdfsdaf"
+    
         labelIn?.textAlignment=NSTextAlignment.center
         self.view.addSubview(labelIn!)
         
         buttonG=UIButton(frame: CGRect(x: 0, y: 250, width: self.view.frame.width/2, height: 40))
         buttonG?.setTitle("关注", for: .normal)
-          buttonG?.backgroundColor=UIColor.black
+          buttonG?.backgroundColor=MAIN_RED
         self.view.addSubview(buttonG!)
       
         buttonG?.addTarget(self, action: #selector(btnClick), for:
             .touchUpInside)
         
         buttonD=UIButton(frame:CGRect(x:  self.view.frame.width/2, y:250, width: self.view.frame.width/2, height: 40) )
-        buttonD?.backgroundColor=UIColor.black
+        buttonD?.backgroundColor=MAIN_RED
         buttonD?.setTitle("动态", for:.normal)
         self.view.addSubview(buttonD!)
         
@@ -134,7 +123,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         buttonB=UIButton(frame:CGRect(x:  self.view.frame.width/2-50, y:500, width: 100, height: 40) )
-        buttonB?.backgroundColor=UIColor.black
+        buttonB?.backgroundColor=MAIN_RED
         buttonB?.setTitle("退出", for:.normal)
         self.view.addSubview(buttonB!)
         
@@ -147,6 +136,23 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableview?.delegate=self
         tableview?.dataSource=self
         self.tableview?.tableFooterView=UIView()
+        
+        
+        let  query=AVQuery(className: "Custom_User")
+        query.whereKey("id", equalTo: AVUser.current()?.username)
+        let temp=query.findObjects() as! [AVObject]
+        if(temp.count>0)
+        {
+            let U=temp[0]["portrait"] as! AVFile
+            imageine?.image=UIImage(data: U.getData()!)
+            
+            if let da = temp[0]["signature"]{
+                self.labelIn?.text=da as! String
+            }else{
+                self.labelIn?.text="Ta说这条个性签名还的再想想"
+            }
+            
+        }
         
         self.view.addSubview(tableview!)
     }

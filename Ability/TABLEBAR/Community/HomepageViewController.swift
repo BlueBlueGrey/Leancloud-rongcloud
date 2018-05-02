@@ -15,6 +15,7 @@ class HomepageViewController: UIViewController{
     
     /// 标题内容
     var titles = ["全部内容","学科","手工","舞蹈","音乐","美术","游戏","摄影","运动","其他"]
+ 
     /// 标题和内容
     private var pageTitleView: SGPageTitleView?
     private var pageContentView: SGPageContentView?
@@ -68,6 +69,8 @@ extension HomepageViewController {
     func setupChildViewControllers() {
         for i in 0..<10 {
             let vc = CommunityViewController()
+            var iname="t\(i%6)"
+            vc.imagePic.image = UIImage(named: iname)
             vc.kind=i-1
             addChildViewController(vc)
         }
@@ -95,7 +98,7 @@ extension HomepageViewController {
         configuration.indicatorCornerRadius = 20// 指示器圆角大小
         configuration.indicatorHeight = 25
         // 标题名称的数组
-        self.pageTitleView = SGPageTitleView(frame: CGRect(x:20, y: 50, width: screenWidth - newsTitleHeight, height: newsTitleHeight), delegate: self, titleNames: titles, configure: configuration)
+        self.pageTitleView = SGPageTitleView(frame: CGRect(x:20, y: 55, width: screenWidth - newsTitleHeight, height: newsTitleHeight), delegate: self, titleNames: titles, configure: configuration)
         self.pageTitleView!.backgroundColor = .clear
        
         self.view.addSubview(pageTitleView!)

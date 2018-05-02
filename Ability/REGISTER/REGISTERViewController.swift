@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import AVOSCloud
+import LeanCloud
 class REGISTERViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     
@@ -17,6 +18,47 @@ class REGISTERViewController: UIViewController,UITextFieldDelegate,UIImagePicker
     
     @IBOutlet weak var password: UITextField!
     
+    @IBAction func zhuce(_ sender: UIButton) {
+    
+        let data=UIImagePNGRepresentation(photo.image!)
+        let file=AVFile(data: data!)
+        
+        let user=LCUser()
+        user.username=LCString(id.text!)
+        user.password=LCString(password.text!)
+        
+        user.signUp { (result) in
+            if(result.isSuccess){
+                print("success!sdafsadfasdfasdf\n\n\n\n\n\n\n")
+                
+                
+                let obj=AVObject(className: "Custom_User")
+                obj.setObject(self.id.text, forKey: "id")
+                obj.setObject(file, forKey: "portrait")
+        
+                obj.saveInBackground({ (resultbool, error) in
+                    if(resultbool){
+                               ProgressHUD.showSuccess("注册成功", interaction: true)
+                    }else{
+                               ProgressHUD.showError("注册失败", interaction: true)
+                    }
+                })
+                
+                
+                
+                
+                
+            }else{
+                
+                ProgressHUD.showError("注册失败", interaction: true)
+            }
+           
+        }
+    
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +67,7 @@ class REGISTERViewController: UIViewController,UITextFieldDelegate,UIImagePicker
         id.returnKeyType=UIReturnKeyType.done
         password.delegate=self
         password.returnKeyType=UIReturnKeyType.done
+        
         
         photo.image=UIImage(named:"mp")?.roundCornersToCircle()
         
@@ -90,22 +133,25 @@ class REGISTERViewController: UIViewController,UITextFieldDelegate,UIImagePicker
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "registerAtoB" {
-            //let secView = segue.destination as! secViewController
-            //secView.stuNo = self.txtStuNo.text!
-            //secView.stuName = self.txtStuName.text!
-        
-            let secView = segue.destination as! RtwoViewController
-            secView.photo=photo.image
-            secView.id=id.text
-            secView.password=password.text
-        }
     
-    //registerAtoB
-    }
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        if segue.identifier == "registerAtoB" {
+//            //let secView = segue.destination as! secViewController
+//            //secView.stuNo = self.txtStuNo.text!
+//            //secView.stuName = self.txtStuName.text!
+//        
+//            let secView = segue.destination as! RtwoViewController
+//            secView.photo=photo.image
+//            secView.id=id.text
+//            secView.password=password.text
+//        }
+//    
+//    //registerAtoB
+//    }
+ 
 
 }
+
+ 

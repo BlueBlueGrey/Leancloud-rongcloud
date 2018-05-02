@@ -79,6 +79,7 @@ extension CommentPageViewController {
         for i in 0..<2 {
             let vc = CommentViewController()
             
+            vc.kind=i
            
             addChildViewController(vc)
         }

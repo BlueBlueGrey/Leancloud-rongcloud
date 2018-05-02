@@ -94,12 +94,16 @@ extension PublishViewController {
             let row = i / Int(maxCols)
             let col = CGFloat(i).truncatingRemainder(dividingBy: maxCols)
 
-            button.frame = CGRect(x: buttonMargn + col * (buttonSpace + buttonW), y: startY + CGFloat(row) * (buttonH + buttonMargn), width: buttonW, height: buttonH)
+            button.frame = CGRect(x: buttonMargn + col * (buttonSpace + buttonW), y: startY + CGFloat(row) * (buttonH + buttonMargn), width: buttonW, height: buttonW)
             view.addSubview(button)
             button.addTarget(self, action: #selector(buttonClick(_:)), for: .touchUpInside)
             button.isHidden = true
             buttons.append(button)
 
+            button.layer.cornerRadius=(button.frame.width)/2
+            button.clipsToBounds=true
+            button.setTitleColor(UIColor.white, for: .selected)
+            
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(i + 1) * 0.1, execute: {
 
                 button.isHidden = false
@@ -130,6 +134,7 @@ extension PublishViewController {
 
     @objc private func buttonClick(_ button: UIButton) {
         var kind=button.tag
+        button.backgroundColor=UIColor.gray
         for i in 1...buttons.count {
             let button = buttons[i - 1]
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(i) * 0.1, execute: {

@@ -5,7 +5,11 @@
 //  Created by BlueGrey on 2018/4/30.
 //  Copyright © 2018年 blueGrey. All rights reserved.
 //
-
+/*
+ 
+ 音乐，就像吃东西一样，不可挑剔，无论哪一种音乐都美，轻音乐，如行云流水，美；流行音乐，像各式糕点，口味鲜美；古典音乐，如一部名著，越读越有味；舞蹈音乐，像优美的舞姿，散发着魅力；雄壮的音乐，使人充满激情，活力四射。无论听哪一种音乐都是美。
+ 
+ */
 import UIKit
 import AVOSCloud
 class DesignViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{

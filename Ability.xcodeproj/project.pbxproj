@@ -30,7 +30,6 @@
 		B12600502055480400511DCC /* ImageVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B126004E2055480400511DCC /* ImageVIewExtension.swift */; };
 		B12600552055496100511DCC /* LOGINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12600542055496100511DCC /* LOGINViewController.swift */; };
 		B12600572055565E00511DCC /* REGISTERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12600562055565E00511DCC /* REGISTERViewController.swift */; };
-		B12600592055613400511DCC /* RtwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12600582055613400511DCC /* RtwoViewController.swift */; };
 		B12B7D25209956D7003D41ED /* PublishTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D1E209956D7003D41ED /* PublishTagViewController.swift */; };
 		B12B7D26209956D7003D41ED /* PublishTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D1F209956D7003D41ED /* PublishTextViewController.swift */; };
 		B12B7D27209956D7003D41ED /* PublishTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12B7D20209956D7003D41ED /* PublishTextViewController.xib */; };
@@ -44,6 +43,8 @@
 		B12B7D3E20995768003D41ED /* VeticalSqureBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D3620995767003D41ED /* VeticalSqureBtn.swift */; };
 		B12B7D3F20995768003D41ED /* MeFootViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D3820995767003D41ED /* MeFootViewVM.swift */; };
 		B12B7D43209975DE003D41ED /* recommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D42209975DE003D41ED /* recommendViewController.swift */; };
+		B12B7D4520998F15003D41ED /* onerecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B7D4420998F15003D41ED /* onerecommendViewController.swift */; };
+		B12B7D472099DC72003D41ED /* timg-3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B12B7D462099DC72003D41ED /* timg-3.jpeg */; };
 		B12B9C06207E504700DBB36E /* Comment_Like_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B9BFE207E504700DBB36E /* Comment_Like_View.swift */; };
 		B12B9C07207E504700DBB36E /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B9BFF207E504700DBB36E /* CommentView.swift */; };
 		B12B9C08207E504700DBB36E /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12B9C00207E504700DBB36E /* data.swift */; };
@@ -326,7 +327,6 @@
 		B126004E2055480400511DCC /* ImageVIewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageVIewExtension.swift; sourceTree = "<group>"; };
 		B12600542055496100511DCC /* LOGINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOGINViewController.swift; sourceTree = "<group>"; };
 		B12600562055565E00511DCC /* REGISTERViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REGISTERViewController.swift; sourceTree = "<group>"; };
-		B12600582055613400511DCC /* RtwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtwoViewController.swift; sourceTree = "<group>"; };
 		B12B7D1E209956D7003D41ED /* PublishTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTagViewController.swift; sourceTree = "<group>"; };
 		B12B7D1F209956D7003D41ED /* PublishTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTextViewController.swift; sourceTree = "<group>"; };
 		B12B7D20209956D7003D41ED /* PublishTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishTextViewController.xib; sourceTree = "<group>"; };
@@ -340,6 +340,8 @@
 		B12B7D3620995767003D41ED /* VeticalSqureBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VeticalSqureBtn.swift; sourceTree = "<group>"; };
 		B12B7D3820995767003D41ED /* MeFootViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeFootViewVM.swift; sourceTree = "<group>"; };
 		B12B7D42209975DE003D41ED /* recommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recommendViewController.swift; sourceTree = "<group>"; };
+		B12B7D4420998F15003D41ED /* onerecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onerecommendViewController.swift; sourceTree = "<group>"; };
+		B12B7D462099DC72003D41ED /* timg-3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "timg-3.jpeg"; sourceTree = "<group>"; };
 		B12B9BFE207E504700DBB36E /* Comment_Like_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment_Like_View.swift; sourceTree = "<group>"; };
 		B12B9BFF207E504700DBB36E /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		B12B9C00207E504700DBB36E /* data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
@@ -732,7 +734,6 @@
 			isa = PBXGroup;
 			children = (
 				B12600562055565E00511DCC /* REGISTERViewController.swift */,
-				B12600582055613400511DCC /* RtwoViewController.swift */,
 			);
 			path = REGISTER;
 			sourceTree = "<group>";
@@ -868,6 +869,7 @@
 			isa = PBXGroup;
 			children = (
 				B12B7D42209975DE003D41ED /* recommendViewController.swift */,
+				B12B7D4420998F15003D41ED /* onerecommendViewController.swift */,
 			);
 			path = recommend;
 			sourceTree = "<group>";
@@ -932,6 +934,7 @@
 				B140C54420230ABE00293DBC /* TEXTViewController.swift */,
 				B1FAC0AA201D840000211DC4 /* GoodFriendTableViewController.swift */,
 				B1A3FCD4201CA97B000D8F13 /* listViewController.swift */,
+				B12B7D462099DC72003D41ED /* timg-3.jpeg */,
 				B136C5D31FEE80B200658B76 /* Assets.xcassets */,
 				B136C5D51FEE80B200658B76 /* LaunchScreen.storyboard */,
 				B136C5D81FEE80B200658B76 /* Info.plist */,
@@ -1739,6 +1742,7 @@
 				B1CF071E2057EEA200E45BEF /* 隶变体.ttf in Resources */,
 				B16A8C7E205E03440062EEE5 /* error_wine.png in Resources */,
 				B16A8C96205E03590062EEE5 /* error_wine.png in Resources */,
+				B12B7D472099DC72003D41ED /* timg-3.jpeg in Resources */,
 				B102A63620944DBB00E58028 /* HomeNavigationView.xib in Resources */,
 				B1CF07222057EEA200E45BEF /* ProgressHUD.bundle in Resources */,
 				B1CF070C2057EEA200E45BEF /* InputView.xib in Resources */,
@@ -1860,7 +1864,6 @@
 				B1850FBF205D0763007CD28B /* SWTableViewCell.m in Sources */,
 				B1524F6F208B13E100A76401 /* NVActivityIndicatorView 14-29-03-609.swift in Sources */,
 				B103D098208EE92F00B7C504 /* GoodFriViewController.swift in Sources */,
-				B12600592055613400511DCC /* RtwoViewController.swift in Sources */,
 				B1524F34208B13E100A76401 /* CryptoSwiftMD5 14-29-03-554.swift in Sources */,
 				B1524F19208B13E100A76401 /* ConstraintConfig 14-29-03-548.swift in Sources */,
 				B10E44F92098464000A4FF7C /* SSButton.swift in Sources */,
@@ -1885,6 +1888,7 @@
 				B1A3FCD3201C9D63000D8F13 /* LoginViewController.swift in Sources */,
 				B12B9C0D207E504700DBB36E /* TableViewCell.swift in Sources */,
 				B16A8CA0205E03590062EEE5 /* UIView+Layout.m in Sources */,
+				B12B7D4520998F15003D41ED /* onerecommendViewController.swift in Sources */,
 				B1524F5F208B13E100A76401 /* NVActivityIndicatorAnimationBallZigZagDeflect 14-29-03-612.swift in Sources */,
 				B1A3FCD5201CA97B000D8F13 /* listViewController.swift in Sources */,
 				B1524F5D208B13E100A76401 /* NVActivityIndicatorAnimationBallTrianglePath 14-29-03-597.swift in Sources */,

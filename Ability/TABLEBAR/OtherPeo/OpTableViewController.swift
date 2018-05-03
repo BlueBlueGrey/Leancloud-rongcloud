@@ -144,7 +144,7 @@ class OpTableViewController: UITableViewController {
             if(temp3.count>0)
             {
                 for i in 0 ..< temp3.count {
-                    if(temp3[i]["id"]as!String==idString){
+                    if(temp3[i]["B"]as!String==idString){
                         flag=true
                     }
                 }
